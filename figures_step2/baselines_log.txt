@@ -1,0 +1,251 @@
+  Loading HUPA (Scenario 1)...
+    Participants: 25, samples: 307,317
+
+──────────────────────────────────────────────────
+  HUPA Scenario 1
+──────────────────────────────────────────────────
+    train :  247,301 samples  (18 participants)
+    val   :   12,664 samples  (4 participants)
+    test  :   47,352 samples  (3 participants)
+  Features: 25 → ['gl_current', 'gl_mean_30', 'gl_mean_60', 'gl_mean_360', 'gl_std_60', 'gl_std_360', 'gl_min_360', 'gl_max_360', 'gl_range_360', 'gl_slope_30', 'gl_slope_60', 'gl_delta_5', 'gl_delta_15', 'gl_delta_30', 'gl_delta_60', 'carbs_sum_30', 'carbs_sum_60', 'carbs_sum_120', 'carbs_sum_360', 'basal_sum_60', 'basal_sum_120', 'bolus_sum_60', 'bolus_sum_120', 'hour_sin', 'hour_cos']
+  Train: 247,301  Test: 47,352
+  Persistence  — MAE: 27.061  RMSE: 39.542
+  LinDrift     — MAE: 34.509  RMSE: 52.992
+  Ridge (abs)  — MAE: 26.162  RMSE: 35.120
+  Ridge (Δ)    — MAE: 26.162  RMSE: 35.120
+  GBDT (abs)   — MAE: 23.391  RMSE: 33.301
+  GBDT (Δ)     — MAE: 23.099  RMSE: 32.988
+
+  Model            MAE(abs)     MAE(Δ)  RMSE(abs)      hypo   normal    hyper
+  ────────────────────────────────────────────────────────────────────────────
+  Persistence        27.061     27.061     39.542  19.21(3431) 26.06(24644) 29.73(19277)
+  LinDrift           34.509     34.509     52.992  21.39(3431) 34.94(24644) 36.30(19277)
+  Ridge              26.162     26.162     35.120  27.05(3431) 20.71(24644) 32.97(19277)
+  GBDT               23.391     23.099     33.301  29.27(3431) 18.00(24644) 29.23(19277)
+  Plot saved: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step2/baselines_hupa_s1.png
+  Loading HUPA (Scenario 3)...
+    Participants: 25, samples: 307,317
+
+──────────────────────────────────────────────────
+  HUPA Scenario 3
+──────────────────────────────────────────────────
+    train :  247,301 samples  (18 participants)
+    val   :   12,664 samples  (4 participants)
+    test  :   47,352 samples  (3 participants)
+  Features: 30 → ['gl_current', 'gl_mean_30', 'gl_mean_60', 'gl_mean_360', 'gl_std_60', 'gl_std_360', 'gl_min_360', 'gl_max_360', 'gl_range_360', 'gl_slope_30', 'gl_slope_60', 'gl_delta_5', 'gl_delta_15', 'gl_delta_30', 'gl_delta_60', 'carbs_sum_30', 'carbs_sum_60', 'carbs_sum_120', 'carbs_sum_360', 'basal_sum_60', 'basal_sum_120', 'bolus_sum_60', 'bolus_sum_120', 'hr_mean_30', 'hr_mean_60', 'steps_sum_30', 'steps_sum_60', 'cals_act_sum_60', 'hour_sin', 'hour_cos']
+  Train: 247,301  Test: 47,352
+  Persistence  — MAE: 27.061  RMSE: 39.542
+  LinDrift     — MAE: 34.509  RMSE: 52.992
+  Ridge (abs)  — MAE: 25.873  RMSE: 34.723
+  Ridge (Δ)    — MAE: 25.873  RMSE: 34.723
+  GBDT (abs)   — MAE: 24.122  RMSE: 33.564
+  GBDT (Δ)     — MAE: 23.874  RMSE: 33.343
+
+  Model            MAE(abs)     MAE(Δ)  RMSE(abs)      hypo   normal    hyper
+  ────────────────────────────────────────────────────────────────────────────
+  Persistence        27.061     27.061     39.542  19.21(3431) 26.06(24644) 29.73(19277)
+  LinDrift           34.509     34.509     52.992  21.39(3431) 34.94(24644) 36.30(19277)
+  Ridge              25.873     25.873     34.723  27.54(3431) 20.79(24644) 32.07(19277)
+  GBDT               24.122     23.874     33.564  36.65(3431) 19.03(24644) 28.40(19277)
+  Plot saved: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step2/baselines_hupa_s3.png
+  Loading CGMacros (Scenario 1)...
+    Participants: 45, samples: 134,406
+
+──────────────────────────────────────────────────
+  CGMACROS Scenario 1
+──────────────────────────────────────────────────
+    train :  114,482 samples  (38 participants)
+    val   :   18,357 samples  (6 participants)
+    test  :    1,567 samples  (1 participants)
+  Features: 21 → ['gl_current', 'gl_mean_30', 'gl_mean_60', 'gl_mean_360', 'gl_std_60', 'gl_std_360', 'gl_min_360', 'gl_max_360', 'gl_range_360', 'gl_slope_30', 'gl_slope_60', 'gl_delta_5', 'gl_delta_15', 'gl_delta_30', 'gl_delta_60', 'carbs_sum_30', 'carbs_sum_60', 'carbs_sum_120', 'carbs_sum_360', 'hour_sin', 'hour_cos']
+  Train: 114,434  Test: 1,344
+  Persistence  — MAE: 10.807  RMSE: 16.808
+  LinDrift     — MAE: 21.033  RMSE: 31.216
+  Ridge (abs)  — MAE: 13.729  RMSE: 19.327
+  Ridge (Δ)    — MAE: 13.729  RMSE: 19.327
+  GBDT (abs)   — MAE: 11.570  RMSE: 16.073
+  GBDT (Δ)     — MAE: 11.895  RMSE: 16.322
+
+  Model            MAE(abs)     MAE(Δ)  RMSE(abs)      hypo   normal    hyper
+  ────────────────────────────────────────────────────────────────────────────
+  Persistence        10.807     10.807     16.808  8.23(1119) 23.61(225)      N/A
+  LinDrift           21.033     21.033     31.216  18.92(1119) 31.52(225)      N/A
+  Ridge              13.729     13.729     19.327  12.14(1119) 21.63(225)      N/A
+  GBDT               11.570     11.895     16.073  9.72(1119) 20.75(225)      N/A
+  Plot saved: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step2/baselines_cgmacros_s1.png
+  Loading CGMacros (Scenario 2)...
+    Participants: 45, samples: 134,406
+
+──────────────────────────────────────────────────
+  CGMACROS Scenario 2
+──────────────────────────────────────────────────
+    train :  114,482 samples  (38 participants)
+    val   :   18,357 samples  (6 participants)
+    test  :    1,567 samples  (1 participants)
+  Features: 29 → ['gl_current', 'gl_mean_30', 'gl_mean_60', 'gl_mean_360', 'gl_std_60', 'gl_std_360', 'gl_min_360', 'gl_max_360', 'gl_range_360', 'gl_slope_30', 'gl_slope_60', 'gl_delta_5', 'gl_delta_15', 'gl_delta_30', 'gl_delta_60', 'carbs_sum_30', 'carbs_sum_60', 'carbs_sum_120', 'carbs_sum_360', 'protein_sum_60', 'protein_sum_120', 'fat_sum_60', 'fat_sum_120', 'fiber_sum_60', 'fiber_sum_120', 'meal_cal_sum_60', 'meal_cal_sum_120', 'hour_sin', 'hour_cos']
+  Train: 114,434  Test: 1,344
+  Persistence  — MAE: 10.807  RMSE: 16.808
+  LinDrift     — MAE: 21.033  RMSE: 31.216
+  Ridge (abs)  — MAE: 13.727  RMSE: 19.336
+  Ridge (Δ)    — MAE: 13.727  RMSE: 19.336
+  GBDT (abs)   — MAE: 11.485  RMSE: 15.886
+  GBDT (Δ)     — MAE: 11.867  RMSE: 16.293
+
+  Model            MAE(abs)     MAE(Δ)  RMSE(abs)      hypo   normal    hyper
+  ────────────────────────────────────────────────────────────────────────────
+  Persistence        10.807     10.807     16.808  8.23(1119) 23.61(225)      N/A
+  LinDrift           21.033     21.033     31.216  18.92(1119) 31.52(225)      N/A
+  Ridge              13.727     13.727     19.336  12.08(1119) 21.94(225)      N/A
+  GBDT               11.485     11.867     15.886  9.50(1119) 21.36(225)      N/A
+  Plot saved: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step2/baselines_cgmacros_s2.png
+  Loading CGMacros (Scenario 3)...
+    Participants: 45, samples: 134,406
+
+──────────────────────────────────────────────────
+  CGMACROS Scenario 3
+──────────────────────────────────────────────────
+    train :  114,482 samples  (38 participants)
+    val   :   18,357 samples  (6 participants)
+    test  :    1,567 samples  (1 participants)
+  Features: 33 → ['gl_current', 'gl_mean_30', 'gl_mean_60', 'gl_mean_360', 'gl_std_60', 'gl_std_360', 'gl_min_360', 'gl_max_360', 'gl_range_360', 'gl_slope_30', 'gl_slope_60', 'gl_delta_5', 'gl_delta_15', 'gl_delta_30', 'gl_delta_60', 'carbs_sum_30', 'carbs_sum_60', 'carbs_sum_120', 'carbs_sum_360', 'protein_sum_60', 'protein_sum_120', 'fat_sum_60', 'fat_sum_120', 'fiber_sum_60', 'fiber_sum_120', 'meal_cal_sum_60', 'meal_cal_sum_120', 'hr_mean_30', 'hr_mean_60', 'cals_act_sum_60', 'mets_mean_60', 'hour_sin', 'hour_cos']
+  Train: 114,434  Test: 1,344
+  Persistence  — MAE: 10.807  RMSE: 16.808
+  LinDrift     — MAE: 21.033  RMSE: 31.216
+  Ridge (abs)  — MAE: 13.608  RMSE: 19.236
+  Ridge (Δ)    — MAE: 13.608  RMSE: 19.236
+  GBDT (abs)   — MAE: 11.296  RMSE: 16.043
+  GBDT (Δ)     — MAE: 11.678  RMSE: 16.264
+
+  Model            MAE(abs)     MAE(Δ)  RMSE(abs)      hypo   normal    hyper
+  ────────────────────────────────────────────────────────────────────────────
+  Persistence        10.807     10.807     16.808  8.23(1119) 23.61(225)      N/A
+  LinDrift           21.033     21.033     31.216  18.92(1119) 31.52(225)      N/A
+  Ridge              13.608     13.608     19.236  11.96(1119) 21.79(225)      N/A
+  GBDT               11.296     11.678     16.043  9.04(1119) 22.53(225)      N/A
+  Plot saved: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step2/baselines_cgmacros_s3.png
+  Loading BrisT1D (Scenario 1)...
+    Rows: 177,024, valid targets: 177,024
+
+──────────────────────────────────────────────────
+  BRIST1D Scenario 1
+──────────────────────────────────────────────────
+    train :   42,125 samples  (3 participants)
+    val   :  126,440 samples  (5 participants)
+    test  :    8,459 samples  (1 participants)
+  Features: 24 → ['gl_current', 'gl_mean_30', 'gl_mean_60', 'gl_mean_360', 'gl_std_60', 'gl_std_360', 'gl_min_360', 'gl_max_360', 'gl_range_360', 'gl_slope_30', 'gl_slope_60', 'gl_delta_5', 'gl_delta_15', 'gl_delta_30', 'gl_delta_60', 'carbs_sum_30', 'carbs_sum_60', 'carbs_sum_120', 'carbs_sum_360', 'ins_sum_30', 'ins_sum_60', 'ins_sum_120', 'hour_sin', 'hour_cos']
+  Train: 40,760  Test: 7,716
+  Persistence  — MAE: 2.286  RMSE: 3.056
+  LinDrift     — MAE: 3.835  RMSE: 4.925
+  Ridge (abs)  — MAE: 2.091  RMSE: 2.706
+  Ridge (Δ)    — MAE: 2.091  RMSE: 2.706
+  GBDT (abs)   — MAE: 1.974  RMSE: 2.562
+  GBDT (Δ)     — MAE: 2.003  RMSE: 2.577
+
+  Model            MAE(abs)     MAE(Δ)  RMSE(abs)      hypo   normal    hyper
+  ────────────────────────────────────────────────────────────────────────────
+  Persistence         2.286      2.286      3.056  1.89(540) 2.07(4465) 2.72(2711)
+  LinDrift            3.835      3.835      4.925  3.22(540) 3.54(4465) 4.45(2711)
+  Ridge               2.091      2.091      2.706  2.53(540) 1.75(4465) 2.57(2711)
+  GBDT                1.974      2.003      2.562  2.78(540) 1.61(4465) 2.42(2711)
+  Plot saved: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step2/baselines_brist1d_s1.png
+  Loading BrisT1D (Scenario 3)...
+    Rows: 177,024, valid targets: 177,024
+
+──────────────────────────────────────────────────
+  BRIST1D Scenario 3
+──────────────────────────────────────────────────
+    train :   42,125 samples  (3 participants)
+    val   :  126,440 samples  (5 participants)
+    test  :    8,459 samples  (1 participants)
+  Features: 29 → ['gl_current', 'gl_mean_30', 'gl_mean_60', 'gl_mean_360', 'gl_std_60', 'gl_std_360', 'gl_min_360', 'gl_max_360', 'gl_range_360', 'gl_slope_30', 'gl_slope_60', 'gl_delta_5', 'gl_delta_15', 'gl_delta_30', 'gl_delta_60', 'carbs_sum_30', 'carbs_sum_60', 'carbs_sum_120', 'carbs_sum_360', 'ins_sum_30', 'ins_sum_60', 'ins_sum_120', 'hr_mean_30', 'hr_mean_60', 'steps_sum_30', 'steps_sum_60', 'cals_act_sum_60', 'hour_sin', 'hour_cos']
+  Train: 40,760  Test: 7,716
+  Persistence  — MAE: 2.286  RMSE: 3.056
+  LinDrift     — MAE: 3.835  RMSE: 4.925
+  Ridge (abs)  — MAE: 2.095  RMSE: 2.709
+  Ridge (Δ)    — MAE: 2.095  RMSE: 2.709
+  GBDT (abs)   — MAE: 1.988  RMSE: 2.572
+  GBDT (Δ)     — MAE: 2.020  RMSE: 2.584
+
+  Model            MAE(abs)     MAE(Δ)  RMSE(abs)      hypo   normal    hyper
+  ────────────────────────────────────────────────────────────────────────────
+  Persistence         2.286      2.286      3.056  1.89(540) 2.07(4465) 2.72(2711)
+  LinDrift            3.835      3.835      4.925  3.22(540) 3.54(4465) 4.45(2711)
+  Ridge               2.095      2.095      2.709  2.54(540) 1.76(4465) 2.56(2711)
+  GBDT                1.988      2.020      2.572  2.89(540) 1.66(4465) 2.35(2711)
+  Plot saved: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step2/baselines_brist1d_s3.png
+
+██████████████████████████████████████████████████████████████████████
+ GRAND SUMMARY — All Datasets × Scenarios × Models
+██████████████████████████████████████████████████████████████████████
+
+  Dataset     Sc Model            MAE(abs)     MAE(Δ)       RMSE
+  ────────────────────────────────────────────────────────────
+  brist1d      1 Persistence         2.286      2.286      3.056
+  brist1d      1 LinDrift            3.835      3.835      4.925
+  brist1d      1 Ridge               2.091      2.091      2.706
+  brist1d      1 GBDT                1.974      2.003      2.562
+  ────────────────────────────────────────────────────────────
+  brist1d      3 Persistence         2.286      2.286      3.056
+  brist1d      3 LinDrift            3.835      3.835      4.925
+  brist1d      3 Ridge               2.095      2.095      2.709
+  brist1d      3 GBDT                1.988      2.020      2.572
+  ────────────────────────────────────────────────────────────
+  cgmacros     1 Persistence        10.807     10.807     16.808
+  cgmacros     1 LinDrift           21.033     21.033     31.216
+  cgmacros     1 Ridge              13.729     13.729     19.327
+  cgmacros     1 GBDT               11.570     11.895     16.073
+  ────────────────────────────────────────────────────────────
+  cgmacros     2 Persistence        10.807     10.807     16.808
+  cgmacros     2 LinDrift           21.033     21.033     31.216
+  cgmacros     2 Ridge              13.727     13.727     19.336
+  cgmacros     2 GBDT               11.485     11.867     15.886
+  ────────────────────────────────────────────────────────────
+  cgmacros     3 Persistence        10.807     10.807     16.808
+  cgmacros     3 LinDrift           21.033     21.033     31.216
+  cgmacros     3 Ridge              13.608     13.608     19.236
+  cgmacros     3 GBDT               11.296     11.678     16.043
+  ────────────────────────────────────────────────────────────
+  hupa         1 Persistence        27.061     27.061     39.542
+  hupa         1 LinDrift           34.509     34.509     52.992
+  hupa         1 Ridge              26.162     26.162     35.120
+  hupa         1 GBDT               23.391     23.099     33.301
+  ────────────────────────────────────────────────────────────
+  hupa         3 Persistence        27.061     27.061     39.542
+  hupa         3 LinDrift           34.509     34.509     52.992
+  hupa         3 Ridge              25.873     25.873     34.723
+  hupa         3 GBDT               24.122     23.874     33.564
+  ────────────────────────────────────────────────────────────
+
+======================================================================
+ ANALYSIS: Why These Baselines Are 'Strong'
+======================================================================
+
+  1) PERSISTENCE is the minimum bar. For glucose, the current reading is
+     highly correlated with the +60 min value (≈0.92-0.95). Any model that
+     can't beat persistence is useless.
+
+  2) LINEAR DRIFT adds trend awareness. It captures "glucose is rising at
+     X mg/dL per step, so in 12 more steps it will be Y higher." This is
+     surprisingly effective for steady-state periods but fails at inflection
+     points (post-meal spikes, insulin kicks in).
+
+  3) RIDGE on engineered features tests whether handcrafted temporal
+     features (means, slopes, sums) encode enough information. If Ridge
+     approaches GBDT, deep models may not add much.
+
+  4) GBDT (HistGradientBoosting) is the strongest tabular baseline. It
+     handles nonlinear interactions between features (e.g., "carbs_60
+     interacting with insulin_60") without explicit feature crosses.
+
+  WHERE BASELINES FAIL:
+  - Post-meal spikes: Persistence and LinDrift can't anticipate the
+    nonlinear glucose rise 30-90 min after eating.
+  - Insulin action lag: The delayed effect of insulin (peak at 60-90 min)
+    requires sequence modeling, not snapshot features.
+  - Activity transitions: HR spike → glucose drop has a complex temporal
+    relationship that tabular features only partially capture.
+  - Extreme values (hypo/hyper): Range-stratified MAE shows all baselines
+    struggle more in these ranges due to rarity and rapid dynamics.
+
+
+█ STEP 2 COMPLETE █

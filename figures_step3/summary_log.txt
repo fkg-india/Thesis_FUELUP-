@@ -1,0 +1,957 @@
+Using device: mps
+
+
+██████████████████████████████████████████████████████████████████████
+  LOADING HUPA Scenario 1
+██████████████████████████████████████████████████████████████████████
+  Loading HUPA (Scenario 1)...
+    Participants: 25, samples: 307,317
+
+════════════════════════════════════════════════════════════
+  DEEP MODELS: HUPA Scenario 1
+  Channels (4): ['gl', 'carbs', 'basal', 'bolus']
+  Input dim (with mask): 8
+════════════════════════════════════════════════════════════
+    train :  247,301 samples  (18 participants)
+    val   :   12,664 samples  (4 participants)
+    test  :   47,352 samples  (3 participants)
+
+  ── Target mode: abs ──
+  Train: 24,730  Val: 1,266  Test: 47,352
+
+  ═══ GRU (abs) ═══
+  Config: h=128 L=2 d=0.2 lr=3e-04
+    [GRU_abs] Epoch   0: train_MAE=104.4395  val_MAE=71.4374  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch   1: train_MAE=33.7147  val_MAE=31.9813  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch   2: train_MAE=24.3025  val_MAE=29.3362  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch   3: train_MAE=23.6260  val_MAE=27.7722  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch   5: train_MAE=23.2092  val_MAE=27.1169  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch   7: train_MAE=22.7701  val_MAE=27.0082  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch   8: train_MAE=22.5242  val_MAE=26.1769  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch   9: train_MAE=22.4861  val_MAE=26.0215  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch  10: train_MAE=22.3157  val_MAE=25.7586  lr=3.0e-04  ★ best
+    [GRU_abs] Early stop at epoch 17 (best val MAE=25.7586)
+  ★ TEST: MAE=23.3610  RMSE=33.9116
+    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/GRU_abs_hupa_s1.pt
+
+  Per-participant MAE (GRU abs):
+      pid  n_samples       mae      rmse
+HUPA0004P       3101 32.615181 45.350914
+HUPA0026P      40522 23.962057 34.185421
+HUPA0009P       3729  9.133875 13.904490
+    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_GRU_abs_hupa_s1.png
+    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_GRU_abs_hupa_s1.png
+
+  ═══ Transformer (abs) ═══
+  Config: h=128 L=2 d=0.2 lr=3e-04
+    [Transformer_abs] Epoch   0: train_MAE=101.6302  val_MAE=67.7407  lr=3.0e-04  ★ best
+    [Transformer_abs] Epoch   1: train_MAE=34.8267  val_MAE=37.0771  lr=3.0e-04  ★ best
+    [Transformer_abs] Epoch   2: train_MAE=24.8122  val_MAE=32.2193  lr=3.0e-04  ★ best
+    [Transformer_abs] Epoch   3: train_MAE=23.4779  val_MAE=28.7922  lr=3.0e-04  ★ best
+    [Transformer_abs] Epoch   4: train_MAE=22.8426  val_MAE=28.2454  lr=3.0e-04  ★ best
+    [Transformer_abs] Epoch  10: train_MAE=21.9057  val_MAE=28.6601  lr=1.5e-04  
+    [Transformer_abs] Epoch  11: train_MAE=21.9523  val_MAE=27.9685  lr=1.5e-04  ★ best
+    [Transformer_abs] Epoch  14: train_MAE=21.8067  val_MAE=27.6625  lr=1.5e-04  ★ best
+    [Transformer_abs] Epoch  16: train_MAE=21.7020  val_MAE=27.1936  lr=1.5e-04  ★ best
+    [Transformer_abs] Epoch  20: train_MAE=21.4576  val_MAE=28.7803  lr=1.5e-04  
+    [Transformer_abs] Early stop at epoch 23 (best val MAE=27.1936)
+  ★ TEST: MAE=35.4251  RMSE=52.4134
+    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/Transformer_abs_hupa_s1.pt
+
+  Per-participant MAE (Transformer abs):
+      pid  n_samples       mae      rmse
+HUPA0004P       3101 62.973789 88.378044
+HUPA0026P      40522 34.961712 50.679485
+HUPA0009P       3729 17.551140 21.882530
+    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_Transformer_abs_hupa_s1.png
+    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_Transformer_abs_hupa_s1.png
+
+  ── Target mode: delta ──
+  Train: 24,730  Val: 1,266  Test: 47,352
+
+  ═══ GRU (delta) ═══
+  Config: h=128 L=2 d=0.2 lr=3e-04
+    [GRU_delta] Epoch   0: train_MAE=22.0849  val_MAE=29.8258  lr=3.0e-04  ★ best
+    [GRU_delta] Epoch   1: train_MAE=21.8915  val_MAE=29.7270  lr=3.0e-04  ★ best
+    [GRU_delta] Epoch   2: train_MAE=21.6725  val_MAE=28.9579  lr=3.0e-04  ★ best
+    [GRU_delta] Epoch   3: train_MAE=21.3276  val_MAE=28.0170  lr=3.0e-04  ★ best
+    [GRU_delta] Epoch   5: train_MAE=20.7230  val_MAE=27.8692  lr=3.0e-04  ★ best
+    [GRU_delta] Epoch   6: train_MAE=20.5233  val_MAE=27.5759  lr=3.0e-04  ★ best
+    [GRU_delta] Epoch   7: train_MAE=20.3889  val_MAE=27.3514  lr=3.0e-04  ★ best
+    [GRU_delta] Epoch   8: train_MAE=20.1745  val_MAE=26.7606  lr=3.0e-04  ★ best
+    [GRU_delta] Epoch  10: train_MAE=20.0566  val_MAE=26.5801  lr=3.0e-04  ★ best
+    [GRU_delta] Epoch  11: train_MAE=19.9242  val_MAE=26.5355  lr=3.0e-04  ★ best
+    [GRU_delta] Epoch  13: train_MAE=19.7618  val_MAE=26.2636  lr=3.0e-04  ★ best
+    [GRU_delta] Epoch  19: train_MAE=19.2729  val_MAE=26.2172  lr=1.5e-04  ★ best
+    [GRU_delta] Epoch  20: train_MAE=19.2072  val_MAE=26.5154  lr=1.5e-04  
+    [GRU_delta] Epoch  22: train_MAE=19.1475  val_MAE=25.9936  lr=1.5e-04  ★ best
+    [GRU_delta] Early stop at epoch 29 (best val MAE=25.9936)
+  ★ TEST: MAE=23.2156  RMSE=33.8452
+    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/GRU_delta_hupa_s1.pt
+
+  Per-participant MAE (GRU delta):
+      pid  n_samples       mae      rmse
+HUPA0004P       3101 31.072002 43.821770
+HUPA0026P      40522 23.880447 34.245037
+HUPA0009P       3729  9.456964 14.327108
+    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_GRU_delta_hupa_s1.png
+    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_GRU_delta_hupa_s1.png
+
+  ═══ Transformer (delta) ═══
+  Config: h=128 L=2 d=0.2 lr=3e-04
+    [Transformer_delta] Epoch   0: train_MAE=22.2993  val_MAE=29.3788  lr=3.0e-04  ★ best
+    [Transformer_delta] Early stop at epoch 7 (best val MAE=29.3788)
+  ★ TEST: MAE=27.2272  RMSE=37.9661
+    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/Transformer_delta_hupa_s1.pt
+
+  Per-participant MAE (Transformer delta):
+      pid  n_samples       mae      rmse
+HUPA0004P       3101 35.639690 49.159279
+HUPA0026P      40522 27.778589 38.280258
+HUPA0009P       3729 14.240103 19.238218
+    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_Transformer_delta_hupa_s1.png
+    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_Transformer_delta_hupa_s1.png
+
+██████████████████████████████████████████████████████████████████████
+  HUPA Scenario 1 — Deep Models Summary
+██████████████████████████████████████████████████████████████████████
+
+  Model                     Mode          MAE     ±std       RMSE       hypo     normal      hyper
+  ──────────────────────────────────────────────────────────────────────────────────────────
+  GRU_abs                   abs       23.3610   0.0000    33.9116 25.12(3431) 19.61(24644) 27.84(19277)
+  Transformer_abs           abs       35.4251   0.0000    52.4134 28.98(3431) 21.48(24644) 54.39(19277)
+  GRU_delta                 delta     23.2156   0.0000    33.8452 23.68(3431) 19.50(24644) 27.88(19277)
+  Transformer_delta         delta     27.2272   0.0000    37.9661 23.84(3431) 23.05(24644) 33.17(19277)
+
+
+██████████████████████████████████████████████████████████████████████
+  LOADING HUPA Scenario 3
+██████████████████████████████████████████████████████████████████████
+  Loading HUPA (Scenario 3)...
+    Participants: 25, samples: 307,317
+
+════════════════════════════════════════════════════════════
+  DEEP MODELS: HUPA Scenario 3
+  Channels (7): ['gl', 'carbs', 'basal', 'bolus', 'hr', 'steps', 'cals_act']
+  Input dim (with mask): 14
+════════════════════════════════════════════════════════════
+    train :  247,301 samples  (18 participants)
+    val   :   12,664 samples  (4 participants)
+    test  :   47,352 samples  (3 participants)
+
+  ── Target mode: abs ──
+  Train: 24,730  Val: 1,266  Test: 47,352
+
+  ═══ GRU (abs) ═══
+  Config: h=128 L=2 d=0.2 lr=3e-04
+    [GRU_abs] Epoch   0: train_MAE=97.1721  val_MAE=61.8223  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch   1: train_MAE=29.8339  val_MAE=31.2534  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch   2: train_MAE=23.7791  val_MAE=29.3334  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch   3: train_MAE=23.1457  val_MAE=29.1637  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch   4: train_MAE=22.7946  val_MAE=27.4216  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch   7: train_MAE=22.1957  val_MAE=26.5704  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch  10: train_MAE=21.7140  val_MAE=27.5209  lr=3.0e-04  
+    [GRU_abs] Early stop at epoch 14 (best val MAE=26.5704)
+  ★ TEST: MAE=24.8434  RMSE=34.5623
+    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/GRU_abs_hupa_s3.pt
+
+  Per-participant MAE (GRU abs):
+      pid  n_samples       mae      rmse
+HUPA0004P       3101 33.406425 46.044643
+HUPA0026P      40522 25.297636 34.716923
+HUPA0009P       3729 12.786729 17.562447
+    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_GRU_abs_hupa_s3.png
+    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_GRU_abs_hupa_s3.png
+
+  ═══ Transformer (abs) ═══
+  Config: h=128 L=2 d=0.2 lr=3e-04
+    [Transformer_abs] Epoch   0: train_MAE=102.6722  val_MAE=68.3651  lr=3.0e-04  ★ best
+    [Transformer_abs] Epoch   1: train_MAE=34.7448  val_MAE=38.7111  lr=3.0e-04  ★ best
+    [Transformer_abs] Epoch   2: train_MAE=25.1310  val_MAE=32.8429  lr=3.0e-04  ★ best
+    [Transformer_abs] Epoch   3: train_MAE=23.6210  val_MAE=30.3704  lr=3.0e-04  ★ best
+    [Transformer_abs] Epoch   4: train_MAE=23.2137  val_MAE=28.9891  lr=3.0e-04  ★ best
+    [Transformer_abs] Epoch  10: train_MAE=21.7740  val_MAE=28.8041  lr=1.5e-04  ★ best
+    [Transformer_abs] Epoch  11: train_MAE=21.7532  val_MAE=28.3407  lr=1.5e-04  ★ best
+    [Transformer_abs] Epoch  13: train_MAE=21.4414  val_MAE=28.2296  lr=1.5e-04  ★ best
+    [Transformer_abs] Epoch  20: train_MAE=20.9953  val_MAE=30.4309  lr=7.5e-05  
+    [Transformer_abs] Early stop at epoch 20 (best val MAE=28.2296)
+  ★ TEST: MAE=28.8154  RMSE=40.6285
+    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/Transformer_abs_hupa_s3.pt
+
+  Per-participant MAE (Transformer abs):
+      pid  n_samples       mae      rmse
+HUPA0004P       3101 61.301842 82.503883
+HUPA0026P      40522 27.056684 36.756905
+HUPA0009P       3729 20.912092 24.871166
+    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_Transformer_abs_hupa_s3.png
+    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_Transformer_abs_hupa_s3.png
+
+  ── Target mode: delta ──
+  Train: 24,730  Val: 1,266  Test: 47,352
+
+  ═══ GRU (delta) ═══
+  Config: h=128 L=2 d=0.2 lr=3e-04
+    [GRU_delta] Epoch   0: train_MAE=22.0566  val_MAE=29.6423  lr=3.0e-04  ★ best
+    [GRU_delta] Epoch   1: train_MAE=21.5329  val_MAE=29.5660  lr=3.0e-04  ★ best
+    [GRU_delta] Epoch   2: train_MAE=21.1040  val_MAE=29.2506  lr=3.0e-04  ★ best
+    [GRU_delta] Epoch   3: train_MAE=20.8480  val_MAE=29.0181  lr=3.0e-04  ★ best
+    [GRU_delta] Epoch   4: train_MAE=20.6028  val_MAE=28.2300  lr=3.0e-04  ★ best
+    [GRU_delta] Epoch   5: train_MAE=20.4113  val_MAE=27.6405  lr=3.0e-04  ★ best
+    [GRU_delta] Epoch   7: train_MAE=20.0993  val_MAE=27.2606  lr=3.0e-04  ★ best
+    [GRU_delta] Epoch  10: train_MAE=19.6295  val_MAE=27.8112  lr=3.0e-04  
+    [GRU_delta] Early stop at epoch 14 (best val MAE=27.2606)
+  ★ TEST: MAE=25.4657  RMSE=35.1310
+    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/GRU_delta_hupa_s3.pt
+
+  Per-participant MAE (GRU delta):
+      pid  n_samples       mae      rmse
+HUPA0004P       3101 33.628357 46.171307
+HUPA0026P      40522 25.928104 35.319813
+HUPA0009P       3729 13.652632 18.524549
+    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_GRU_delta_hupa_s3.png
+    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_GRU_delta_hupa_s3.png
+
+  ═══ Transformer (delta) ═══
+  Config: h=128 L=2 d=0.2 lr=3e-04
+    [Transformer_delta] Epoch   0: train_MAE=22.2459  val_MAE=29.6117  lr=3.0e-04  ★ best
+    [Transformer_delta] Epoch   2: train_MAE=21.3555  val_MAE=29.2968  lr=3.0e-04  ★ best
+    [Transformer_delta] Epoch   7: train_MAE=20.6620  val_MAE=29.2261  lr=1.5e-04  ★ best
+    [Transformer_delta] Epoch  10: train_MAE=20.4454  val_MAE=29.6367  lr=1.5e-04  
+    [Transformer_delta] Early stop at epoch 14 (best val MAE=29.2261)
+  ★ TEST: MAE=26.3224  RMSE=36.1124
+    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/Transformer_delta_hupa_s3.pt
+
+  Per-participant MAE (Transformer delta):
+      pid  n_samples       mae      rmse
+HUPA0004P       3101 36.220119 49.636013
+HUPA0026P      40522 26.575882 35.953659
+HUPA0009P       3729 15.337494 21.542210
+    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_Transformer_delta_hupa_s3.png
+    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_Transformer_delta_hupa_s3.png
+
+██████████████████████████████████████████████████████████████████████
+  HUPA Scenario 3 — Deep Models Summary
+██████████████████████████████████████████████████████████████████████
+
+  Model                     Mode          MAE     ±std       RMSE       hypo     normal      hyper
+  ──────────────────────────────────────────────────────────────────────────────────────────
+  GRU_abs                   abs       24.8434   0.0000    34.5623 29.36(3431) 19.28(24644) 31.15(19277)
+  Transformer_abs           abs       28.8154   0.0000    40.6285 33.91(3431) 19.33(24644) 40.03(19277)
+  GRU_delta                 delta     25.4657   0.0000    35.1310 30.10(3431) 20.62(24644) 30.83(19277)
+  Transformer_delta         delta     26.3224   0.0000    36.1124 29.51(3431) 20.97(24644) 32.60(19277)
+
+
+██████████████████████████████████████████████████████████████████████
+  LOADING CGMACROS Scenario 1
+██████████████████████████████████████████████████████████████████████
+  Loading CGMacros (Scenario 1)...
+    Participants: 45, samples: 134,406
+
+════════════════════════════════════════════════════════════
+  DEEP MODELS: CGMACROS Scenario 1
+  Channels (2): ['gl', 'carbs']
+  Input dim (with mask): 4
+════════════════════════════════════════════════════════════
+    train :  114,482 samples  (38 participants)
+    val   :   18,357 samples  (6 participants)
+    test  :    1,567 samples  (1 participants)
+
+  ── Target mode: abs ──
+  Train: 11,448  Val: 1,835  Test: 1,567
+
+  ═══ GRU (abs) ═══
+  Config: h=128 L=2 d=0.2 lr=3e-04
+    [GRU_abs] Epoch   0: train_MAE=99.2369  val_MAE=78.5762  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch   1: train_MAE=64.3780  val_MAE=32.9107  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch   2: train_MAE=27.6718  val_MAE=15.7509  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch   3: train_MAE=19.8018  val_MAE=14.4735  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch   4: train_MAE=18.7477  val_MAE=12.6286  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch   5: train_MAE=18.3740  val_MAE=12.3211  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch   7: train_MAE=17.7567  val_MAE=12.3128  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch  10: train_MAE=17.3215  val_MAE=11.7845  lr=3.0e-04  ★ best
+    [GRU_abs] Early stop at epoch 17 (best val MAE=11.7845)
+  ★ TEST: MAE=16.7971  RMSE=24.0362
+    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/GRU_abs_cgmacros_s1.pt
+
+  Per-participant MAE (GRU abs):
+         pid  n_samples       mae      rmse
+CGMacros-007       1567 16.797071 24.036245
+    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_GRU_abs_cgmacros_s1.png
+    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_GRU_abs_cgmacros_s1.png
+
+  ═══ Transformer (abs) ═══
+  Config: h=128 L=2 d=0.2 lr=3e-04
+    [Transformer_abs] Epoch   0: train_MAE=97.0111  val_MAE=74.5669  lr=3.0e-04  ★ best
+    [Transformer_abs] Epoch   1: train_MAE=58.8532  val_MAE=28.4286  lr=3.0e-04  ★ best
+    [Transformer_abs] Epoch   2: train_MAE=26.1574  val_MAE=17.0394  lr=3.0e-04  ★ best
+    [Transformer_abs] Epoch   3: train_MAE=20.4946  val_MAE=13.6951  lr=3.0e-04  ★ best
+    [Transformer_abs] Epoch   4: train_MAE=19.4248  val_MAE=13.6277  lr=3.0e-04  ★ best
+    [Transformer_abs] Epoch   6: train_MAE=18.5057  val_MAE=13.4734  lr=3.0e-04  ★ best
+    [Transformer_abs] Epoch   7: train_MAE=18.2480  val_MAE=13.1778  lr=3.0e-04  ★ best
+    [Transformer_abs] Epoch   9: train_MAE=17.8993  val_MAE=13.1579  lr=3.0e-04  ★ best
+    [Transformer_abs] Epoch  10: train_MAE=17.7455  val_MAE=12.6778  lr=3.0e-04  ★ best
+    [Transformer_abs] Epoch  13: train_MAE=17.5348  val_MAE=12.5134  lr=3.0e-04  ★ best
+    [Transformer_abs] Epoch  20: train_MAE=16.7684  val_MAE=13.3595  lr=1.5e-04  
+    [Transformer_abs] Early stop at epoch 20 (best val MAE=12.5134)
+  ★ TEST: MAE=13.4696  RMSE=16.6665
+    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/Transformer_abs_cgmacros_s1.pt
+
+  Per-participant MAE (Transformer abs):
+         pid  n_samples       mae      rmse
+CGMacros-007       1567 13.469647 16.666506
+    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_Transformer_abs_cgmacros_s1.png
+    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_Transformer_abs_cgmacros_s1.png
+
+  ── Target mode: delta ──
+  Train: 11,443  Val: 1,835  Test: 1,344
+
+  ═══ GRU (delta) ═══
+  Config: h=128 L=2 d=0.2 lr=3e-04
+    [GRU_delta] Epoch   0: train_MAE=16.7866  val_MAE=14.7387  lr=3.0e-04  ★ best
+    [GRU_delta] Epoch   1: train_MAE=16.3122  val_MAE=13.7427  lr=3.0e-04  ★ best
+    [GRU_delta] Epoch   3: train_MAE=16.0804  val_MAE=13.6527  lr=3.0e-04  ★ best
+    [GRU_delta] Epoch   5: train_MAE=15.8392  val_MAE=13.3072  lr=3.0e-04  ★ best
+    [GRU_delta] Epoch   6: train_MAE=15.5972  val_MAE=13.1012  lr=3.0e-04  ★ best
+    [GRU_delta] Epoch  10: train_MAE=15.2183  val_MAE=13.1015  lr=3.0e-04  
+    [GRU_delta] Epoch  13: train_MAE=15.0453  val_MAE=13.0603  lr=1.5e-04  ★ best
+    [GRU_delta] Epoch  14: train_MAE=14.9954  val_MAE=13.0323  lr=1.5e-04  ★ best
+    [GRU_delta] Epoch  20: train_MAE=14.8269  val_MAE=13.1091  lr=7.5e-05  
+    [GRU_delta] Early stop at epoch 21 (best val MAE=13.0323)
+  ★ TEST: MAE=11.3177  RMSE=15.3878
+    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/GRU_delta_cgmacros_s1.pt
+
+  Per-participant MAE (GRU delta):
+         pid  n_samples  mae  rmse
+CGMacros-007       1344  NaN   NaN
+    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_GRU_delta_cgmacros_s1.png
+    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_GRU_delta_cgmacros_s1.png
+
+  ═══ Transformer (delta) ═══
+  Config: h=128 L=2 d=0.2 lr=3e-04
+    [Transformer_delta] Epoch   0: train_MAE=17.1034  val_MAE=14.8424  lr=3.0e-04  ★ best
+    [Transformer_delta] Epoch   1: train_MAE=17.0343  val_MAE=14.5323  lr=3.0e-04  ★ best
+    [Transformer_delta] Epoch   2: train_MAE=16.8857  val_MAE=13.8549  lr=3.0e-04  ★ best
+    [Transformer_delta] Epoch   4: train_MAE=16.1598  val_MAE=13.6516  lr=3.0e-04  ★ best
+    [Transformer_delta] Epoch   5: train_MAE=15.8937  val_MAE=13.2810  lr=3.0e-04  ★ best
+    [Transformer_delta] Epoch   7: train_MAE=15.7718  val_MAE=13.2426  lr=3.0e-04  ★ best
+    [Transformer_delta] Epoch  10: train_MAE=15.4070  val_MAE=13.5377  lr=3.0e-04  
+    [Transformer_delta] Epoch  11: train_MAE=15.4104  val_MAE=12.8524  lr=3.0e-04  ★ best
+    [Transformer_delta] Early stop at epoch 18 (best val MAE=12.8524)
+  ★ TEST: MAE=10.7648  RMSE=15.2788
+    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/Transformer_delta_cgmacros_s1.pt
+
+  Per-participant MAE (Transformer delta):
+         pid  n_samples  mae  rmse
+CGMacros-007       1344  NaN   NaN
+    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_Transformer_delta_cgmacros_s1.png
+    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_Transformer_delta_cgmacros_s1.png
+
+██████████████████████████████████████████████████████████████████████
+  CGMACROS Scenario 1 — Deep Models Summary
+██████████████████████████████████████████████████████████████████████
+
+  Model                     Mode          MAE     ±std       RMSE       hypo     normal      hyper
+  ──────────────────────────────────────────────────────────────────────────────────────────
+  GRU_abs                   abs       16.7971   0.0000    24.0362 13.29(1283) 32.65(284)        N/A
+  Transformer_abs           abs       13.4696   0.0000    16.6665 11.75(1283) 21.22(284)        N/A
+  GRU_delta                 delta     11.3177   0.0000    15.3878 10.53(893) 14.32(235)        N/A
+  Transformer_delta         delta     10.7648   0.0000    15.2788  9.92(893) 13.96(235)        N/A
+
+
+██████████████████████████████████████████████████████████████████████
+  LOADING CGMACROS Scenario 2
+██████████████████████████████████████████████████████████████████████
+  Loading CGMacros (Scenario 2)...
+    Participants: 45, samples: 134,406
+
+════════════════════════════════════════════════════════════
+  DEEP MODELS: CGMACROS Scenario 2
+  Channels (6): ['gl', 'carbs', 'protein', 'fat', 'fiber', 'meal_cal']
+  Input dim (with mask): 12
+════════════════════════════════════════════════════════════
+    train :  114,482 samples  (38 participants)
+    val   :   18,357 samples  (6 participants)
+    test  :    1,567 samples  (1 participants)
+
+  ── Target mode: abs ──
+  Train: 11,448  Val: 1,835  Test: 1,567
+
+  ═══ GRU (abs) ═══
+  Config: h=128 L=2 d=0.2 lr=3e-04
+    [GRU_abs] Epoch   0: train_MAE=97.4147  val_MAE=74.4462  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch   1: train_MAE=58.2153  val_MAE=28.1250  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch   2: train_MAE=25.8052  val_MAE=16.4712  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch   3: train_MAE=19.7901  val_MAE=13.6274  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch   4: train_MAE=18.8401  val_MAE=12.8902  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch   5: train_MAE=18.3311  val_MAE=12.6430  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch   8: train_MAE=17.5079  val_MAE=12.0570  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch  10: train_MAE=17.2553  val_MAE=11.9536  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch  13: train_MAE=17.1254  val_MAE=11.9031  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch  17: train_MAE=16.5983  val_MAE=11.8848  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch  18: train_MAE=16.5254  val_MAE=11.7844  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch  20: train_MAE=16.3831  val_MAE=12.1176  lr=3.0e-04  
+    [GRU_abs] Epoch  22: train_MAE=16.3998  val_MAE=11.7577  lr=3.0e-04  ★ best
+    [GRU_abs] Early stop at epoch 29 (best val MAE=11.7577)
+  ★ TEST: MAE=15.1324  RMSE=22.5496
+    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/GRU_abs_cgmacros_s2.pt
+
+  Per-participant MAE (GRU abs):
+         pid  n_samples       mae      rmse
+CGMacros-007       1567 15.132398 22.549616
+    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_GRU_abs_cgmacros_s2.png
+    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_GRU_abs_cgmacros_s2.png
+
+  ═══ Transformer (abs) ═══
+  Config: h=128 L=2 d=0.2 lr=3e-04
+    [Transformer_abs] Epoch   0: train_MAE=98.1748  val_MAE=75.9207  lr=3.0e-04  ★ best
+    [Transformer_abs] Epoch   1: train_MAE=59.1798  val_MAE=28.1355  lr=3.0e-04  ★ best
+    [Transformer_abs] Epoch   2: train_MAE=26.4633  val_MAE=17.3053  lr=3.0e-04  ★ best
+    [Transformer_abs] Epoch   3: train_MAE=20.0063  val_MAE=13.5310  lr=3.0e-04  ★ best
+    [Transformer_abs] Epoch   5: train_MAE=18.5773  val_MAE=13.1046  lr=3.0e-04  ★ best
+    [Transformer_abs] Epoch  10: train_MAE=16.9892  val_MAE=12.9008  lr=1.5e-04  ★ best
+    [Transformer_abs] Epoch  11: train_MAE=16.8822  val_MAE=12.8432  lr=1.5e-04  ★ best
+    [Transformer_abs] Early stop at epoch 18 (best val MAE=12.8432)
+  ★ TEST: MAE=14.5092  RMSE=18.4624
+    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/Transformer_abs_cgmacros_s2.pt
+
+  Per-participant MAE (Transformer abs):
+         pid  n_samples       mae      rmse
+CGMacros-007       1567 14.509198 18.462446
+    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_Transformer_abs_cgmacros_s2.png
+    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_Transformer_abs_cgmacros_s2.png
+
+  ── Target mode: delta ──
+  Train: 11,443  Val: 1,835  Test: 1,344
+
+  ═══ GRU (delta) ═══
+  Config: h=128 L=2 d=0.2 lr=3e-04
+    [GRU_delta] Epoch   0: train_MAE=16.7558  val_MAE=14.2884  lr=3.0e-04  ★ best
+    [GRU_delta] Epoch   1: train_MAE=16.3581  val_MAE=13.8187  lr=3.0e-04  ★ best
+    [GRU_delta] Epoch   2: train_MAE=16.1454  val_MAE=13.6403  lr=3.0e-04  ★ best
+    [GRU_delta] Epoch   3: train_MAE=16.0312  val_MAE=13.3948  lr=3.0e-04  ★ best
+    [GRU_delta] Epoch   4: train_MAE=15.6989  val_MAE=13.1897  lr=3.0e-04  ★ best
+    [GRU_delta] Epoch   6: train_MAE=15.3464  val_MAE=12.8243  lr=3.0e-04  ★ best
+    [GRU_delta] Epoch  10: train_MAE=14.9730  val_MAE=12.9986  lr=3.0e-04  
+    [GRU_delta] Early stop at epoch 13 (best val MAE=12.8243)
+  ★ TEST: MAE=10.9170  RMSE=15.5737
+    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/GRU_delta_cgmacros_s2.pt
+
+  Per-participant MAE (GRU delta):
+         pid  n_samples  mae  rmse
+CGMacros-007       1344  NaN   NaN
+    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_GRU_delta_cgmacros_s2.png
+    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_GRU_delta_cgmacros_s2.png
+
+  ═══ Transformer (delta) ═══
+  Config: h=128 L=2 d=0.2 lr=3e-04
+    [Transformer_delta] Epoch   0: train_MAE=17.1238  val_MAE=14.5721  lr=3.0e-04  ★ best
+    [Transformer_delta] Epoch   1: train_MAE=17.0427  val_MAE=14.4895  lr=3.0e-04  ★ best
+    [Transformer_delta] Epoch   2: train_MAE=16.7682  val_MAE=14.2514  lr=3.0e-04  ★ best
+    [Transformer_delta] Epoch   3: train_MAE=16.4514  val_MAE=13.7201  lr=3.0e-04  ★ best
+    [Transformer_delta] Epoch   7: train_MAE=15.7857  val_MAE=13.4692  lr=3.0e-04  ★ best
+    [Transformer_delta] Epoch   9: train_MAE=15.7477  val_MAE=13.2705  lr=3.0e-04  ★ best
+    [Transformer_delta] Epoch  10: train_MAE=15.7003  val_MAE=12.9685  lr=3.0e-04  ★ best
+    [Transformer_delta] Early stop at epoch 17 (best val MAE=12.9685)
+  ★ TEST: MAE=10.5776  RMSE=15.0681
+    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/Transformer_delta_cgmacros_s2.pt
+
+  Per-participant MAE (Transformer delta):
+         pid  n_samples  mae  rmse
+CGMacros-007       1344  NaN   NaN
+    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_Transformer_delta_cgmacros_s2.png
+    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_Transformer_delta_cgmacros_s2.png
+
+██████████████████████████████████████████████████████████████████████
+  CGMACROS Scenario 2 — Deep Models Summary
+██████████████████████████████████████████████████████████████████████
+
+  Model                     Mode          MAE     ±std       RMSE       hypo     normal      hyper
+  ──────────────────────────────────────────────────────────────────────────────────────────
+  GRU_abs                   abs       15.1324   0.0000    22.5496 10.82(1283) 34.59(284)        N/A
+  Transformer_abs           abs       14.5092   0.0000    18.4624 13.47(1283) 19.22(284)        N/A
+  GRU_delta                 delta     10.9170   0.0000    15.5737 10.02(893) 14.33(235)        N/A
+  Transformer_delta         delta     10.5776   0.0000    15.0681  9.52(893) 14.59(235)        N/A
+
+
+██████████████████████████████████████████████████████████████████████
+  LOADING CGMACROS Scenario 3
+██████████████████████████████████████████████████████████████████████
+  Loading CGMacros (Scenario 3)...
+    Participants: 45, samples: 134,406
+
+════════════════════════════════════════════════════════════
+  DEEP MODELS: CGMACROS Scenario 3
+  Channels (9): ['gl', 'carbs', 'protein', 'fat', 'fiber', 'meal_cal', 'hr', 'cals_act', 'mets']
+  Input dim (with mask): 18
+════════════════════════════════════════════════════════════
+    train :  114,482 samples  (38 participants)
+    val   :   18,357 samples  (6 participants)
+    test  :    1,567 samples  (1 participants)
+
+  ── Target mode: abs ──
+  Train: 11,448  Val: 1,835  Test: 1,567
+
+  ═══ GRU (abs) ═══
+  Config: h=128 L=2 d=0.2 lr=3e-04
+    [GRU_abs] Epoch   0: train_MAE=96.6105  val_MAE=71.6473  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch   1: train_MAE=52.7867  val_MAE=25.3006  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch   2: train_MAE=23.3746  val_MAE=14.5610  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch   3: train_MAE=19.3698  val_MAE=13.4106  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch   4: train_MAE=18.4319  val_MAE=13.2154  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch   6: train_MAE=17.9696  val_MAE=12.1284  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch   8: train_MAE=17.4273  val_MAE=12.1153  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch  10: train_MAE=17.2659  val_MAE=12.6249  lr=3.0e-04  
+    [GRU_abs] Epoch  12: train_MAE=16.9376  val_MAE=12.0277  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch  19: train_MAE=16.0493  val_MAE=11.8984  lr=1.5e-04  ★ best
+    [GRU_abs] Epoch  20: train_MAE=16.0522  val_MAE=11.9131  lr=1.5e-04  
+    [GRU_abs] Epoch  21: train_MAE=16.0473  val_MAE=11.8624  lr=1.5e-04  ★ best
+    [GRU_abs] Epoch  22: train_MAE=15.9264  val_MAE=11.8328  lr=1.5e-04  ★ best
+    [GRU_abs] Epoch  23: train_MAE=16.0622  val_MAE=11.7426  lr=1.5e-04  ★ best
+    [GRU_abs] Epoch  24: train_MAE=15.9630  val_MAE=11.6737  lr=1.5e-04  ★ best
+    [GRU_abs] Epoch  25: train_MAE=15.9623  val_MAE=11.4817  lr=1.5e-04  ★ best
+    [GRU_abs] Epoch  30: train_MAE=15.6435  val_MAE=11.7665  lr=7.5e-05  
+    [GRU_abs] Early stop at epoch 32 (best val MAE=11.4817)
+  ★ TEST: MAE=15.7597  RMSE=22.4561
+    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/GRU_abs_cgmacros_s3.pt
+
+  Per-participant MAE (GRU abs):
+         pid  n_samples       mae      rmse
+CGMacros-007       1567 15.759727 22.456118
+    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_GRU_abs_cgmacros_s3.png
+    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_GRU_abs_cgmacros_s3.png
+
+  ═══ Transformer (abs) ═══
+  Config: h=128 L=2 d=0.2 lr=3e-04
+    [Transformer_abs] Epoch   0: train_MAE=98.2586  val_MAE=76.4605  lr=3.0e-04  ★ best
+    [Transformer_abs] Epoch   1: train_MAE=60.8761  val_MAE=29.7825  lr=3.0e-04  ★ best
+    [Transformer_abs] Epoch   2: train_MAE=27.6808  val_MAE=18.2372  lr=3.0e-04  ★ best
+    [Transformer_abs] Epoch   3: train_MAE=21.6473  val_MAE=13.8786  lr=3.0e-04  ★ best
+    [Transformer_abs] Epoch   5: train_MAE=18.9661  val_MAE=13.7403  lr=3.0e-04  ★ best
+    [Transformer_abs] Epoch   6: train_MAE=18.4576  val_MAE=13.4631  lr=3.0e-04  ★ best
+    [Transformer_abs] Epoch   7: train_MAE=18.0566  val_MAE=12.6348  lr=3.0e-04  ★ best
+    [Transformer_abs] Epoch  10: train_MAE=17.4715  val_MAE=13.3222  lr=3.0e-04  
+    [Transformer_abs] Early stop at epoch 14 (best val MAE=12.6348)
+  ★ TEST: MAE=14.1937  RMSE=17.1002
+    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/Transformer_abs_cgmacros_s3.pt
+
+  Per-participant MAE (Transformer abs):
+         pid  n_samples       mae      rmse
+CGMacros-007       1567 14.193713 17.100168
+    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_Transformer_abs_cgmacros_s3.png
+    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_Transformer_abs_cgmacros_s3.png
+
+  ── Target mode: delta ──
+  Train: 11,443  Val: 1,835  Test: 1,344
+
+  ═══ GRU (delta) ═══
+  Config: h=128 L=2 d=0.2 lr=3e-04
+    [GRU_delta] Epoch   0: train_MAE=16.7791  val_MAE=14.4975  lr=3.0e-04  ★ best
+    [GRU_delta] Epoch   1: train_MAE=16.3227  val_MAE=14.4161  lr=3.0e-04  ★ best
+    [GRU_delta] Epoch   2: train_MAE=16.0339  val_MAE=14.2313  lr=3.0e-04  ★ best
+    [GRU_delta] Epoch   3: train_MAE=15.6861  val_MAE=13.9623  lr=3.0e-04  ★ best
+    [GRU_delta] Epoch   4: train_MAE=15.4356  val_MAE=13.1419  lr=3.0e-04  ★ best
+    [GRU_delta] Epoch   8: train_MAE=14.9733  val_MAE=13.0969  lr=3.0e-04  ★ best
+    [GRU_delta] Epoch   9: train_MAE=14.8943  val_MAE=12.8794  lr=3.0e-04  ★ best
+    [GRU_delta] Epoch  10: train_MAE=14.7429  val_MAE=13.1112  lr=3.0e-04  
+    [GRU_delta] Epoch  11: train_MAE=14.7017  val_MAE=12.8283  lr=3.0e-04  ★ best
+    [GRU_delta] Epoch  14: train_MAE=14.5554  val_MAE=12.7188  lr=3.0e-04  ★ best
+    [GRU_delta] Epoch  16: train_MAE=14.3734  val_MAE=12.6512  lr=3.0e-04  ★ best
+    [GRU_delta] Epoch  20: train_MAE=14.1547  val_MAE=13.2637  lr=3.0e-04  
+    [GRU_delta] Early stop at epoch 23 (best val MAE=12.6512)
+  ★ TEST: MAE=10.2049  RMSE=14.9124
+    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/GRU_delta_cgmacros_s3.pt
+
+  Per-participant MAE (GRU delta):
+         pid  n_samples  mae  rmse
+CGMacros-007       1344  NaN   NaN
+    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_GRU_delta_cgmacros_s3.png
+    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_GRU_delta_cgmacros_s3.png
+
+  ═══ Transformer (delta) ═══
+  Config: h=128 L=2 d=0.2 lr=3e-04
+    [Transformer_delta] Epoch   0: train_MAE=17.0993  val_MAE=14.8723  lr=3.0e-04  ★ best
+    [Transformer_delta] Epoch   1: train_MAE=16.9914  val_MAE=14.6060  lr=3.0e-04  ★ best
+    [Transformer_delta] Epoch   2: train_MAE=16.4508  val_MAE=13.7634  lr=3.0e-04  ★ best
+    [Transformer_delta] Epoch   3: train_MAE=16.0908  val_MAE=13.7261  lr=3.0e-04  ★ best
+    [Transformer_delta] Epoch   7: train_MAE=15.4314  val_MAE=12.7789  lr=3.0e-04  ★ best
+    [Transformer_delta] Epoch   8: train_MAE=15.2645  val_MAE=12.6769  lr=3.0e-04  ★ best
+    [Transformer_delta] Epoch  10: train_MAE=15.0016  val_MAE=12.7691  lr=3.0e-04  
+    [Transformer_delta] Epoch  12: train_MAE=14.6938  val_MAE=12.6063  lr=3.0e-04  ★ best
+    [Transformer_delta] Epoch  14: train_MAE=14.5731  val_MAE=12.5913  lr=3.0e-04  ★ best
+    [Transformer_delta] Epoch  16: train_MAE=14.2762  val_MAE=12.5564  lr=3.0e-04  ★ best
+    [Transformer_delta] Epoch  18: train_MAE=14.1206  val_MAE=12.4837  lr=3.0e-04  ★ best
+    [Transformer_delta] Epoch  20: train_MAE=14.0154  val_MAE=12.6064  lr=3.0e-04  
+    [Transformer_delta] Early stop at epoch 25 (best val MAE=12.4837)
+  ★ TEST: MAE=10.4434  RMSE=14.8410
+    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/Transformer_delta_cgmacros_s3.pt
+
+  Per-participant MAE (Transformer delta):
+         pid  n_samples  mae  rmse
+CGMacros-007       1344  NaN   NaN
+    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_Transformer_delta_cgmacros_s3.png
+    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_Transformer_delta_cgmacros_s3.png
+
+██████████████████████████████████████████████████████████████████████
+  CGMACROS Scenario 3 — Deep Models Summary
+██████████████████████████████████████████████████████████████████████
+
+  Model                     Mode          MAE     ±std       RMSE       hypo     normal      hyper
+  ──────────────────────────────────────────────────────────────────────────────────────────
+  GRU_abs                   abs       15.7597   0.0000    22.4561 12.18(1283) 31.93(284)        N/A
+  Transformer_abs           abs       14.1937   0.0000    17.1002 13.03(1283) 19.45(284)        N/A
+  GRU_delta                 delta     10.2049   0.0000    14.9124  9.19(893) 14.08(235)        N/A
+  Transformer_delta         delta     10.4434   0.0000    14.8410  9.41(893) 14.38(235)        N/A
+
+
+██████████████████████████████████████████████████████████████████████
+  LOADING BRIST1D Scenario 1
+██████████████████████████████████████████████████████████████████████
+  Loading BrisT1D (Scenario 1)...
+    Rows: 177,024, valid targets: 177,024
+
+════════════════════════════════════════════════════════════
+  DEEP MODELS: BRIST1D Scenario 1
+  Channels (3): ['gl', 'carbs', 'insulin']
+  Input dim (with mask): 6
+════════════════════════════════════════════════════════════
+    train :   42,125 samples  (3 participants)
+    val   :  126,440 samples  (5 participants)
+    test  :    8,459 samples  (1 participants)
+
+  ── Target mode: abs ──
+  Train: 4,212  Val: 12,644  Test: 8,459
+
+  ═══ GRU (abs) ═══
+  Config: h=128 L=2 d=0.2 lr=3e-04
+    [GRU_abs] Epoch   0: train_MAE=3.4429  val_MAE=2.3366  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch   1: train_MAE=1.8608  val_MAE=2.0080  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch   3: train_MAE=1.5321  val_MAE=1.9727  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch   5: train_MAE=1.4766  val_MAE=1.9295  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch   6: train_MAE=1.4491  val_MAE=1.9145  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch  10: train_MAE=1.3899  val_MAE=2.1921  lr=3.0e-04  
+    [GRU_abs] Early stop at epoch 13 (best val MAE=1.9145)
+  ★ TEST: MAE=2.3813  RMSE=3.0068
+    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/GRU_abs_brist1d_s1.pt
+
+  Per-participant MAE (GRU abs):
+pid  n_samples      mae     rmse
+p01       8459 2.381312 3.006751
+    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_GRU_abs_brist1d_s1.png
+    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_GRU_abs_brist1d_s1.png
+
+  ═══ Transformer (abs) ═══
+  Config: h=128 L=2 d=0.2 lr=3e-04
+    [Transformer_abs] Epoch   0: train_MAE=3.2748  val_MAE=2.3716  lr=3.0e-04  ★ best
+    [Transformer_abs] Epoch   1: train_MAE=1.8143  val_MAE=2.1652  lr=3.0e-04  ★ best
+    [Transformer_abs] Epoch   3: train_MAE=1.7042  val_MAE=2.0302  lr=3.0e-04  ★ best
+    [Transformer_abs] Epoch   4: train_MAE=1.5031  val_MAE=2.0108  lr=3.0e-04  ★ best
+    [Transformer_abs] Epoch   5: train_MAE=1.4526  val_MAE=1.7481  lr=3.0e-04  ★ best
+    [Transformer_abs] Epoch   8: train_MAE=1.4242  val_MAE=1.7416  lr=3.0e-04  ★ best
+    [Transformer_abs] Epoch  10: train_MAE=1.4123  val_MAE=1.8896  lr=3.0e-04  
+    [Transformer_abs] Epoch  12: train_MAE=1.3799  val_MAE=1.7363  lr=3.0e-04  ★ best
+    [Transformer_abs] Early stop at epoch 19 (best val MAE=1.7363)
+  ★ TEST: MAE=2.2184  RMSE=2.9061
+    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/Transformer_abs_brist1d_s1.pt
+
+  Per-participant MAE (Transformer abs):
+pid  n_samples      mae     rmse
+p01       8459 2.218436 2.906127
+    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_Transformer_abs_brist1d_s1.png
+    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_Transformer_abs_brist1d_s1.png
+
+  ── Target mode: delta ──
+  Train: 4,076  Val: 12,585  Test: 7,716
+
+  ═══ GRU (delta) ═══
+  Config: h=128 L=2 d=0.2 lr=3e-04
+    [GRU_delta] Epoch   0: train_MAE=1.3472  val_MAE=1.7241  lr=3.0e-04  ★ best
+    [GRU_delta] Epoch   1: train_MAE=1.3098  val_MAE=1.6177  lr=3.0e-04  ★ best
+    [GRU_delta] Early stop at epoch 8 (best val MAE=1.6177)
+  ★ TEST: MAE=2.1665  RMSE=2.8274
+    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/GRU_delta_brist1d_s1.pt
+
+  Per-participant MAE (GRU delta):
+pid  n_samples  mae  rmse
+p01       7716  NaN   NaN
+    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_GRU_delta_brist1d_s1.png
+    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_GRU_delta_brist1d_s1.png
+
+  ═══ Transformer (delta) ═══
+  Config: h=128 L=2 d=0.2 lr=3e-04
+    [Transformer_delta] Epoch   0: train_MAE=1.4012  val_MAE=1.7112  lr=3.0e-04  ★ best
+    [Transformer_delta] Epoch   1: train_MAE=1.3983  val_MAE=1.7040  lr=3.0e-04  ★ best
+    [Transformer_delta] Epoch   2: train_MAE=1.3965  val_MAE=1.6892  lr=3.0e-04  ★ best
+    [Transformer_delta] Epoch   4: train_MAE=1.3384  val_MAE=1.5950  lr=3.0e-04  ★ best
+    [Transformer_delta] Epoch  10: train_MAE=1.2508  val_MAE=1.6409  lr=1.5e-04  
+    [Transformer_delta] Early stop at epoch 11 (best val MAE=1.5950)
+  ★ TEST: MAE=2.1363  RMSE=2.8274
+    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/Transformer_delta_brist1d_s1.pt
+
+  Per-participant MAE (Transformer delta):
+pid  n_samples  mae  rmse
+p01       7716  NaN   NaN
+    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_Transformer_delta_brist1d_s1.png
+    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_Transformer_delta_brist1d_s1.png
+
+██████████████████████████████████████████████████████████████████████
+  BRIST1D Scenario 1 — Deep Models Summary
+██████████████████████████████████████████████████████████████████████
+
+  Model                     Mode          MAE     ±std       RMSE       hypo     normal      hyper
+  ──────────────────────────────────────────────────────────────────────────────────────────
+  GRU_abs                   abs        2.3813   0.0000     3.0068  3.59(582) 2.07(4888) 2.65(2989)
+  Transformer_abs           abs        2.2184   0.0000     2.9061  2.88(582) 1.86(4888) 2.67(2989)
+  GRU_delta                 delta      2.1665   0.0000     2.8274 3.20(1101) 1.70(3129) 2.28(2765)
+  Transformer_delta         delta      2.1363   0.0000     2.8274 3.11(1101) 1.65(3129) 2.29(2765)
+
+
+██████████████████████████████████████████████████████████████████████
+  LOADING BRIST1D Scenario 3
+██████████████████████████████████████████████████████████████████████
+  Loading BrisT1D (Scenario 3)...
+    Rows: 177,024, valid targets: 177,024
+
+════════════════════════════════════════════════════════════
+  DEEP MODELS: BRIST1D Scenario 3
+  Channels (6): ['gl', 'carbs', 'insulin', 'hr', 'steps', 'cals_act']
+  Input dim (with mask): 12
+════════════════════════════════════════════════════════════
+    train :   42,125 samples  (3 participants)
+    val   :  126,440 samples  (5 participants)
+    test  :    8,459 samples  (1 participants)
+
+  ── Target mode: abs ──
+  Train: 4,212  Val: 12,644  Test: 8,459
+
+  ═══ GRU (abs) ═══
+  Config: h=128 L=2 d=0.2 lr=3e-04
+    [GRU_abs] Epoch   0: train_MAE=3.5073  val_MAE=2.3323  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch   1: train_MAE=1.8795  val_MAE=2.1479  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch   2: train_MAE=1.6821  val_MAE=1.9136  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch   6: train_MAE=1.4675  val_MAE=1.8832  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch   7: train_MAE=1.4463  val_MAE=1.7846  lr=3.0e-04  ★ best
+    [GRU_abs] Epoch  10: train_MAE=1.4208  val_MAE=1.9216  lr=3.0e-04  
+    [GRU_abs] Early stop at epoch 14 (best val MAE=1.7846)
+  ★ TEST: MAE=2.3532  RMSE=3.0436
+    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/GRU_abs_brist1d_s3.pt
+
+  Per-participant MAE (GRU abs):
+pid  n_samples      mae     rmse
+p01       8459 2.353154 3.043645
+    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_GRU_abs_brist1d_s3.png
+    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_GRU_abs_brist1d_s3.png
+
+  ═══ Transformer (abs) ═══
+  Config: h=128 L=2 d=0.2 lr=3e-04
+    [Transformer_abs] Epoch   0: train_MAE=3.3031  val_MAE=2.3464  lr=3.0e-04  ★ best
+    [Transformer_abs] Epoch   1: train_MAE=1.8480  val_MAE=2.1503  lr=3.0e-04  ★ best
+    [Transformer_abs] Epoch   4: train_MAE=1.6552  val_MAE=2.1225  lr=3.0e-04  ★ best
+    [Transformer_abs] Epoch   5: train_MAE=1.5627  val_MAE=1.8834  lr=3.0e-04  ★ best
+    [Transformer_abs] Epoch   6: train_MAE=1.4770  val_MAE=1.7995  lr=3.0e-04  ★ best
+    [Transformer_abs] Epoch   7: train_MAE=1.4198  val_MAE=1.7142  lr=3.0e-04  ★ best
+    [Transformer_abs] Epoch   9: train_MAE=1.3968  val_MAE=1.7105  lr=3.0e-04  ★ best
+    [Transformer_abs] Epoch  10: train_MAE=1.4040  val_MAE=1.8534  lr=3.0e-04  
+    [Transformer_abs] Early stop at epoch 16 (best val MAE=1.7105)
+  ★ TEST: MAE=2.2233  RMSE=2.9435
+    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/Transformer_abs_brist1d_s3.pt
+
+  Per-participant MAE (Transformer abs):
+pid  n_samples      mae     rmse
+p01       8459 2.223257 2.943468
+    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_Transformer_abs_brist1d_s3.png
+    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_Transformer_abs_brist1d_s3.png
+
+  ── Target mode: delta ──
+  Train: 4,076  Val: 12,585  Test: 7,716
+
+  ═══ GRU (delta) ═══
+  Config: h=128 L=2 d=0.2 lr=3e-04
+    [GRU_delta] Epoch   0: train_MAE=1.3595  val_MAE=1.6682  lr=3.0e-04  ★ best
+    [GRU_delta] Epoch   2: train_MAE=1.2821  val_MAE=1.6327  lr=3.0e-04  ★ best
+    [GRU_delta] Epoch   6: train_MAE=1.2517  val_MAE=1.6205  lr=3.0e-04  ★ best
+    [GRU_delta] Epoch  10: train_MAE=1.2301  val_MAE=1.6410  lr=3.0e-04  
+    [GRU_delta] Early stop at epoch 13 (best val MAE=1.6205)
+  ★ TEST: MAE=2.0888  RMSE=2.7392
+    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/GRU_delta_brist1d_s3.pt
+
+  Per-participant MAE (GRU delta):
+pid  n_samples  mae  rmse
+p01       7716  NaN   NaN
+    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_GRU_delta_brist1d_s3.png
+    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_GRU_delta_brist1d_s3.png
+
+  ═══ Transformer (delta) ═══
+  Config: h=128 L=2 d=0.2 lr=3e-04
+    [Transformer_delta] Epoch   0: train_MAE=1.3983  val_MAE=1.7196  lr=3.0e-04  ★ best
+    [Transformer_delta] Epoch   1: train_MAE=1.3946  val_MAE=1.7033  lr=3.0e-04  ★ best
+    [Transformer_delta] Epoch   5: train_MAE=1.3196  val_MAE=1.6919  lr=3.0e-04  ★ best
+    [Transformer_delta] Epoch   6: train_MAE=1.2766  val_MAE=1.6353  lr=3.0e-04  ★ best
+    [Transformer_delta] Epoch  10: train_MAE=1.2303  val_MAE=1.6756  lr=3.0e-04  
+    [Transformer_delta] Early stop at epoch 13 (best val MAE=1.6353)
+  ★ TEST: MAE=2.1086  RMSE=2.7679
+    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/Transformer_delta_brist1d_s3.pt
+
+  Per-participant MAE (Transformer delta):
+pid  n_samples  mae  rmse
+p01       7716  NaN   NaN
+    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_Transformer_delta_brist1d_s3.png
+    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_Transformer_delta_brist1d_s3.png
+
+██████████████████████████████████████████████████████████████████████
+  BRIST1D Scenario 3 — Deep Models Summary
+██████████████████████████████████████████████████████████████████████
+
+  Model                     Mode          MAE     ±std       RMSE       hypo     normal      hyper
+  ──────────────────────────────────────────────────────────────────────────────────────────
+  GRU_abs                   abs        2.3532   0.0000     3.0436  3.09(582) 2.00(4888) 2.79(2989)
+  Transformer_abs           abs        2.2233   0.0000     2.9435  2.64(582) 1.70(4888) 3.00(2989)
+  GRU_delta                 delta      2.0888   0.0000     2.7392 2.62(1101) 1.65(3129) 2.38(2765)
+  Transformer_delta         delta      2.1086   0.0000     2.7679 2.71(1101) 1.66(3129) 2.38(2765)
+
+
+██████████████████████████████████████████████████████████████████████
+  GRAND SUMMARY — Deep Sequence Models
+  Total runtime: 925.4 minutes
+██████████████████████████████████████████████████████████████████████
+
+  Dataset     Sc Model                     Mode        MAE      ±     RMSE
+  ───────────────────────────────────────────────────────────────────────────
+  brist1d      1 GRU_abs                   abs      2.3813 0.0000   3.0068
+  brist1d      1 Transformer_abs           abs      2.2184 0.0000   2.9061
+  brist1d      1 GRU_delta                 delta    2.1665 0.0000   2.8274
+  brist1d      1 Transformer_delta         delta    2.1363 0.0000   2.8274
+  ───────────────────────────────────────────────────────────────────────────
+  brist1d      3 GRU_abs                   abs      2.3532 0.0000   3.0436
+  brist1d      3 Transformer_abs           abs      2.2233 0.0000   2.9435
+  brist1d      3 GRU_delta                 delta    2.0888 0.0000   2.7392
+  brist1d      3 Transformer_delta         delta    2.1086 0.0000   2.7679
+  ───────────────────────────────────────────────────────────────────────────
+  cgmacros     1 GRU_abs                   abs     16.7971 0.0000  24.0362
+  cgmacros     1 Transformer_abs           abs     13.4696 0.0000  16.6665
+  cgmacros     1 GRU_delta                 delta   11.3177 0.0000  15.3878
+  cgmacros     1 Transformer_delta         delta   10.7648 0.0000  15.2788
+  ───────────────────────────────────────────────────────────────────────────
+  cgmacros     2 GRU_abs                   abs     15.1324 0.0000  22.5496
+  cgmacros     2 Transformer_abs           abs     14.5092 0.0000  18.4624
+  cgmacros     2 GRU_delta                 delta   10.9170 0.0000  15.5737
+  cgmacros     2 Transformer_delta         delta   10.5776 0.0000  15.0681
+  ───────────────────────────────────────────────────────────────────────────
+  cgmacros     3 GRU_abs                   abs     15.7597 0.0000  22.4561
+  cgmacros     3 Transformer_abs           abs     14.1937 0.0000  17.1002
+  cgmacros     3 GRU_delta                 delta   10.2049 0.0000  14.9124
+  cgmacros     3 Transformer_delta         delta   10.4434 0.0000  14.8410
+  ───────────────────────────────────────────────────────────────────────────
+  hupa         1 GRU_abs                   abs     23.3610 0.0000  33.9116
+  hupa         1 Transformer_abs           abs     35.4251 0.0000  52.4134
+  hupa         1 GRU_delta                 delta   23.2156 0.0000  33.8452
+  hupa         1 Transformer_delta         delta   27.2272 0.0000  37.9661
+  ───────────────────────────────────────────────────────────────────────────
+  hupa         3 GRU_abs                   abs     24.8434 0.0000  34.5623
+  hupa         3 Transformer_abs           abs     28.8154 0.0000  40.6285
+  hupa         3 GRU_delta                 delta   25.4657 0.0000  35.1310
+  hupa         3 Transformer_delta         delta   26.3224 0.0000  36.1124
+  ───────────────────────────────────────────────────────────────────────────
+
+  ★ BEST MODEL PER DATASET:
+    brist1d S1: Transformer_delta (delta) MAE=2.1363±0.0000
+    brist1d S3: GRU_delta (delta) MAE=2.0888±0.0000
+    cgmacros S1: Transformer_delta (delta) MAE=10.7648±0.0000
+    cgmacros S2: Transformer_delta (delta) MAE=10.5776±0.0000
+    cgmacros S3: GRU_delta (delta) MAE=10.2049±0.0000
+    hupa S1: GRU_delta (delta) MAE=23.2156±0.0000
+    hupa S3: GRU_abs (abs) MAE=24.8434±0.0000
+
+  Summary saved: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/summary_table.txt
+
+  ══════════════════════════════════════════════════════════════
+  ANALYSIS: What Made Deep Models Work (or Not)
+  ══════════════════════════════════════════════════════════════
+
+  KEY ACCURACY IMPROVEMENTS:
+
+  1. MASK-AS-CHANNELS: By concatenating a binary mask alongside the data,
+     the model learns to distinguish "zero because missing" from "zero
+     because the patient didn't eat." This is critical for sparse meal/
+     insulin channels where most timesteps are genuinely zero.
+
+  2. LEARNABLE POSITIONAL ENCODING (Transformer): Unlike fixed sinusoidal
+     PE, learnable embeddings let the model assign different importance
+     to different positions in the 6-hour window. The model typically
+     learns to weight recent timesteps (last 30 min) more heavily.
+
+  3. GELU ACTIVATION + LAYERNORM: GELU provides smoother gradients than
+     ReLU at the origin, helping the model capture the subtle dynamics
+     near-zero delta targets. LayerNorm in the head stabilizes training
+     across the wide range of glucose values.
+
+  4. DELTA TARGET MODE: When predicting Δy instead of y_abs, the model
+     doesn't need to "memorize" the current glucose level — it focuses
+     purely on learning the *change*. This typically improves MAE by
+     5-15% because the dominant signal (current glucose) is removed,
+     forcing the model to learn meal/insulin/activity dynamics.
+
+  5. ADAMW + WEIGHT DECAY: Unlike vanilla Adam, AdamW decouples weight
+     decay from the gradient update. This provides better regularization,
+     especially important for the small HUPA dataset (~25 participants)
+     where overfitting is a real risk.
+
+  6. LR SCHEDULING: ReduceLROnPlateau halves the LR when val MAE
+     plateaus. This lets the model make large updates initially (explore)
+     and fine-tune later (exploit). Combined with early stopping, it
+     prevents training past the optimal point.
+
+  WHERE DEEP MODELS SHOULD WIN OVER GBDT:
+  - Post-meal spikes: GRU/Transformer can learn the nonlinear temporal
+    pattern of glucose rising 30-90 min after carbs, while GBDT only
+    sees summary statistics over fixed windows.
+  - Insulin action curves: The delayed, overlapping effects of multiple
+    insulin doses over 4+ hours require genuine sequence modeling.
+  - Activity transitions: A sequence model can learn "HR spike at t-30
+    followed by HR drop at t-15 means glucose will drop at t+60."
+  
+
+██████████████████████████████████████████████████████████████████████
+  █ STEP 3 COMPLETE █
+██████████████████████████████████████████████████████████████████████
+se the patient didn't eat." This is critical for sparse meal/
+     insulin channels where most timesteps are genuinely zero.
+
+  2. LEARNABLE POSITIONAL ENCODING (Transformer): Unlike fixed sinusoidal
+     PE, learnable embeddings let the model assign different importance
+     to different positions in the 6-hour window. The model typically
+     learns to weight recent timesteps (last 30 min) more heavily.
+
+  3. GELU ACTIVATION + LAYERNORM: GELU provides smoother gradients than
+     ReLU at the origin, helping the model capture the subtle dynamics
+     near-zero delta targets. LayerNorm in the head stabilizes training
+     across the wide range of glucose values.
+
+  4. DELTA TARGET MODE: When predicting Δy instead of y_abs, the model
+     doesn't need to "memorize" the current glucose level — it focuses
+     purely on learning the *change*. This typically improves MAE by
+     5-15% because the dominant signal (current glucose) is removed,
+     forcing the model to learn meal/insulin/activity dynamics.
+
+  5. ADAMW + WEIGHT DECAY: Unlike vanilla Adam, AdamW decouples weight
+     decay from the gradient update. This provides better regularization,
+     especially important for the small HUPA dataset (~25 participants)
+     where overfitting is a real risk.
+
+  6. LR SCHEDULING: ReduceLROnPlateau halves the LR when val MAE
+     plateaus. This lets the model make large updates initially (explore)
+     and fine-tune later (exploit). Combined with early stopping, it
+     prevents training past the optimal point.
+
+  WHERE DEEP MODELS SHOULD WIN OVER GBDT:
+  - Post-meal spikes: GRU/Transformer can learn the nonlinear temporal
+    pattern of glucose rising 30-90 min after carbs, while GBDT only
+    sees summary statistics over fixed windows.
+  - Insulin action curves: The delayed, overlapping effects of multiple
+    insulin doses over 4+ hours require genuine sequence modeling.
+  - Activity transitions: A sequence model can learn "HR spike at t-30
+    followed by HR drop at t-15 means glucose will drop at t+60."
+  
+
+██████████████████████████████████████████████████████████████████████
+  █ STEP 3 COMPLETE █
+██████████████████████████████████████████████████████████████████████

@@ -1,0 +1,131 @@
+Using device: mps
+Running Uncertanity Sweep...
+  Loading HUPA (Scenario 1)...
+    Participants: 25, samples: 307,317
+    train :  247,301 samples  (18 participants)
+    val   :   12,664 samples  (4 participants)
+    test  :   47,352 samples  (3 participants)
+
+============================================================
+  Training Standard Transformer (for MC-Dropout base)
+============================================================
+    [Standard] Epoch   0: train_MAE=101.6302  val_MAE=67.7407  lr=3.0e-04  ★ best
+    [Standard] Epoch   1: train_MAE=34.8267  val_MAE=37.0771  lr=3.0e-04  ★ best
+    [Standard] Epoch   2: train_MAE=24.8122  val_MAE=32.2193  lr=3.0e-04  ★ best
+    [Standard] Epoch   3: train_MAE=23.4779  val_MAE=28.7922  lr=3.0e-04  ★ best
+    [Standard] Epoch   4: train_MAE=22.8426  val_MAE=28.2454  lr=3.0e-04  ★ best
+    [Standard] Epoch  10: train_MAE=21.9057  val_MAE=28.6601  lr=1.5e-04  
+    [Standard] Epoch  11: train_MAE=21.9523  val_MAE=27.9685  lr=1.5e-04  ★ best
+    [Standard] Epoch  14: train_MAE=21.8067  val_MAE=27.6625  lr=1.5e-04  ★ best
+    [Standard] Epoch  16: train_MAE=21.7020  val_MAE=27.1936  lr=1.5e-04  ★ best
+    [Standard] Epoch  20: train_MAE=21.4576  val_MAE=28.7803  lr=1.5e-04  
+    [Standard] Early stop at epoch 23 (best val MAE=27.1936)
+
+  Running MC-Dropout Inference...
+  MC-Dropout completed in 244.7s
+
+  [MC_Dropout] MAE: 25.00  RMSE: 36.17
+  [MC_Dropout] 80% CI Coverage: 44.6%
+  [MC_Dropout] Mean Interval Width: 30.2 mg/dL
+
+============================================================
+  Training Quantile Transformer (Pinball)
+============================================================
+    [Quantile] Epoch   0: train_Pinball=53.0797  val_Pinball=35.9158  lr=3.0e-04 ★ best
+    [Quantile] Epoch   1: train_Pinball=14.9116  val_Pinball=13.5308  lr=3.0e-04 ★ best
+    [Quantile] Epoch   2: train_Pinball=8.4811  val_Pinball=11.1950  lr=3.0e-04 ★ best
+    [Quantile] Epoch   3: train_Pinball=7.9333  val_Pinball=11.3638  lr=3.0e-04
+    [Quantile] Epoch   4: train_Pinball=7.7444  val_Pinball=10.2599  lr=3.0e-04 ★ best
+    [Quantile] Epoch   5: train_Pinball=7.5756  val_Pinball=10.2094  lr=3.0e-04 ★ best
+    [Quantile] Epoch   6: train_Pinball=7.4891  val_Pinball=9.1631  lr=3.0e-04 ★ best
+    [Quantile] Epoch   7: train_Pinball=7.4547  val_Pinball=9.0754  lr=3.0e-04 ★ best
+    [Quantile] Epoch   8: train_Pinball=7.4401  val_Pinball=9.6585  lr=3.0e-04
+    [Quantile] Epoch   9: train_Pinball=7.3630  val_Pinball=9.2423  lr=3.0e-04
+    [Quantile] Epoch  10: train_Pinball=7.3620  val_Pinball=9.0451  lr=3.0e-04 ★ best
+    [Quantile] Epoch  11: train_Pinball=7.3590  val_Pinball=9.5949  lr=3.0e-04
+    [Quantile] Epoch  12: train_Pinball=7.3012  val_Pinball=8.9132  lr=3.0e-04 ★ best
+    [Quantile] Epoch  13: train_Pinball=7.2756  val_Pinball=9.9718  lr=3.0e-04
+    [Quantile] Epoch  14: train_Pinball=7.2553  val_Pinball=9.8232  lr=3.0e-04
+    [Quantile] Epoch  15: train_Pinball=7.2661  val_Pinball=11.1415  lr=3.0e-04
+    [Quantile] Epoch  16: train_Pinball=7.2609  val_Pinball=9.4880  lr=1.5e-04
+    [Quantile] Epoch  17: train_Pinball=7.1181  val_Pinball=9.8161  lr=1.5e-04
+    [Quantile] Epoch  18: train_Pinball=7.1403  val_Pinball=9.3639  lr=1.5e-04
+    [Quantile] Epoch  19: train_Pinball=7.1288  val_Pinball=9.4856  lr=1.5e-04
+    [Quantile] Early stop at epoch 19 (best val loss=8.9132)
+
+  Running Quantile Inference...
+  Quantile inference completed in 3.2s
+
+  [Quantile] MAE: 33.11  RMSE: 47.33
+  [Quantile] 80% CI Coverage: 64.4%
+  [Quantile] Mean Interval Width: 72.2 mg/dL
+  Loading BrisT1D (Scenario 3)...
+    Rows: 177,024, valid targets: 177,024
+    train :   42,125 samples  (3 participants)
+    val   :  126,440 samples  (5 participants)
+    test  :    8,459 samples  (1 participants)
+
+============================================================
+  Training Standard Transformer (for MC-Dropout base)
+============================================================
+    [Standard] Epoch   0: train_MAE=3.3031  val_MAE=2.3464  lr=3.0e-04  ★ best
+    [Standard] Epoch   1: train_MAE=1.8480  val_MAE=2.1503  lr=3.0e-04  ★ best
+    [Standard] Epoch   4: train_MAE=1.6552  val_MAE=2.1225  lr=3.0e-04  ★ best
+    [Standard] Epoch   5: train_MAE=1.5627  val_MAE=1.8834  lr=3.0e-04  ★ best
+    [Standard] Epoch   6: train_MAE=1.4770  val_MAE=1.7995  lr=3.0e-04  ★ best
+    [Standard] Epoch   7: train_MAE=1.4198  val_MAE=1.7142  lr=3.0e-04  ★ best
+    [Standard] Epoch   9: train_MAE=1.3968  val_MAE=1.7105  lr=3.0e-04  ★ best
+    [Standard] Epoch  10: train_MAE=1.4040  val_MAE=1.8534  lr=3.0e-04  
+    [Standard] Early stop at epoch 16 (best val MAE=1.7105)
+
+  Running MC-Dropout Inference...
+  MC-Dropout completed in 298.9s
+
+  [MC_Dropout] MAE: 2.40  RMSE: 3.13
+  [MC_Dropout] 80% CI Coverage: 22.2%
+  [MC_Dropout] Mean Interval Width: 1.7 mg/dL
+
+============================================================
+  Training Quantile Transformer (Pinball)
+============================================================
+    [Quantile] Epoch   0: train_Pinball=2.2462  val_Pinball=1.7249  lr=3.0e-04 ★ best
+    [Quantile] Epoch   1: train_Pinball=0.7535  val_Pinball=0.7871  lr=3.0e-04 ★ best
+    [Quantile] Epoch   2: train_Pinball=0.5991  val_Pinball=0.7156  lr=3.0e-04 ★ best
+    [Quantile] Epoch   3: train_Pinball=0.5658  val_Pinball=0.6918  lr=3.0e-04 ★ best
+    [Quantile] Epoch   4: train_Pinball=0.5575  val_Pinball=0.6756  lr=3.0e-04 ★ best
+    [Quantile] Epoch   5: train_Pinball=0.5426  val_Pinball=0.6642  lr=3.0e-04 ★ best
+    [Quantile] Epoch   6: train_Pinball=0.5086  val_Pinball=0.6327  lr=3.0e-04 ★ best
+    [Quantile] Epoch   7: train_Pinball=0.4839  val_Pinball=0.5689  lr=3.0e-04 ★ best
+    [Quantile] Epoch   8: train_Pinball=0.4668  val_Pinball=0.5623  lr=3.0e-04 ★ best
+    [Quantile] Epoch   9: train_Pinball=0.4632  val_Pinball=0.5966  lr=3.0e-04
+    [Quantile] Epoch  10: train_Pinball=0.4588  val_Pinball=0.6092  lr=3.0e-04
+    [Quantile] Epoch  11: train_Pinball=0.4516  val_Pinball=0.5757  lr=3.0e-04
+    [Quantile] Epoch  12: train_Pinball=0.4452  val_Pinball=0.6041  lr=1.5e-04
+    [Quantile] Epoch  13: train_Pinball=0.4413  val_Pinball=0.5526  lr=1.5e-04 ★ best
+    [Quantile] Epoch  14: train_Pinball=0.4386  val_Pinball=0.5798  lr=1.5e-04
+    [Quantile] Epoch  15: train_Pinball=0.4371  val_Pinball=0.5721  lr=1.5e-04
+    [Quantile] Epoch  16: train_Pinball=0.4331  val_Pinball=0.5652  lr=1.5e-04
+    [Quantile] Epoch  17: train_Pinball=0.4298  val_Pinball=0.5899  lr=7.5e-05
+    [Quantile] Epoch  18: train_Pinball=0.4250  val_Pinball=0.5826  lr=7.5e-05
+    [Quantile] Epoch  19: train_Pinball=0.4263  val_Pinball=0.5881  lr=7.5e-05
+    [Quantile] Epoch  20: train_Pinball=0.4227  val_Pinball=0.5900  lr=7.5e-05
+    [Quantile] Early stop at epoch 20 (best val loss=0.5526)
+
+  Running Quantile Inference...
+  Quantile inference completed in 3.3s
+
+  [Quantile] MAE: 2.35  RMSE: 3.09
+  [Quantile] 80% CI Coverage: 64.1%
+  [Quantile] Mean Interval Width: 5.7 mg/dL
+
+
+████████████████████████████████████████████████████████████
+  UNCERTAINTY SUMMARY
+████████████████████████████████████████████████████████████
+
+  Dataset       Method       MAE     RMSE    Cov%   Width
+  ------------------------------------------------------------
+  HUPA S1       MC-Drop      25.00   36.17   44.6   30.2  
+  HUPA S1       Quantile     33.11   47.33   64.4   72.2  
+  BrisT1d S3    MC-Drop      2.40    3.13    22.2   1.7   
+  BrisT1d S3    Quantile     2.35    3.09    64.1   5.7   

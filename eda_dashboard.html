@@ -1,0 +1,1490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diabetes Dataset EDA Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <style>
+        :root {
+            --bg-primary: #0a0e1a;
+            --bg-secondary: #111827;
+            --bg-card: #1a2035;
+            --bg-card-hover: #1f2845;
+            --text-primary: #f0f4ff;
+            --text-secondary: #94a3c8;
+            --text-muted: #6b7fa3;
+            --accent-blue: #3b82f6;
+            --accent-purple: #8b5cf6;
+            --accent-teal: #14b8a6;
+            --accent-orange: #f59e0b;
+            --accent-rose: #f43f5e;
+            --border: #1e293b;
+            --glass: rgba(255, 255, 255, 0.04);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            --radius: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        /* ── NAV BAR ── */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(10, 14, 26, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 0 2rem;
+        }
+
+        .nav-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .nav-logo {
+            font-weight: 700;
+            font-size: 1.15rem;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .nav-link {
+            padding: 0.45rem 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+            background: var(--glass);
+        }
+
+        .nav-link.active {
+            color: var(--accent-blue);
+            background: rgba(59, 130, 246, 0.1);
+            border-color: rgba(59, 130, 246, 0.25);
+        }
+
+        /* ── HERO / HOME ── */
+        .hero {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 5rem 2rem 4rem;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.35rem 1rem;
+            border-radius: 99px;
+            background: rgba(59, 130, 246, 0.12);
+            color: var(--accent-blue);
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #f0f4ff 30%, var(--accent-blue) 70%, var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+
+        /* Dataset cards on homepage */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2rem;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .ds-card {
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            padding: 2rem;
+            cursor: pointer;
+            transition: all 0.35s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ds-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.06), rgba(139, 92, 246, 0.06));
+            opacity: 0;
+            transition: opacity 0.35s;
+        }
+
+        .ds-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(59, 130, 246, 0.3);
+            box-shadow: var(--shadow);
+        }
+
+        .ds-card:hover::before {
+            opacity: 1;
+        }
+
+        .ds-card .icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.2rem;
+            position: relative;
+        }
+
+        .ds-card.kaggle .icon {
+            background: rgba(59, 130, 246, 0.15);
+        }
+
+        .ds-card.mendeley .icon {
+            background: rgba(20, 184, 166, 0.15);
+        }
+
+        .ds-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        .ds-card .source {
+            font-size: 0.78rem;
+            color: var(--accent-blue);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        .ds-card.mendeley .source {
+            color: var(--accent-teal);
+        }
+
+        .ds-card p {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            position: relative;
+        }
+
+        .ds-card .stats-row {
+            display: flex;
+            gap: 1.2rem;
+            margin-top: 1rem;
+            position: relative;
+            flex-wrap: wrap;
+        }
+
+        .ds-card .stat {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        .ds-card .stat strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .ds-card .arrow {
+            position: absolute;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .ds-card:hover .arrow {
+            transform: translateX(4px);
+            color: var(--accent-blue);
+        }
+
+        /* ── DATASET PAGES ── */
+        .page {
+            display: none;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 2rem 6rem;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .page-header {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .page-header .tag {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.8rem;
+        }
+
+        .page-header .tag.kaggle {
+            background: rgba(59, 130, 246, 0.12);
+            color: var(--accent-blue);
+        }
+
+        .page-header .tag.mendeley {
+            background: rgba(20, 184, 166, 0.12);
+            color: var(--accent-teal);
+        }
+
+        .page-header h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .page-header .desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .page-header .desc p {
+            margin-bottom: 0.8rem;
+        }
+
+        /* Key stats strip */
+        .stats-strip {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-pill {
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 10px;
+            padding: 0.6rem 1.1rem;
+            font-size: 0.82rem;
+        }
+
+        .stat-pill .label {
+            color: var(--text-muted);
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .stat-pill .value {
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-top: 0.15rem;
+        }
+
+        /* Figure sections */
+        .fig-section {
+            margin-bottom: 3.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+
+        .fig-section .fig-header {
+            padding: 1.5rem 2rem 0.8rem;
+        }
+
+        .fig-section .fig-num {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--accent-blue);
+            margin-bottom: 0.3rem;
+        }
+
+        .fig-section.mendeley .fig-num {
+            color: var(--accent-teal);
+        }
+
+        .fig-section h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+        }
+
+        .fig-section .fig-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            padding: 0 2rem 1.2rem;
+        }
+
+        .fig-section .fig-desc p {
+            margin-bottom: 0.6rem;
+        }
+
+        .fig-section .fig-desc .term {
+            color: var(--accent-orange);
+            font-weight: 600;
+        }
+
+        .fig-section .fig-desc .highlight {
+            background: rgba(59, 130, 246, 0.1);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 500;
+            color: var(--accent-blue);
+            font-size: 0.85rem;
+        }
+
+        .fig-section .fig-img {
+            padding: 1rem 1.5rem 1.5rem;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.02);
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .fig-section .fig-img img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Interpretation callout */
+        .interpretation {
+            margin: 0 2rem 1.2rem;
+            padding: 0.8rem 1rem;
+            border-left: 3px solid var(--accent-purple);
+            background: rgba(139, 92, 246, 0.06);
+            border-radius: 0 8px 8px 0;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .interpretation strong {
+            color: var(--accent-purple);
+        }
+
+        /* Back to top */
+        .back-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: var(--accent-blue);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+            box-shadow: 0 4px 16px rgba(59, 130, 246, 0.4);
+            border: none;
+            z-index: 99;
+        }
+
+        .back-top.visible {
+            opacity: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 700px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .stats-strip {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <div class="nav-inner">
+            <div class="nav-logo" onclick="showHome()">📊 Diabetes EDA Dashboard</div>
+            <div class="nav-links">
+                <div class="nav-link active" id="nav-home" onclick="showHome()">Home</div>
+                <div class="nav-link" id="nav-kaggle" onclick="showPage('kaggle')">BrisT1D (Kaggle)</div>
+                <div class="nav-link" id="nav-mendeley" onclick="showPage('mendeley')">HUPA-UCM (Mendeley)</div>
+                <div class="nav-link" id="nav-cgmacros" onclick="showPage('cgmacros')">CGMacros</div>
+                <div class="nav-link" id="nav-pipeline" onclick="showPage('pipeline')">Pipeline Progress</div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ═══════════════════ HOME PAGE ═══════════════════ -->
+    <div class="page active" id="page-home">
+        <div class="hero">
+            <div class="hero-badge">Undergraduate Thesis · Exploratory Data Analysis</div>
+            <h1>Predicting Blood Glucose Trends from Meals, Insulin &amp; Activity</h1>
+            <p>This dashboard presents a comprehensive Exploratory Data Analysis of two real-world Type&nbsp;1 Diabetes
+                datasets, demonstrating their suitability for building ML-based blood glucose prediction models.</p>
+        </div>
+
+        <div class="cards-grid">
+            <!-- BrisT1D -->
+            <div class="ds-card kaggle" onclick="showPage('kaggle')">
+                <div class="icon">📈</div>
+                <div class="source">Kaggle Competition</div>
+                <h3>BrisT1D Blood Glucose Prediction</h3>
+                <p>A pre-engineered, competition-ready dataset from the University of Bristol. Each row is a snapshot
+                    with 6&nbsp;hours of history across 7&nbsp;signal channels, predicting glucose 1&nbsp;hour ahead.
+                </p>
+                <div class="stats-row">
+                    <div class="stat"><strong>177,024</strong> rows</div>
+                    <div class="stat"><strong>508</strong> columns</div>
+                    <div class="stat"><strong>9</strong> train participants</div>
+                    <div class="stat"><strong>12</strong> figures</div>
+                </div>
+                <div class="arrow">→</div>
+            </div>
+            <!-- HUPA -->
+            <div class="ds-card mendeley" onclick="showPage('mendeley')">
+                <div class="icon">🩺</div>
+                <div class="source">Mendeley Data</div>
+                <h3>HUPA-UCM Diabetes Dataset</h3>
+                <p>Raw time-series data from 25&nbsp;participants at a Spanish hospital. Preprocessed to 5-minute
+                    intervals with glucose, insulin, meals, and wearable activity signals.</p>
+                <div class="stats-row">
+                    <div class="stat"><strong>309,392</strong> rows</div>
+                    <div class="stat"><strong>25</strong> participants</div>
+                    <div class="stat"><strong>307,317</strong> ML samples</div>
+                    <div class="stat"><strong>14</strong> figures</div>
+                </div>
+                <div class="arrow">→</div>
+            </div>
+            <!-- CGMacros -->
+            <div class="ds-card mendeley" onclick="showPage('cgmacros')">
+                <div class="icon">🥗</div>
+                <div class="source">PhysioNet</div>
+                <h3>CGMacros: Nutrition & Diet Dataset</h3>
+                <p>N=45 participants tracking diet, glucose, and wearable signals. High-quality macro logging makes it
+                    critical for evaluating full-macro models vs simple carb models.</p>
+                <div class="stats-row">
+                    <div class="stat"><strong>683,800+</strong> ML samples</div>
+                    <div class="stat"><strong>45</strong> participants</div>
+                    <div class="stat"><strong>1,706</strong> meal events</div>
+                    <div class="stat"><strong>5</strong> figures</div>
+                </div>
+                <div class="arrow">→</div>
+            </div>
+            <!-- Pipeline Progress -->
+            <div class="ds-card kaggle" onclick="showPage('pipeline')">
+                <div class="icon">⚙️</div>
+                <div class="source">ML Engineering</div>
+                <h3>Thesis Pipeline Progress</h3>
+                <p>Status of Step 0 (Evaluation Protocol), Step 1 (Unified Dataset Builder), and Step 2 (Strong
+                    Baselines). Cross-dataset evaluation of 4 tabular models.</p>
+                <div class="stats-row">
+                    <div class="stat"><strong>3</strong> Pipelines</div>
+                    <div class="stat"><strong>4</strong> Baselines</div>
+                    <div class="stat"><strong>~1.1M</strong> ML Samples</div>
+                    <div class="stat"><strong>7</strong> Scenarios</div>
+                </div>
+                <div class="arrow">→</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════ KAGGLE / BrisT1D PAGE ═══════════════════ -->
+    <div class="page" id="page-kaggle">
+        <div class="page-header">
+            <div class="tag kaggle">Kaggle Competition Dataset</div>
+            <h2>BrisT1D — Blood Glucose Prediction Dataset</h2>
+            <div class="desc">
+                <p><strong>What is this dataset?</strong> The BrisT1D dataset was created by researchers at the
+                    <strong>University of Bristol</strong> and published as a Kaggle competition. It contains real-world
+                    data from people living with <strong>Type&nbsp;1 Diabetes</strong> — a condition where the body
+                    cannot produce insulin, so patients must manually manage their blood sugar through insulin
+                    injections and careful meal planning.
+                </p>
+
+                <p><strong>How is the data structured?</strong> Unlike raw time-series data, BrisT1D has already been
+                    <em>pre-engineered</em> into a tabular format designed for machine learning. Each row represents a
+                    single prediction opportunity. For each row, the dataset provides <strong>6&nbsp;hours of historical
+                        data</strong> (the "lookback window") sampled every 5&nbsp;minutes, giving <strong>72&nbsp;time
+                        steps</strong> across <strong>7&nbsp;signal channels</strong>:
+                </p>
+                <p>
+                    • <strong>Blood Glucose (BG)</strong> — from a Continuous Glucose Monitor (CGM) worn on the body,
+                    measured in mmol/L<br>
+                    • <strong>Insulin</strong> — from an insulin pump, recording how much insulin was delivered<br>
+                    • <strong>Carbohydrates (Carbs)</strong> — manually logged meals, in grams<br>
+                    • <strong>Heart Rate (HR)</strong> — from a smartwatch<br>
+                    • <strong>Steps</strong> — daily step count from the smartwatch<br>
+                    • <strong>Calories</strong> — estimated energy expenditure<br>
+                    • <strong>Activity Labels</strong> — categorical labels like "Walking", "Running", "Yoga", etc.
+                </p>
+
+                <p><strong>The prediction target</strong> is <code>bg+1:00</code> — the patient's blood glucose reading
+                    <strong>1 hour into the future</strong>. This is clinically meaningful because it gives patients
+                    enough lead time to adjust their food or insulin.
+                </p>
+
+                <p><strong>Column naming convention:</strong> Columns follow the pattern <code>feature-H:MM</code>, e.g.
+                    <code>bg-2:30</code> means "blood glucose reading from 2 hours and 30 minutes ago". This creates
+                    72&nbsp;columns per feature × 7&nbsp;features = <strong>504&nbsp;feature columns</strong>, plus
+                    metadata columns (patient ID, time of day) and the target. Total: <strong>508&nbsp;columns</strong>.
+                </p>
+
+                <p><strong>Train/test split:</strong> The training set has <strong>9&nbsp;participants</strong> and
+                    <strong>177,024&nbsp;rows</strong>. The test set has <strong>15&nbsp;participants</strong>, of which
+                    <strong>7 are completely unseen</strong> during training — meaning the model must generalize across
+                    different people, a key real-world challenge.
+                </p>
+            </div>
+            <div class="stats-strip">
+                <div class="stat-pill">
+                    <div class="label">Training Rows</div>
+                    <div class="value">177,024</div>
+                </div>
+                <div class="stat-pill">
+                    <div class="label">Test Rows</div>
+                    <div class="value">3,644</div>
+                </div>
+                <div class="stat-pill">
+                    <div class="label">Columns</div>
+                    <div class="value">508</div>
+                </div>
+                <div class="stat-pill">
+                    <div class="label">Signal Channels</div>
+                    <div class="value">7</div>
+                </div>
+                <div class="stat-pill">
+                    <div class="label">Train Participants</div>
+                    <div class="value">9</div>
+                </div>
+                <div class="stat-pill">
+                    <div class="label">Test Participants</div>
+                    <div class="value">15 (7 unseen)</div>
+                </div>
+                <div class="stat-pill">
+                    <div class="label">Lookback Window</div>
+                    <div class="value">6 hours</div>
+                </div>
+                <div class="stat-pill">
+                    <div class="label">Prediction Horizon</div>
+                    <div class="value">+60 minutes</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FIGURE 01 -->
+        <div class="fig-section">
+            <div class="fig-header">
+                <div class="fig-num">Figure 01</div>
+                <h3>Missingness by Lag Distance</h3>
+            </div>
+            <div class="fig-desc">
+                <p>This chart shows <strong>how much data is missing</strong> for each signal, plotted against how far
+                    back in time the measurement was taken (the "lag"). The x-axis shows the lag in minutes (with the
+                    most recent data on the right), and the y-axis shows the percentage of rows where that particular
+                    measurement is missing.</p>
+                <p><span class="term">Key insight:</span> Older measurements (further in the past) tend to have
+                    <em>more</em> missing data. This makes intuitive sense — a device that disconnects for even a short
+                    time will create a gap that grows larger the further back you look. The <span
+                        class="term">carbs</span> line is near 100% missing because people only eat a few times a day,
+                    so most 5-minute intervals have no meal logged.
+                </p>
+            </div>
+            <div class="interpretation"><strong>What this means for modeling:</strong> The ML model must be robust to
+                missing values. Imputation strategies (filling in gaps) or architectures that handle sparse data
+                natively (like transformers with masking) will be important.</div>
+            <div class="fig-img"><img src="Kaggle BG/figures/01_missingness_by_lag.png"
+                    alt="Missingness by lag distance" loading="lazy" /></div>
+        </div>
+
+        <!-- FIGURE 02 -->
+        <div class="fig-section">
+            <div class="fig-header">
+                <div class="fig-num">Figure 02</div>
+                <h3>Missingness Heatmap</h3>
+            </div>
+            <div class="fig-desc">
+                <p>This heatmap gives a <strong>birds-eye view of missing data patterns</strong>. Each column is a
+                    different feature-lag combination (e.g., "bg at 2 hours ago"), and each row is one data sample.
+                    <span style="color:#d62728;font-weight:600">Red cells</span> mean "data is missing" and <span
+                        style="color:#ccc;font-weight:600">gray cells</span> mean "data is present".
+                </p>
+                <p>You can see that missingness tends to occur in <em>blocks</em> — when a device disconnects, it
+                    creates a contiguous gap across multiple time steps, visible as horizontal red streaks. Some feature
+                    families (like activity and carbs) are almost entirely red because those events are sparse by
+                    nature.</p>
+            </div>
+            <div class="fig-img"><img src="Kaggle BG/figures/02_missingness_heatmap.png" alt="Missingness heatmap"
+                    loading="lazy" /></div>
+        </div>
+
+        <!-- FIGURE 03 -->
+        <div class="fig-section">
+            <div class="fig-header">
+                <div class="fig-num">Figure 03</div>
+                <h3>Blood Glucose Distributions</h3>
+            </div>
+            <div class="fig-desc">
+                <p>These four plots show <strong>how blood glucose values are distributed</strong> across the entire
+                    training set.</p>
+                <p><strong>Top-left (Histogram):</strong> Shows the frequency of different target BG values. The
+                    distribution peaks around 7–8 mmol/L (the normal range for diabetic patients) with a right tail
+                    extending to ~25 mmol/L (dangerously high <span class="term">hyperglycemia</span>).</p>
+                <p><strong>Top-right (Violin):</strong> A "violin plot" that shows the same distribution as a smooth
+                    curve. The wider the shape, the more common that glucose level is. The horizontal lines inside mark
+                    the mean and median.</p>
+                <p><strong>Bottom-left:</strong> Same histogram but for the <em>current</em> BG (the most recent reading
+                    in each row's lookback window). Comparing this with the target tells us how glucose typically
+                    changes over the prediction horizon.</p>
+                <p><strong>Bottom-right (Box Plot):</strong> Compares current vs. target glucose side-by-side. The box
+                    shows the middle 50% of values, the red line is the median, and the dots are outliers.</p>
+            </div>
+            <div class="interpretation"><strong>What this means:</strong> The target glucose (bg+1:00) has a very
+                similar distribution to the current glucose, confirming that blood sugar changes gradually over 1 hour —
+                the model is predicting a realistic, incremental change, not a wild jump.</div>
+            <div class="fig-img"><img src="Kaggle BG/figures/03_bg_distributions.png" alt="BG distributions"
+                    loading="lazy" /></div>
+        </div>
+
+        <!-- FIGURE 04 -->
+        <div class="fig-section">
+            <div class="fig-header">
+                <div class="fig-num">Figure 04</div>
+                <h3>Per-Participant Blood Glucose Distributions</h3>
+            </div>
+            <div class="fig-desc">
+                <p>Each of the 9 subplots shows the target BG distribution for one training participant. This reveals
+                    <strong>how much individual variation</strong> exists between patients. Some participants run
+                    consistently higher glucose (right-shifted), while others are tightly controlled around normal
+                    ranges.
+                </p>
+                <p>The <code>(n=...)</code> label shows how many data points each participant contributed to the
+                    training set.</p>
+            </div>
+            <div class="interpretation"><strong>Why this matters:</strong> The large inter-patient variability means the
+                model must learn <em>personalized</em> patterns. This is especially important since 7 test participants
+                are unseen — the model must generalize from just 9 training participants to predict for new individuals.
+            </div>
+            <div class="fig-img"><img src="Kaggle BG/figures/04_per_participant_bg.png" alt="Per-participant BG"
+                    loading="lazy" /></div>
+        </div>
+
+        <!-- FIGURE 05 -->
+        <div class="fig-section">
+            <div class="fig-header">
+                <div class="fig-num">Figure 05</div>
+                <h3>Time-of-Day Effects on Blood Glucose</h3>
+            </div>
+            <div class="fig-desc">
+                <p>These plots show <strong>how blood glucose varies throughout the day</strong>. The x-axis is the hour
+                    of day (0–23), and the y-axis is the average glucose level.</p>
+                <p><strong>Left panel (Current BG):</strong> Shows a noticeable dip in the early morning hours (3–6 AM)
+                    and a rise around breakfast time (7–9 AM). This is the well-known <span class="term">"dawn
+                        phenomenon"</span> — the body releases hormones in the early morning that cause blood sugar to
+                    rise, even without eating.</p>
+                <p><strong>Right panel (Target BG):</strong> Shows the same pattern, shifted 1 hour ahead.</p>
+            </div>
+            <div class="interpretation"><strong>Modeling insight:</strong> Time-of-day is a useful predictive feature.
+                The model should be able to learn that glucose tends to rise in the morning and fluctuate around meal
+                times.</div>
+            <div class="fig-img"><img src="Kaggle BG/figures/05_time_of_day_bg.png" alt="Time of day effects"
+                    loading="lazy" /></div>
+        </div>
+
+        <!-- FIGURE 06 -->
+        <div class="fig-section">
+            <div class="fig-header">
+                <div class="fig-num">Figure 06</div>
+                <h3>Window Shape: Blood Glucose, Insulin &amp; Carbs</h3>
+            </div>
+            <div class="fig-desc">
+                <p>This is one of the <strong>most important visualizations</strong> for understanding the thesis. Each
+                    subplot shows a <em>single data sample</em> — the exact input a ML model would receive. The x-axis
+                    is time relative to "now" (0), going from -355 minutes (≈ 6 hours ago) to 0. The <span
+                        style="color:red">red star</span> at +60 minutes marks the <strong>target glucose value</strong>
+                    the model must predict.</p>
+                <p><strong>Blue line (primary y-axis):</strong> The blood glucose trace over the 6-hour lookback window.
+                    You can see natural rises and falls as the patient eats, takes insulin, and goes about their day.
+                </p>
+                <p><strong>Green / Red lines (secondary y-axis):</strong> Insulin delivery and carb intake events
+                    overlaid on the same timeline. Notice how insulin spikes (green) often follow carb spikes (red) —
+                    this is the patient manually correcting their blood sugar after a meal.</p>
+            </div>
+            <div class="interpretation"><strong>Why this is thesis-critical:</strong> These windows are exactly what the
+                ML model will "see" as input. The model must learn patterns like "a meal happened 2 hours ago with
+                insulin correction → glucose is trending down → predict where it will be in 1 hour."</div>
+            <div class="fig-img"><img src="Kaggle BG/figures/06_window_shapes_bg_insulin_carbs.png"
+                    alt="Window shapes - BG, insulin, carbs" loading="lazy" /></div>
+        </div>
+
+        <!-- FIGURE 07 -->
+        <div class="fig-section">
+            <div class="fig-header">
+                <div class="fig-num">Figure 07</div>
+                <h3>Window Shape: Heart Rate, Steps &amp; Calories</h3>
+            </div>
+            <div class="fig-desc">
+                <p>The same sample windows as above, but showing the <strong>activity signals</strong> from the
+                    patient's smartwatch:</p>
+                <p><strong>Pink (primary axis):</strong> Heart rate (beats per minute).<br>
+                    <strong>Gray (secondary axis):</strong> Step count per 5-minute interval.<br>
+                    <strong>Yellow-green (secondary axis):</strong> Estimated calorie expenditure.
+                </p>
+                <p>Physical activity has a major effect on blood glucose — exercise typically causes glucose to drop
+                    because muscles absorb glucose for energy. These signals give the ML model crucial context about the
+                    patient's physical state.</p>
+            </div>
+            <div class="fig-img"><img src="Kaggle BG/figures/07_window_shapes_hr_steps_cals.png"
+                    alt="Window shapes - HR, steps, cals" loading="lazy" /></div>
+        </div>
+
+        <!-- FIGURE 08 -->
+        <div class="fig-section">
+            <div class="fig-header">
+                <div class="fig-num">Figure 08</div>
+                <h3>Correlation Heatmap (Engineered Features)</h3>
+            </div>
+            <div class="fig-desc">
+                <p>This heatmap shows the <strong>correlation</strong> between engineered summary features. A
+                    correlation of +1 means two features move perfectly together, -1 means they move in opposite
+                    directions, and 0 means no linear relationship.</p>
+                <p>Features were engineered by summing or averaging signals within time windows:<br>
+                    • <code>carbs_30/60/120</code> — total carbs consumed in the last 30, 60, or 120 minutes<br>
+                    • <code>insulin_30/60/120</code> — total insulin delivered in those windows<br>
+                    • <code>hr_mean_60</code> — average heart rate in the last hour<br>
+                    • <code>steps_60</code> — total steps in the last hour<br>
+                    • <code>delta_bg</code> — the <em>change</em> in blood glucose (target minus current)</p>
+            </div>
+            <div class="interpretation"><strong>Key finding:</strong> <code>current_bg</code> is the strongest predictor
+                of <code>bg+1:00</code> (correlation ≈ 0.94) — your current glucose is the best predictor of your
+                near-future glucose. However, <code>delta_bg</code> (the change) has much weaker correlations, meaning
+                predicting the <em>direction and magnitude of change</em> is the harder, more interesting problem.</div>
+            <div class="fig-img"><img src="Kaggle BG/figures/08_correlation_heatmap.png" alt="Correlation heatmap"
+                    loading="lazy" /></div>
+        </div>
+
+        <!-- FIGURE 09 -->
+        <div class="fig-section">
+            <div class="fig-header">
+                <div class="fig-num">Figure 09</div>
+                <h3>Scatter Plots: Feature Relationships</h3>
+            </div>
+            <div class="fig-desc">
+                <p>Each scatter plot shows the relationship between an engineered feature (x-axis) and the prediction
+                    target or glucose change (y-axis). Each dot is one training sample (downsampled to 5,000 for
+                    readability).</p>
+                <p>These plots help us visually assess whether a feature has <em>predictive value</em>. A strong signal
+                    would appear as a clear trend (e.g., higher carbs → higher target BG). Diffuse clouds suggest the
+                    relationship is weak or noisy — which is expected in real-world health data, but patterns can still
+                    be extracted by ML models.</p>
+            </div>
+            <div class="fig-img"><img src="Kaggle BG/figures/09_scatter_relationships.png" alt="Scatter relationships"
+                    loading="lazy" /></div>
+        </div>
+
+        <!-- FIGURE 10 -->
+        <div class="fig-section">
+            <div class="fig-header">
+                <div class="fig-num">Figure 10</div>
+                <h3>Binned Mean Plots: Carbs, Insulin &amp; Heart Rate</h3>
+            </div>
+            <div class="fig-desc">
+                <p>These plots take a clearer approach than scatter plots: they <strong>bin</strong> the feature into 10
+                    equal-frequency groups and show the <strong>average target BG</strong> (blue bars) and
+                    <strong>average glucose change</strong> (red line) within each bin.
+                </p>
+                <p>This makes it easier to see trends that are obscured in noisy scatter plots. For example, you might
+                    see that bins with higher carb intake have a slightly higher average glucose change, confirming the
+                    intuitive relationship between eating and blood sugar rise.</p>
+            </div>
+            <div class="fig-img"><img src="Kaggle BG/figures/10_binned_mean_plots.png" alt="Binned mean plots"
+                    loading="lazy" /></div>
+        </div>
+
+        <!-- FIGURE 11 -->
+        <div class="fig-section">
+            <div class="fig-header">
+                <div class="fig-num">Figure 11</div>
+                <h3>Activity Frequency Distribution</h3>
+            </div>
+            <div class="fig-desc">
+                <p>This horizontal bar chart shows the <strong>15 most commonly recorded activities</strong> in the
+                    dataset. "Walk" dominates overwhelmingly (142K occurrences), followed by "Run" and "Walking". The
+                    long tail includes specialized activities like "Indoor climbing", "Yoga", and "Zumba".</p>
+                <p>These activity labels come from the patients' smartwatches — when they start a workout, the watch
+                    records the type. Most 5-minute intervals have <em>no</em> activity label (that's why activities had
+                    ~98% missingness), which is normal since people aren't exercising 24/7.</p>
+            </div>
+            <div class="fig-img"><img src="Kaggle BG/figures/11_activity_frequency.png" alt="Activity frequency"
+                    loading="lazy" /></div>
+        </div>
+
+        <!-- FIGURE 12 -->
+        <div class="fig-section">
+            <div class="fig-header">
+                <div class="fig-num">Figure 12</div>
+                <h3>Activity vs. Blood Glucose Change (ΔBG)</h3>
+            </div>
+            <div class="fig-desc">
+                <p>This chart shows the <strong>average blood glucose change</strong> (ΔBG) associated with each
+                    activity. <span style="color:#d62728;font-weight:600">Red bars</span> indicate activities where
+                    blood glucose tends to <em>drop</em> (negative ΔBG), and <span
+                        style="color:#2ca02c;font-weight:600">green bars</span> where it tends to <em>rise</em>.</p>
+                <p><span class="term">ΔBG</span> = <code>target_BG − current_BG</code>. A ΔBG of −4 means blood glucose
+                    dropped by 4 mmol/L on average when that activity was occurring.</p>
+            </div>
+            <div class="interpretation"><strong>Interesting finding:</strong> High-intensity activities like
+                <strong>Indoor Climbing</strong> (ΔBG ≈ −4.3) and <strong>HIIT</strong> (ΔBG ≈ −3.3) cause the largest
+                glucose drops. Gentle activities like <strong>Walking</strong> and <strong>Yoga</strong> are associated
+                with slight glucose <em>increases</em> — possibly because the participants walk or do yoga after eating,
+                and the meal effect outweighs the exercise effect.
+            </div>
+            <div class="fig-img"><img src="Kaggle BG/figures/12_activity_delta_bg.png" alt="Activity vs delta BG"
+                    loading="lazy" /></div>
+        </div>
+
+    </div>
+
+    <!-- ═══════════════════ MENDELEY / HUPA PAGE ═══════════════════ -->
+    <div class="page" id="page-mendeley">
+        <div class="page-header">
+            <div class="tag mendeley">Mendeley Data — Preprocessed</div>
+            <h2>HUPA-UCM Diabetes Dataset</h2>
+            <div class="desc">
+                <p><strong>What is this dataset?</strong> The HUPA-UCM dataset was collected at the <strong>Hospital
+                        Universitario Príncipe de Asturias (HUPA)</strong> in collaboration with the <strong>Universidad
+                        Complutense de Madrid (UCM)</strong> in Spain, and published on Mendeley Data. It contains
+                    continuous physiological recordings from <strong>25 real patients with Type 1 Diabetes</strong> over
+                    a median of <strong>13.3 days</strong> per patient.</p>
+
+                <p><strong>How was the data collected?</strong> Each patient wore three devices simultaneously:<br>
+                    1. A <strong>Continuous Glucose Monitor (CGM)</strong> — a small sensor inserted under the skin that
+                    measures blood glucose every few minutes, in <strong>mg/dL</strong> (milligrams per decilitre).<br>
+                    2. An <strong>insulin pump</strong> — a device that delivers insulin continuously (<span
+                        class="term">basal rate</span>) and in bursts (<span class="term">bolus</span>) at meal
+                    times.<br>
+                    3. A <strong>smartwatch</strong> — tracking heart rate, steps, and estimated calorie burn.</p>
+
+                <p><strong>The preprocessed version</strong> (which we use here) has already been cleaned and resampled
+                    to <strong>5-minute intervals</strong>. Each patient's data is in a separate CSV file (e.g.,
+                    <code>HUPA0001P.csv</code>), and all files share the same 8 columns:
+                </p>
+                <p>
+                    • <code>time</code> — ISO timestamp (e.g., 2018-06-13T18:40:00)<br>
+                    • <code>glucose</code> — CGM reading in mg/dL (to convert to mmol/L, divide by 18)<br>
+                    • <code>calories</code> — estimated calorie expenditure per 5-minute interval<br>
+                    • <code>heart_rate</code> — average heart rate (bpm) in the interval<br>
+                    • <code>steps</code> — step count in the interval<br>
+                    • <code>basal_rate</code> — continuous background insulin delivery (units/hour)<br>
+                    • <code>bolus_volume_delivered</code> — discrete insulin bolus (units), non-zero at meal times<br>
+                    • <code>carb_input</code> — carbohydrates consumed (grams), non-zero at meals
+                </p>
+
+                <p><strong>Why this dataset is different from BrisT1D:</strong> While BrisT1D gives pre-engineered flat
+                    rows (one row = one prediction), the HUPA data is <em>raw time series</em>. We must construct the
+                    prediction windows ourselves — which is exactly what the supervised dataset builder in our analysis
+                    does. This demonstrates that we can transform <em>any</em> diabetes time-series into the same input
+                    format, making our thesis approach generalizable.</p>
+
+                <p><strong>A pleasant surprise:</strong> The preprocessed data has <strong>zero missingness</strong> —
+                    every cell in every column is filled. This is unusual for real-world health data and means we can
+                    build supervised ML samples with no data loss, yielding <strong>307,317 usable samples</strong>.</p>
+            </div>
+            <div class="stats-strip">
+                <div class="stat-pill">
+                    <div class="label">Total Rows</div>
+                    <div class="value">309,392</div>
+                </div>
+                <div class="stat-pill">
+                    <div class="label">Participants</div>
+                    <div class="value">25</div>
+                </div>
+                <div class="stat-pill">
+                    <div class="label">Median Duration</div>
+                    <div class="value">13.3 days</div>
+                </div>
+                <div class="stat-pill">
+                    <div class="label">Sampling Rate</div>
+                    <div class="value">5 minutes</div>
+                </div>
+                <div class="stat-pill">
+                    <div class="label">Signal Columns</div>
+                    <div class="value">7</div>
+                </div>
+                <div class="stat-pill">
+                    <div class="label">Missingness</div>
+                    <div class="value">0.0%</div>
+                </div>
+                <div class="stat-pill">
+                    <div class="label">Supervised Samples</div>
+                    <div class="value">307,317</div>
+                </div>
+                <div class="stat-pill">
+                    <div class="label">Date Range</div>
+                    <div class="value">Jun 2018 – May 2022</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FIGURE 01 -->
+        <div class="fig-section mendeley">
+            <div class="fig-header">
+                <div class="fig-num">Figure 01</div>
+                <h3>Missingness Heatmap</h3>
+            </div>
+            <div class="fig-desc">
+                <p>This heatmap shows the <strong>percentage of missing data per participant (row) per signal
+                        column</strong>. The color scale goes from light (little missing) to dark red (lots missing). In
+                    the preprocessed HUPA data, <em>every single cell is 0.0%</em> — all values are fully populated.</p>
+                <p>This is a major advantage over BrisT1D where missingness was 10–98% depending on the signal. It means
+                    we can use every single 5-minute interval without worrying about imputation strategies.</p>
+            </div>
+            <div class="fig-img"><img src="figures_hupa/01_missingness_heatmap.png" alt="Missingness heatmap"
+                    loading="lazy" /></div>
+        </div>
+
+        <!-- FIGURE 02 -->
+        <div class="fig-section mendeley">
+            <div class="fig-header">
+                <div class="fig-num">Figure 02</div>
+                <h3>Data Availability Over Time</h3>
+            </div>
+            <div class="fig-desc">
+                <p>For each of the first 4 participants, this strip chart shows <strong>when glucose data is
+                        available</strong> (green ticks at top = "present") vs. missing (red ticks at bottom =
+                    "missing"). Since the preprocessed data has no missing values, all points appear at the top —
+                    confirming continuous, uninterrupted coverage for the recording period.</p>
+            </div>
+            <div class="fig-img"><img src="figures_hupa/02_missingness_over_time.png" alt="Missingness over time"
+                    loading="lazy" /></div>
+        </div>
+
+        <!-- FIGURE 03 -->
+        <div class="fig-section mendeley">
+            <div class="fig-header">
+                <div class="fig-num">Figure 03</div>
+                <h3>Time Gap Distribution</h3>
+            </div>
+            <div class="fig-desc">
+                <p>This histogram shows the <strong>time gap between consecutive rows</strong>. The red dashed line
+                    marks the expected 5-minute interval. The vast majority of gaps are exactly 5 minutes, confirming
+                    the data is evenly sampled with very few interruptions.</p>
+                <p>If there were significant gaps (e.g., from device removal or battery drain), you would see bars at
+                    10, 15, or 60+ minutes. The lack of such bars confirms the preprocessing has produced a clean,
+                    regularly-sampled time series.</p>
+            </div>
+            <div class="fig-img"><img src="figures_hupa/03_gap_distribution.png" alt="Gap distribution"
+                    loading="lazy" /></div>
+        </div>
+
+        <!-- FIGURE 04 -->
+        <div class="fig-section mendeley">
+            <div class="fig-header">
+                <div class="fig-num">Figure 04</div>
+                <h3>Glucose Distributions (mg/dL)</h3>
+            </div>
+            <div class="fig-desc">
+                <p>Three views of the overall glucose distribution across all 25 participants:</p>
+                <p><strong>Histogram (left):</strong> Shows the frequency of different glucose values. The top x-axis
+                    also shows the equivalent in mmol/L (divide mg/dL by 18). Most readings cluster between 80–180
+                    mg/dL, which is the typical range for managed Type 1 Diabetes. The right tail (values above 250)
+                    represents <span class="term">hyperglycemia</span> (dangerously high blood sugar).</p>
+                <p><strong>Violin (center):</strong> Shows the distribution shape as a smooth curve. The horizontal
+                    marks indicate the mean and median.</p>
+                <p><strong>Box plot (right):</strong> The box spans the middle 50% of values, the red line is the
+                    median, and the dots are outliers.</p>
+            </div>
+            <div class="fig-img"><img src="figures_hupa/04_glucose_distributions.png" alt="Glucose distributions"
+                    loading="lazy" /></div>
+        </div>
+
+        <!-- FIGURE 05 -->
+        <div class="fig-section mendeley">
+            <div class="fig-header">
+                <div class="fig-num">Figure 05</div>
+                <h3>Per-Participant Glucose Boxplots</h3>
+            </div>
+            <div class="fig-desc">
+                <p>Each box represents <strong>one participant's glucose distribution</strong>, sorted left-to-right by
+                    median glucose value. The <span style="color:orange;font-weight:600">orange dashed line</span> at 70
+                    mg/dL marks the <span class="term">hypoglycemia threshold</span> (dangerously low), and the <span
+                        style="color:red;font-weight:600">red dashed line</span> at 180 mg/dL marks the <span
+                        class="term">hyperglycemia threshold</span> (dangerously high).</p>
+                <p>This chart reveals the wide range of glucose control across patients — some participants stay mostly
+                    within the safe 70–180 range (tight boxes), while others have large spreads extending well above 300
+                    mg/dL (poor control).</p>
+            </div>
+            <div class="interpretation"><strong>Key insight:</strong> Some participants have median glucose values near
+                100 mg/dL (excellent control), while others exceed 180 mg/dL. This inter-patient variation is a core
+                challenge — and opportunity — for building personalized prediction models.</div>
+            <div class="fig-img"><img src="figures_hupa/05_per_participant_glucose.png" alt="Per-participant glucose"
+                    loading="lazy" /></div>
+        </div>
+
+        <!-- FIGURE 06 -->
+        <div class="fig-section mendeley">
+            <div class="fig-header">
+                <div class="fig-num">Figure 06</div>
+                <h3>Time-of-Day Effects on Glucose</h3>
+            </div>
+            <div class="fig-desc">
+                <p><strong>Left panel (Overall):</strong> Average and median glucose plotted against the hour of day.
+                    The blue line (mean) and red line (median) show how blood glucose varies throughout the day across
+                    all patients combined.</p>
+                <p><strong>Right panel (Per Participant):</strong> The same plot but with separate lines for each
+                    participant, showing how different individuals have different daily glucose rhythms.</p>
+                <p>Common patterns include the <span class="term">dawn phenomenon</span> (glucose rises in early morning
+                    due to hormone release) and post-meal spikes (rises after breakfast, lunch, and dinner hours).</p>
+            </div>
+            <div class="fig-img"><img src="figures_hupa/06_time_of_day.png" alt="Time of day effects" loading="lazy" />
+            </div>
+        </div>
+
+        <!-- FIGURE 07 -->
+        <div class="fig-section mendeley">
+            <div class="fig-header">
+                <div class="fig-num">Figure 07</div>
+                <h3>Glucose by Day of Week</h3>
+            </div>
+            <div class="fig-desc">
+                <p>This chart compares <strong>average glucose levels across different days of the week</strong>. If
+                    patients eat or exercise differently on weekends vs. weekdays, this would show up as different bar
+                    heights.</p>
+                <p>In general, the variation is small, suggesting that the patients' glucose management is fairly
+                    consistent throughout the week — or that the dataset doesn't span enough weeks per participant to
+                    show strong day-of-week effects.</p>
+            </div>
+            <div class="fig-img"><img src="figures_hupa/07_day_of_week.png" alt="Day of week effects" loading="lazy" />
+            </div>
+        </div>
+
+        <!-- FIGURE 08 -->
+        <div class="fig-section mendeley">
+            <div class="fig-header">
+                <div class="fig-num">Figure 08</div>
+                <h3>Glucose Response to Meals (Event-Aligned Curves)</h3>
+            </div>
+            <div class="fig-desc">
+                <p>This is one of the <strong>most important thesis plots</strong>. It shows what happens to blood
+                    glucose <em>before and after a meal</em>.</p>
+                <p><strong>How it works:</strong> We identified 2,541 meal events (rows where
+                    <code>carb_input &gt; 0</code>), then for each event we extracted the glucose trace from 120 minutes
+                    before to 240 minutes after. All traces are aligned so that minute 0 = the meal event. The
+                    <strong>blue line</strong> shows the average, and the <strong>light blue band</strong> shows the
+                    25th–75th percentile range.
+                </p>
+                <p><strong>The classic meal response:</strong> Before the meal (negative minutes), glucose is relatively
+                    stable or slightly declining. Right around the meal, there's a <em>brief dip</em> — likely because
+                    patients often take an insulin bolus just before or as they eat. Then glucose <em>rises</em> over
+                    the next 30–90 minutes as the food is digested and absorbed. Eventually it levels off as the insulin
+                    takes effect.</p>
+            </div>
+            <div class="interpretation"><strong>Thesis significance:</strong> This clear, reproducible meal →
+                glucose-rise pattern is exactly what our ML model needs to learn. Given the meal signal (carb_input) and
+                the pre-meal glucose trajectory, the model should predict the post-meal glucose trend.</div>
+            <div class="fig-img"><img src="figures_hupa/08_meal_response_curve.png" alt="Meal response curve"
+                    loading="lazy" /></div>
+        </div>
+
+        <!-- FIGURE 09 -->
+        <div class="fig-section mendeley">
+            <div class="fig-header">
+                <div class="fig-num">Figure 09</div>
+                <h3>Glucose Response to Insulin Bolus</h3>
+            </div>
+            <div class="fig-desc">
+                <p>The counterpart to the meal response, this plot shows what happens to glucose when an <strong>insulin
+                        bolus</strong> is administered. We found <strong>3,415 bolus events</strong> (rows where
+                    <code>bolus_volume_delivered &gt; 0</code>) and extracted the same ±2h/+4h glucose trace around each
+                    event.
+                </p>
+                <p><span class="term">Bolus insulin</span> is a fast-acting insulin injection that patients give
+                    themselves (usually via their pump) before or during a meal to counteract the glucose rise from
+                    food. It typically takes effect within 15–30 minutes and peaks at 1–2 hours.</p>
+                <p>The green curve shows that glucose tends to <em>drop</em> or flatten after a bolus, demonstrating the
+                    corrective effect of insulin.</p>
+            </div>
+            <div class="interpretation"><strong>Important nuance:</strong> Bolus events often coincide with meals, so
+                the glucose may initially rise from food and then fall from insulin. The model needs to learn the
+                <em>interaction</em> between carbs and insulin, not treat them independently.
+            </div>
+            <div class="fig-img"><img src="figures_hupa/09_bolus_response_curve.png" alt="Bolus response curve"
+                    loading="lazy" /></div>
+        </div>
+
+        <!-- FIGURE 10 -->
+        <div class="fig-section mendeley">
+            <div class="fig-header">
+                <div class="fig-num">Figure 10</div>
+                <h3>Per-Participant Meal Responses</h3>
+            </div>
+            <div class="fig-desc">
+                <p>This grid shows the meal glucose response for <strong>6 individual participants</strong>. Each faint
+                    colored line is one meal event, and the <strong>black line</strong> is the average for that
+                    participant.</p>
+                <p>This reveals how <em>individual variation</em> affects meal responses. Some patients have dramatic
+                    post-meal spikes (large glucose excursions), while others stay remarkably flat. The number of meal
+                    events (shown in each title) also varies widely between participants.</p>
+            </div>
+            <div class="interpretation"><strong>Key observation:</strong> The variability in meal responses between
+                individuals (different average curves) is as large as the variability within a single individual (spread
+                of colored lines). A strong model should capture both sources of variation.</div>
+            <div class="fig-img"><img src="figures_hupa/10_per_participant_meal_response.png"
+                    alt="Per-participant meal responses" loading="lazy" /></div>
+        </div>
+
+        <!-- FIGURE 11 -->
+        <div class="fig-section mendeley">
+            <div class="fig-header">
+                <div class="fig-num">Figure 11</div>
+                <h3>Activity vs. Glucose Change (Scatter Plots)</h3>
+            </div>
+            <div class="fig-desc">
+                <p>These scatter plots explore the relationship between <strong>physical activity</strong> and blood
+                    glucose changes. Each dot is one 5-minute row (downsampled for readability):</p>
+                <p><strong>Left:</strong> Total steps in the last 60 minutes vs. glucose change in the next 60 minutes.
+                    If exercise lowers blood sugar, we'd expect a downward trend.<br>
+                    <strong>Center:</strong> Mean heart rate in the last 60 minutes vs. glucose change. Higher heart
+                    rate (more intense exercise) should correlate with larger glucose drops.<br>
+                    <strong>Right:</strong> Steps vs. current glucose level — exploring whether active periods tend to
+                    occur at different glucose levels.
+                </p>
+            </div>
+            <div class="fig-img"><img src="figures_hupa/11_activity_glucose_scatter.png"
+                    alt="Activity vs glucose scatter" loading="lazy" /></div>
+        </div>
+
+        <!-- FIGURE 12 -->
+        <div class="fig-section mendeley">
+            <div class="fig-header">
+                <div class="fig-num">Figure 12</div>
+                <h3>Binned Activity → Glucose Change</h3>
+            </div>
+            <div class="fig-desc">
+                <p>A cleaner version of the scatter plots above: the activity features are divided into <strong>10
+                        equal-frequency bins</strong>, and we plot the <strong>average glucose change</strong>
+                    (ΔGlucose) within each bin.</p>
+                <p>This makes trends much easier to spot. For example, you may notice that the highest steps bins
+                    correspond to slightly more negative ΔGlucose values, confirming that more physical activity is
+                    associated with subsequent glucose drops.</p>
+                <p>The <strong>blue bars</strong> show the mean glucose change, and the <strong>red dots</strong> show
+                    the median. If both agree, the trend is robust; if they diverge, outliers may be skewing the mean.
+                </p>
+            </div>
+            <div class="fig-img"><img src="figures_hupa/12_binned_activity_glucose.png" alt="Binned activity analysis"
+                    loading="lazy" /></div>
+        </div>
+
+        <!-- FIGURE 13 -->
+        <div class="fig-section mendeley">
+            <div class="fig-header">
+                <div class="fig-num">Figure 13</div>
+                <h3>Sample Windows: Glucose, Insulin &amp; Carbs</h3>
+            </div>
+            <div class="fig-desc">
+                <p>These plots show <strong>actual input samples</strong> that a machine learning model would receive.
+                    Each subplot is one prediction sample built from the data:</p>
+                <p><strong>Blue line (left y-axis):</strong> The blood glucose trace over the past 6 hours (360
+                    minutes), plotted from -360 to 0 on the x-axis. The <span style="color:red;font-weight:600">red star
+                        ★</span> at +60 minutes is the <strong>glucose value the model must predict</strong>.</p>
+                <p><strong>Overlaid signals (right y-axis):</strong><br>
+                    • <strong style="color:#2ca02c">Green</strong> = Bolus insulin delivered<br>
+                    • <strong style="color:#d62728">Red/Pink</strong> = Carb intake (meals)<br>
+                    • <strong style="color:#9467bd">Purple</strong> = Basal insulin rate</p>
+                <p>You can clearly see meal events (red spikes) followed by bolus insulin corrections (green spikes),
+                    and the subsequent glucose response. The model's job is to look at this entire 6-hour history and
+                    predict the red star.</p>
+            </div>
+            <div class="interpretation"><strong>Why this visualization matters:</strong> This directly shows the thesis
+                input-output format. The 6-hour multi-signal window is the input tensor (shape 72 × 7), and the target
+                is a single glucose value — exactly the setup for a sequence-to-one regression model (LSTM, Transformer,
+                etc.).</div>
+            <div class="fig-img"><img src="figures_hupa/13_window_shapes.png"
+                    alt="Window shapes - glucose, insulin, carbs" loading="lazy" /></div>
+        </div>
+
+        <!-- FIGURE 14 -->
+        <div class="fig-section mendeley">
+            <div class="fig-header">
+                <div class="fig-num">Figure 14</div>
+                <h3>Sample Windows: Heart Rate, Steps &amp; Calories</h3>
+            </div>
+            <div class="fig-desc">
+                <p>The same sample windows as Figure 13, but showing the <strong>wearable activity signals</strong>:</p>
+                <p><strong style="color:#e377c2">Pink (left axis):</strong> Heart rate in beats per minute. Higher
+                    values indicate physical exertion.<br>
+                    <strong style="color:#7f7f7f">Gray (right axis):</strong> Step count per 5-minute interval. Spikes
+                    correspond to walking or running.<br>
+                    <strong style="color:#bcbd22">Yellow-green (right axis):</strong> Estimated calorie expenditure.
+                </p>
+                <p>These activity signals provide crucial context: the model can learn that "if the patient was
+                    exercising 2 hours ago, glucose is likely still dropping" or "if heart rate has been low
+                    (sleeping/resting), glucose is relatively stable."</p>
+            </div>
+            <div class="fig-img"><img src="figures_hupa/14_window_shapes_activity.png"
+                    alt="Window shapes - activity signals" loading="lazy" /></div>
+        </div>
+
+    </div>
+
+    <!-- ═══════════════════ CGMACROS PAGE ═══════════════════ -->
+    <div class="page" id="page-cgmacros">
+        <div class="page-header">
+            <div class="tag mendeley">PhysioNet Dataset</div>
+            <h2>CGMacros — High-Resolution Diet & Glucose Monitoring</h2>
+            <div class="desc">
+                <p><strong>What is this dataset?</strong> CGMacros combines Continuous Glucose Monitoring (CGM) with
+                    detailed photographic macronutrient tracking and wearable activity data. Unlike the T1D datasets,
+                    this dataset involves healthy or Type 2 participants without insulin pumps.</p>
+                <p><strong>Why is it important for the thesis?</strong> This dataset is essential for <strong>"Scenario
+                        2: full macros"</strong> and <strong>"Scenario 3: macros + activity"</strong>. Unlike
+                    HUPA/BrisT1D which only consistently logs carbs, CGMacros breaks down meals into <strong>Carbs,
+                        Protein, Fat, Fiber, and Amount Consumed</strong>.</p>
+                <p><strong>Target Variable:</strong> <code>libre_gl</code> (Libre sensor), selected due to the lowest
+                    missingness across participants.</p>
+            </div>
+            <div class="stats-strip">
+                <div class="stat-pill">
+                    <div class="label">Participants</div>
+                    <div class="value">45</div>
+                </div>
+                <div class="stat-pill">
+                    <div class="label">Total 5-min Rows</div>
+                    <div class="value">687,580</div>
+                </div>
+                <div class="stat-pill">
+                    <div class="label">Meal Events</div>
+                    <div class="value">1,706</div>
+                </div>
+                <div class="stat-pill">
+                    <div class="label">ML Format Samples</div>
+                    <div class="value">~683,800</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="fig-section mendeley">
+            <div class="fig-header">
+                <div class="fig-num">Figure 01</div>
+                <h3>Sampling Gaps</h3>
+            </div>
+            <div class="fig-img"><img src="figures_cgmacros/sampling_gaps.png" alt="Sampling Gaps" loading="lazy" />
+            </div>
+        </div>
+
+        <div class="fig-section mendeley">
+            <div class="fig-header">
+                <div class="fig-num">Figure 02</div>
+                <h3>Glucose Distributions</h3>
+            </div>
+            <div class="fig-img"><img src="figures_cgmacros/glucose_dists.png" alt="Glucose Dists" loading="lazy" />
+            </div>
+        </div>
+
+        <div class="fig-section mendeley">
+            <div class="fig-header">
+                <div class="fig-num">Figure 03</div>
+                <h3>Time of Day Effects</h3>
+            </div>
+            <div class="fig-img"><img src="figures_cgmacros/time_of_day.png" alt="Time of Day" loading="lazy" /></div>
+        </div>
+
+        <div class="fig-section mendeley">
+            <div class="fig-header">
+                <div class="fig-num">Figure 04</div>
+                <h3>Event-Aligned Glucose Response to Meals</h3>
+            </div>
+            <div class="fig-desc">
+                <p>Overall average and IQR demonstrating the classic post-prandial glycemic spike and recovery following
+                    the 1,706 logged meal events.</p>
+            </div>
+            <div class="fig-img"><img src="figures_cgmacros/meal_aligned_response.png" alt="Meal Align"
+                    loading="lazy" /></div>
+        </div>
+
+        <div class="fig-section mendeley">
+            <div class="fig-header">
+                <div class="fig-num">Figure 05</div>
+                <h3>Activity Relationships</h3>
+            </div>
+            <div class="fig-desc">
+                <p>Scatter plots of Heart Rate (HR) and METs rolling average over 60 minutes vs. the subsequent glucose
+                    change +60 minutes forward.</p>
+            </div>
+            <div class="fig-img"><img src="figures_cgmacros/activity_delta.png" alt="Activity" loading="lazy" /></div>
+        </div>
+    </div>
+    </div>
+
+    <!-- ═══════════════════ PIPELINE PAGE ═══════════════════ -->
+    <div class="page" id="page-pipeline">
+        <div class="page-header">
+            <div class="tag kaggle">ML Engineering</div>
+            <h2>Thesis Pipeline Progress (Steps 0–2)</h2>
+            <div class="desc">
+                <p><strong>Step 0: Evaluation Protocol ✅</strong></p>
+                <p>Established a rigorous, leakage-safe protocol:
+                <ul>
+                    <li><strong>Split Policy:</strong> Deterministic participant-level hashing for HUPA and CGMacros;
+                        GroupKFold for BrisT1D.</li>
+                    <li><strong>Delta Target Training:</strong> Models are trained to predict both absolute glucose and
+                        the change in glucose (delta). The better performer is selected.</li>
+                    <li><strong>Metrics:</strong> Primary ranking by MAE, supported by RMSE and clinical
+                        range-stratified MAE (Hypo, Normal, Hyper).</li>
+                </ul>
+                </p>
+
+                <p><strong>Step 1: Unified Dataset Builder ✅</strong></p>
+                <p>Transformed all three raw datasets into standardized <code>(X, y, mask)</code> tensors with shape
+                    <code>(72, C)</code>. Applied causal imputation (forward-fill for gaps ≤30m) and computed
+                    time-of-day cyclic features.</p>
+
+                <p><strong>Step 2: Strong Baselines ✅</strong></p>
+                <p>Implemented and evaluated four baseline models across all datasets and scenarios using 30 engineered
+                    temporal features (rolling means, slopes, interval sums):
+                <ul>
+                    <li><strong>Persistence:</strong> <code>y_hat = glucose(t)</code>. The absolute minimum bar.</li>
+                    <li><strong>Linear Drift:</strong> Extrapolates using the rolling slope over the last 60 minutes.
+                    </li>
+                    <li><strong>Ridge Regression:</strong> Tests the linear value of engineered window features.</li>
+                    <li><strong>GBDT (HistGradientBoostingRegressor):</strong> The strongest tabular baseline, capable
+                        of capturing nonlinear interactions without explicit crossing.</li>
+                </ul>
+                </p>
+            </div>
+        </div>
+
+        <div class="fig-section kaggle">
+            <div class="fig-header">
+                <div class="fig-num">BrisT1D</div>
+                <h3>Scenario 1 (Carbs)</h3>
+            </div>
+            <div class="fig-img"><img src="figures_step2/baselines_brist1d_s1.png" alt="BrisT1D Baseline S1"
+                    loading="lazy" /></div>
+        </div>
+
+        <div class="fig-section mendeley">
+            <div class="fig-header">
+                <div class="fig-num">HUPA-UCM</div>
+                <h3>Scenario 1 (Carbs)</h3>
+            </div>
+            <div class="fig-img"><img src="figures_step2/baselines_hupa_s1.png" alt="HUPA Baseline S1" loading="lazy" />
+            </div>
+        </div>
+
+        <div class="fig-section mendeley">
+            <div class="fig-header">
+                <div class="fig-num">CGMacros</div>
+                <h3>Scenario 2 (Full Macros)</h3>
+            </div>
+            <div class="fig-desc">
+                <p>Notice that for CGMacros, GBDT significantly outperforms Persistence and Ridge. The feature
+                    importance plot shows Carbs, Fat, and Protein sum features contributing to the prediction,
+                    demonstrating the value of modeling the full macronutrient breakdown to capture non-linear glycemic
+                    response.</p>
+            </div>
+            <div class="fig-img"><img src="figures_step2/baselines_cgmacros_s2.png" alt="CGMacros Baseline S2"
+                    loading="lazy" /></div>
+        </div>
+    </div>
+
+    <!-- BACK TO TOP -->
+    <button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+    <script>
+        // Navigation
+        function showHome() {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById('page-home').classList.add('active');
+            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+            document.getElementById('nav-home').classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showPage(name) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById('page-' + name).classList.add('active');
+            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+            document.getElementById('nav-' + name).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Back-to-top button
+        window.addEventListener('scroll', () => {
+            document.getElementById('backTop').classList.toggle('visible', window.scrollY > 400);
+        });
+    </script>
+
+</body>
+
+</html>

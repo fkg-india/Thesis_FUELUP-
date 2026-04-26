@@ -1,0 +1,233 @@
+Using device: mps
+
+
+██████████████████████████████████████████████████████████████████████
+  LOADING HUPA Scenario 1
+██████████████████████████████████████████████████████████████████████
+  Loading HUPA (Scenario 1)...
+    Participants: 25, samples: 307,317
+
+════════════════════════════════════════════════════════════
+  DEEP MODELS: HUPA Scenario 1
+  Channels (4): ['gl', 'carbs', 'basal', 'bolus']
+  Input dim (with mask): 8
+════════════════════════════════════════════════════════════
+    train :  247,301 samples  (18 participants)
+    val   :   12,664 samples  (4 participants)
+    test  :   47,352 samples  (3 participants)
+
+  ── Target mode: abs ──
+  Train: 247,301  Val: 12,664  Test: 47,352
+
+  ═══ GRU (abs) ═══
+
+  ── GRU_abs Sweep (12 configs) ──
+    [GRU_abs #1/12] Epoch   0: train_MAE=85.7435  val_MAE=40.5972  lr=3.0e-04  ★ best
+    [GRU_abs #1/12] Epoch   1: train_MAE=23.5344  val_MAE=27.1813  lr=3.0e-04  ★ best
+    [GRU_abs #1/12] Epoch   2: train_MAE=22.2943  val_MAE=27.0039  lr=3.0e-04  ★ best
+    [GRU_abs #1/12] Epoch   3: train_MAE=21.9942  val_MAE=26.6439  lr=3.0e-04  ★ best
+    [GRU_abs #1/12] Epoch   4: train_MAE=21.8713  val_MAE=26.4921  lr=3.0e-04  ★ best
+    [GRU_abs #1/12] Epoch   5: train_MAE=21.7509  val_MAE=26.2416  lr=3.0e-04  ★ best
+    [GRU_abs #1/12] Epoch   8: train_MAE=21.4976  val_MAE=26.0125  lr=3.0e-04  ★ best
+    [GRU_abs #1/12] Epoch  10: train_MAE=21.3582  val_MAE=26.0622  lr=3.0e-04  
+    [GRU_abs #1/12] Epoch  11: train_MAE=21.2839  val_MAE=25.8489  lr=3.0e-04  ★ best
+    [GRU_abs #1/12] Epoch  15: train_MAE=21.0408  val_MAE=25.6849  lr=3.0e-04  ★ best
+    [GRU_abs #1/12] Epoch  20: train_MAE=20.7981  val_MAE=25.9392  lr=3.0e-04  
+    [GRU_abs #1/12] Epoch  30: train_MAE=20.5324  val_MAE=26.1515  lr=7.5e-05  
+    [GRU_abs #1/12] Early stop at epoch 30 (best val MAE=25.6849)
+    Config 1: h=64 L=1 d=0.1 lr=3e-04 → val_MAE=25.6849
+    [GRU_abs #2/12] Epoch   0: train_MAE=41.5767  val_MAE=26.5876  lr=1.0e-03  ★ best
+    [GRU_abs #2/12] Epoch   1: train_MAE=23.3214  val_MAE=26.4153  lr=1.0e-03  ★ best
+    [GRU_abs #2/12] Epoch   2: train_MAE=22.9187  val_MAE=25.9745  lr=1.0e-03  ★ best
+    [GRU_abs #2/12] Epoch   3: train_MAE=22.7095  val_MAE=25.7678  lr=1.0e-03  ★ best
+    [GRU_abs #2/12] Epoch   5: train_MAE=22.1666  val_MAE=25.6495  lr=1.0e-03  ★ best
+    [GRU_abs #2/12] Epoch  10: train_MAE=21.2243  val_MAE=26.3234  lr=1.0e-03  
+    [GRU_abs #2/12] Epoch  20: train_MAE=20.0749  val_MAE=26.6563  lr=2.5e-04  
+    [GRU_abs #2/12] Early stop at epoch 20 (best val MAE=25.6495)
+    Config 2: h=64 L=2 d=0.2 lr=1e-03 → val_MAE=25.6495
+    [GRU_abs #3/12] Epoch   0: train_MAE=54.2571  val_MAE=27.4700  lr=3.0e-04  ★ best
+    [GRU_abs #3/12] Epoch   1: train_MAE=21.5072  val_MAE=26.0472  lr=3.0e-04  ★ best
+    [GRU_abs #3/12] Epoch   6: train_MAE=20.5354  val_MAE=26.0346  lr=3.0e-04  ★ best
+    [GRU_abs #3/12] Epoch   7: train_MAE=20.4345  val_MAE=25.9913  lr=3.0e-04  ★ best
+    [GRU_abs #3/12] Epoch  10: train_MAE=20.1877  val_MAE=26.4754  lr=3.0e-04  
+    [GRU_abs #3/12] Epoch  20: train_MAE=19.6386  val_MAE=26.6983  lr=7.5e-05  
+    [GRU_abs #3/12] Early stop at epoch 22 (best val MAE=25.9913)
+    Config 3: h=128 L=1 d=0.1 lr=3e-04 → val_MAE=25.9913
+    [GRU_abs #4/12] Epoch   0: train_MAE=58.9463  val_MAE=28.0875  lr=3.0e-04  ★ best
+    [GRU_abs #4/12] Epoch   1: train_MAE=21.5687  val_MAE=25.4224  lr=3.0e-04  ★ best
+    [GRU_abs #4/12] Epoch   6: train_MAE=20.3201  val_MAE=25.2743  lr=3.0e-04  ★ best
+    [GRU_abs #4/12] Epoch  10: train_MAE=19.9106  val_MAE=25.8022  lr=3.0e-04  
+    [GRU_abs #4/12] Epoch  20: train_MAE=19.1877  val_MAE=26.8487  lr=7.5e-05  
+    [GRU_abs #4/12] Early stop at epoch 21 (best val MAE=25.2743)
+    Config 4: h=128 L=2 d=0.1 lr=3e-04 → val_MAE=25.2743
+    [GRU_abs #5/12] Epoch   0: train_MAE=111.0257  val_MAE=87.1254  lr=1.0e-04  ★ best
+    [GRU_abs #5/12] Epoch   1: train_MAE=41.6596  val_MAE=33.7296  lr=1.0e-04  ★ best
+    [GRU_abs #5/12] Epoch   2: train_MAE=23.9322  val_MAE=28.3907  lr=1.0e-04  ★ best
+    [GRU_abs #5/12] Epoch   3: train_MAE=22.8764  val_MAE=26.7272  lr=1.0e-04  ★ best
+    [GRU_abs #5/12] Epoch   5: train_MAE=22.3986  val_MAE=26.6763  lr=1.0e-04  ★ best
+    [GRU_abs #5/12] Epoch   6: train_MAE=22.2412  val_MAE=26.3623  lr=1.0e-04  ★ best
+    [GRU_abs #5/12] Epoch   7: train_MAE=22.2031  val_MAE=25.9638  lr=1.0e-04  ★ best
+    [GRU_abs #5/12] Epoch  10: train_MAE=21.9279  val_MAE=26.0771  lr=1.0e-04  
+    [GRU_abs #5/12] Epoch  11: train_MAE=21.8925  val_MAE=25.9376  lr=1.0e-04  ★ best
+    [GRU_abs #5/12] Epoch  13: train_MAE=21.7843  val_MAE=25.6307  lr=1.0e-04  ★ best
+    [GRU_abs #5/12] Epoch  14: train_MAE=21.7302  val_MAE=25.4589  lr=1.0e-04  ★ best
+    [GRU_abs #5/12] Epoch  20: train_MAE=21.3905  val_MAE=25.7457  lr=1.0e-04  
+    [GRU_abs #5/12] Early stop at epoch 29 (best val MAE=25.4589)
+    Config 5: h=128 L=2 d=0.2 lr=1e-04 → val_MAE=25.4589
+    [GRU_abs #6/12] Epoch   0: train_MAE=59.5754  val_MAE=28.4615  lr=3.0e-04  ★ best
+    [GRU_abs #6/12] Epoch   1: train_MAE=22.7431  val_MAE=25.8231  lr=3.0e-04  ★ best
+    [GRU_abs #6/12] Epoch   3: train_MAE=21.9707  val_MAE=25.6801  lr=3.0e-04  ★ best
+    [GRU_abs #6/12] Epoch   7: train_MAE=21.4135  val_MAE=25.6639  lr=3.0e-04  ★ best
+    [GRU_abs #6/12] Epoch   9: train_MAE=21.2117  val_MAE=25.6057  lr=3.0e-04  ★ best
+    [GRU_abs #6/12] Epoch  10: train_MAE=21.0565  val_MAE=25.9762  lr=3.0e-04  
+    [GRU_abs #6/12] Epoch  13: train_MAE=20.8082  val_MAE=25.4065  lr=3.0e-04  ★ best
+    [GRU_abs #6/12] Epoch  20: train_MAE=20.1289  val_MAE=26.6691  lr=1.5e-04  
+    [GRU_abs #6/12] Early stop at epoch 28 (best val MAE=25.4065)
+    Config 6: h=128 L=2 d=0.2 lr=3e-04 → val_MAE=25.4065
+    [GRU_abs #7/12] Epoch   0: train_MAE=60.3111  val_MAE=28.6663  lr=3.0e-04  ★ best
+    [GRU_abs #7/12] Epoch   1: train_MAE=23.9588  val_MAE=26.2520  lr=3.0e-04  ★ best
+    [GRU_abs #7/12] Epoch   3: train_MAE=23.1359  val_MAE=25.7312  lr=3.0e-04  ★ best
+    [GRU_abs #7/12] Epoch   9: train_MAE=22.3835  val_MAE=25.6912  lr=3.0e-04  ★ best
+    [GRU_abs #7/12] Epoch  10: train_MAE=22.1703  val_MAE=25.8018  lr=3.0e-04  
+    [GRU_abs #7/12] Epoch  13: train_MAE=21.8124  val_MAE=25.5690  lr=3.0e-04  ★ best
+    [GRU_abs #7/12] Epoch  20: train_MAE=21.0657  val_MAE=26.3752  lr=1.5e-04  
+    [GRU_abs #7/12] Early stop at epoch 28 (best val MAE=25.5690)
+    Config 7: h=128 L=2 d=0.3 lr=3e-04 → val_MAE=25.5690
+    [GRU_abs #8/12] Epoch   0: train_MAE=63.0426  val_MAE=29.3619  lr=3.0e-04  ★ best
+    [GRU_abs #8/12] Epoch   1: train_MAE=23.1054  val_MAE=27.7375  lr=3.0e-04  ★ best
+    [GRU_abs #8/12] Epoch   2: train_MAE=22.4812  val_MAE=26.7315  lr=3.0e-04  ★ best
+    [GRU_abs #8/12] Epoch   3: train_MAE=22.0874  val_MAE=25.5338  lr=3.0e-04  ★ best
+    [GRU_abs #8/12] Epoch   6: train_MAE=21.5431  val_MAE=25.4714  lr=3.0e-04  ★ best
+    [GRU_abs #8/12] Epoch   7: train_MAE=21.4041  val_MAE=25.2716  lr=3.0e-04  ★ best
+    [GRU_abs #8/12] Epoch  10: train_MAE=21.0640  val_MAE=25.8015  lr=3.0e-04  
+    [GRU_abs #8/12] Epoch  20: train_MAE=19.8957  val_MAE=26.9563  lr=7.5e-05  
+    [GRU_abs #8/12] Early stop at epoch 22 (best val MAE=25.2716)
+    Config 8: h=128 L=3 d=0.2 lr=3e-04 → val_MAE=25.2716
+    [GRU_abs #9/12] Epoch   0: train_MAE=70.4391  val_MAE=34.4877  lr=1.0e-04  ★ best
+    [GRU_abs #9/12] Epoch   1: train_MAE=22.5758  val_MAE=27.8449  lr=1.0e-04  ★ best
+    [GRU_abs #9/12] Epoch   2: train_MAE=21.7051  val_MAE=27.0615  lr=1.0e-04  ★ best
+    [GRU_abs #9/12] Epoch   3: train_MAE=21.4477  val_MAE=26.1519  lr=1.0e-04  ★ best
+    [GRU_abs #9/12] Epoch   4: train_MAE=21.2291  val_MAE=26.0215  lr=1.0e-04  ★ best
+    [GRU_abs #9/12] Epoch   5: train_MAE=21.1262  val_MAE=25.9013  lr=1.0e-04  ★ best
+    [GRU_abs #9/12] Epoch  10: train_MAE=20.8497  val_MAE=26.1088  lr=1.0e-04  
+    [GRU_abs #9/12] Epoch  20: train_MAE=20.4003  val_MAE=26.4277  lr=2.5e-05  
+    [GRU_abs #9/12] Early stop at epoch 20 (best val MAE=25.9013)
+    Config 9: h=256 L=1 d=0.2 lr=1e-04 → val_MAE=25.9013
+    [GRU_abs #10/12] Epoch   0: train_MAE=70.9192  val_MAE=35.1201  lr=1.0e-04  ★ best
+    [GRU_abs #10/12] Epoch   1: train_MAE=22.6200  val_MAE=27.2858  lr=1.0e-04  ★ best
+    [GRU_abs #10/12] Epoch   2: train_MAE=21.6296  val_MAE=27.0214  lr=1.0e-04  ★ best
+    [GRU_abs #10/12] Epoch   3: train_MAE=21.3366  val_MAE=26.5127  lr=1.0e-04  ★ best
+    [GRU_abs #10/12] Epoch   4: train_MAE=21.1615  val_MAE=25.7199  lr=1.0e-04  ★ best
+    [GRU_abs #10/12] Epoch   5: train_MAE=21.0535  val_MAE=25.5541  lr=1.0e-04  ★ best
+    [GRU_abs #10/12] Epoch  10: train_MAE=20.6337  val_MAE=25.7400  lr=1.0e-04  
+    [GRU_abs #10/12] Epoch  11: train_MAE=20.5884  val_MAE=25.4360  lr=1.0e-04  ★ best
+    [GRU_abs #10/12] Epoch  13: train_MAE=20.4575  val_MAE=25.0122  lr=1.0e-04  ★ best
+    [GRU_abs #10/12] Epoch  20: train_MAE=19.9598  val_MAE=25.7619  lr=5.0e-05  
+    [GRU_abs #10/12] Early stop at epoch 28 (best val MAE=25.0122)
+    Config 10: h=256 L=2 d=0.2 lr=1e-04 → val_MAE=25.0122
+    [GRU_abs #11/12] Epoch   0: train_MAE=38.8605  val_MAE=26.5836  lr=3.0e-04  ★ best
+    [GRU_abs #11/12] Epoch   1: train_MAE=21.3931  val_MAE=25.8381  lr=3.0e-04  ★ best
+    [GRU_abs #11/12] Epoch   4: train_MAE=20.4612  val_MAE=25.4764  lr=3.0e-04  ★ best
+    [GRU_abs #11/12] Epoch   6: train_MAE=20.1748  val_MAE=25.4567  lr=3.0e-04  ★ best
+    [GRU_abs #11/12] Epoch  10: train_MAE=19.6716  val_MAE=26.7876  lr=3.0e-04  
+    [GRU_abs #11/12] Epoch  20: train_MAE=18.2767  val_MAE=30.0793  lr=7.5e-05  
+    [GRU_abs #11/12] Early stop at epoch 21 (best val MAE=25.4567)
+    Config 11: h=256 L=2 d=0.2 lr=3e-04 → val_MAE=25.4567
+    [GRU_abs #12/12] Epoch   0: train_MAE=75.5902  val_MAE=37.0368  lr=1.0e-04  ★ best
+    [GRU_abs #12/12] Epoch   1: train_MAE=23.8509  val_MAE=27.8683  lr=1.0e-04  ★ best
+    [GRU_abs #12/12] Epoch   2: train_MAE=22.4999  val_MAE=26.3513  lr=1.0e-04  ★ best
+    [GRU_abs #12/12] Epoch   3: train_MAE=22.1369  val_MAE=25.9014  lr=1.0e-04  ★ best
+    [GRU_abs #12/12] Epoch   5: train_MAE=21.6830  val_MAE=25.5598  lr=1.0e-04  ★ best
+    [GRU_abs #12/12] Epoch   6: train_MAE=21.5824  val_MAE=25.3970  lr=1.0e-04  ★ best
+    [GRU_abs #12/12] Epoch  10: train_MAE=21.1338  val_MAE=25.7054  lr=1.0e-04  
+    [GRU_abs #12/12] Epoch  17: train_MAE=20.6216  val_MAE=25.1854  lr=5.0e-05  ★ best
+    [GRU_abs #12/12] Epoch  20: train_MAE=20.5004  val_MAE=25.2977  lr=5.0e-05  
+    [GRU_abs #12/12] Epoch  30: train_MAE=20.1452  val_MAE=25.7790  lr=1.3e-05  
+    [GRU_abs #12/12] Early stop at epoch 32 (best val MAE=25.1854)
+    Config 12: h=256 L=3 d=0.3 lr=1e-04 → val_MAE=25.1854
+
+  ★ Best GRU_abs: {'hidden_dim': 256, 'n_layers': 2, 'dropout': 0.2, 'lr': 0.0001} → val_MAE=25.0122
+    [GRU_abs seed=42] Epoch   0: train_MAE=70.9192  val_MAE=35.1201  lr=1.0e-04  ★ best
+    [GRU_abs seed=42] Epoch   1: train_MAE=22.6200  val_MAE=27.2858  lr=1.0e-04  ★ best
+    [GRU_abs seed=42] Epoch   2: train_MAE=21.6296  val_MAE=27.0214  lr=1.0e-04  ★ best
+    [GRU_abs seed=42] Epoch   3: train_MAE=21.3366  val_MAE=26.5127  lr=1.0e-04  ★ best
+    [GRU_abs seed=42] Epoch   4: train_MAE=21.1615  val_MAE=25.7199  lr=1.0e-04  ★ best
+    [GRU_abs seed=42] Epoch   5: train_MAE=21.0535  val_MAE=25.5541  lr=1.0e-04  ★ best
+    [GRU_abs seed=42] Epoch  10: train_MAE=20.6337  val_MAE=25.7400  lr=1.0e-04  
+    [GRU_abs seed=42] Epoch  11: train_MAE=20.5884  val_MAE=25.4360  lr=1.0e-04  ★ best
+    [GRU_abs seed=42] Epoch  13: train_MAE=20.4575  val_MAE=25.0122  lr=1.0e-04  ★ best
+    [GRU_abs seed=42] Epoch  20: train_MAE=19.9598  val_MAE=25.7619  lr=5.0e-05  
+    [GRU_abs seed=42] Early stop at epoch 28 (best val MAE=25.0122)
+    Seed 42: MAE=22.3863 RMSE=32.9430
+    [GRU_abs seed=153] Epoch   0: train_MAE=72.3326  val_MAE=34.2329  lr=1.0e-04  ★ best
+    [GRU_abs seed=153] Epoch   1: train_MAE=22.6435  val_MAE=26.8878  lr=1.0e-04  ★ best
+    [GRU_abs seed=153] Epoch   2: train_MAE=21.6966  val_MAE=26.5691  lr=1.0e-04  ★ best
+    [GRU_abs seed=153] Epoch   3: train_MAE=21.3972  val_MAE=25.6732  lr=1.0e-04  ★ best
+    [GRU_abs seed=153] Epoch   8: train_MAE=20.8153  val_MAE=25.5602  lr=1.0e-04  ★ best
+    [GRU_abs seed=153] Epoch  10: train_MAE=20.6209  val_MAE=26.0438  lr=1.0e-04  
+    [GRU_abs seed=153] Epoch  15: train_MAE=20.1936  val_MAE=25.2803  lr=5.0e-05  ★ best
+    [GRU_abs seed=153] Epoch  20: train_MAE=20.0379  val_MAE=25.8783  lr=5.0e-05  
+    [GRU_abs seed=153] Epoch  30: train_MAE=19.8017  val_MAE=25.8679  lr=1.3e-05  
+    [GRU_abs seed=153] Early stop at epoch 30 (best val MAE=25.2803)
+    Seed 153: MAE=22.5680 RMSE=32.9904
+    [GRU_abs seed=264] Epoch   0: train_MAE=76.1014  val_MAE=37.1124  lr=1.0e-04  ★ best
+    [GRU_abs seed=264] Epoch   1: train_MAE=22.8342  val_MAE=27.1180  lr=1.0e-04  ★ best
+    [GRU_abs seed=264] Epoch   2: train_MAE=21.7834  val_MAE=26.1356  lr=1.0e-04  ★ best
+    [GRU_abs seed=264] Epoch   5: train_MAE=21.1251  val_MAE=26.0723  lr=1.0e-04  ★ best
+    [GRU_abs seed=264] Epoch   9: train_MAE=20.7157  val_MAE=25.9273  lr=1.0e-04  ★ best
+    [GRU_abs seed=264] Epoch  10: train_MAE=20.6209  val_MAE=26.1412  lr=1.0e-04  
+    [GRU_abs seed=264] Epoch  12: train_MAE=20.4376  val_MAE=25.7794  lr=1.0e-04  ★ best
+    [GRU_abs seed=264] Epoch  14: train_MAE=20.3215  val_MAE=25.5345  lr=1.0e-04  ★ best
+    [GRU_abs seed=264] Epoch  17: train_MAE=20.1266  val_MAE=25.2489  lr=1.0e-04  ★ best
+    [GRU_abs seed=264] Epoch  18: train_MAE=20.0785  val_MAE=25.1331  lr=1.0e-04  ★ best
+    [GRU_abs seed=264] Epoch  20: train_MAE=19.9595  val_MAE=25.8481  lr=1.0e-04  
+    [GRU_abs seed=264] Epoch  30: train_MAE=19.5753  val_MAE=26.6330  lr=5.0e-05  
+    [GRU_abs seed=264] Early stop at epoch 33 (best val MAE=25.1331)
+    Seed 264: MAE=23.2476 RMSE=33.7201
+    Checkpoint saved: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/GRU_abs_hupa_s1.pt
+
+  Per-participant MAE (GRU abs):
+      pid  n_samples       mae      rmse
+HUPA0004P       3101 31.152622 44.256859
+HUPA0026P      40522 22.980516 33.183956
+HUPA0009P       3729  8.639451 13.629097
+    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_GRU_abs_hupa_s1.png
+    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_GRU_abs_hupa_s1.png
+
+  ═══ Transformer (abs) ═══
+
+  ── Transformer_abs Sweep (12 configs) ──
+Traceback (most recent call last):
+  File "/Users/arinbaswana/Desktop/DATA GRAPHS/deep_models.py", line 990, in <module>
+    ══════════════════════════════════════════════════════════════
+     ^^
+  File "/Users/arinbaswana/Desktop/DATA GRAPHS/deep_models.py", line 882, in main
+    norm = f"{rm['normal'][0]:.2f}({rm['normal'][1]})" if rm.get('normal', (0,0))[1] > 0 else "N/A"
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/arinbaswana/Desktop/DATA GRAPHS/deep_models.py", line 773, in run_deep
+    
+    
+  File "/Users/arinbaswana/Desktop/DATA GRAPHS/deep_models.py", line 462, in run_sweep
+    print(f"    Config {i+1}: h={hp['hidden_dim']} L={hp['n_layers']} "
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/arinbaswana/Desktop/DATA GRAPHS/deep_models.py", line 364, in train_model
+    current_lr = optimizer.param_groups[0]["lr"]
+                    ^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/arinbaswana/Desktop/DATA GRAPHS/deep_models.py", line 295, in forward
+    
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/torch/nn/modules/transformer.py", line 482, in forward
+    elif do_mask_check and not torch._nested_tensor_from_mask_left_aligned(
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NotImplementedError: The operator 'aten::_nested_tensor_from_mask_left_aligned' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you can set the environment variable `PYTORCH_ENABLE_MPS_FALLBACK=1` to use the CPU as a fallback for this op. WARNING: this will be slower than running natively on MPS.
