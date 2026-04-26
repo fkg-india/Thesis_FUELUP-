@@ -22,7 +22,7 @@
   LinDrift           34.509     34.509     52.992  21.39(3431) 34.94(24644) 36.30(19277)
   Ridge              26.162     26.162     35.120  27.05(3431) 20.71(24644) 32.97(19277)
   GBDT               23.391     23.099     33.301  29.27(3431) 18.00(24644) 29.23(19277)
-  Plot saved: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step2/baselines_hupa_s1.png
+  Plot saved: figures_step2/baselines_hupa_s1.png
   Loading HUPA (Scenario 3)...
     Participants: 25, samples: 307,317
 
@@ -47,7 +47,7 @@
   LinDrift           34.509     34.509     52.992  21.39(3431) 34.94(24644) 36.30(19277)
   Ridge              25.873     25.873     34.723  27.54(3431) 20.79(24644) 32.07(19277)
   GBDT               24.122     23.874     33.564  36.65(3431) 19.03(24644) 28.40(19277)
-  Plot saved: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step2/baselines_hupa_s3.png
+  Plot saved: figures_step2/baselines_hupa_s3.png
   Loading CGMacros (Scenario 1)...
     Participants: 45, samples: 134,406
 
@@ -72,7 +72,7 @@
   LinDrift           21.033     21.033     31.216  18.92(1119) 31.52(225)      N/A
   Ridge              13.729     13.729     19.327  12.14(1119) 21.63(225)      N/A
   GBDT               11.570     11.895     16.073  9.72(1119) 20.75(225)      N/A
-  Plot saved: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step2/baselines_cgmacros_s1.png
+  Plot saved: figures_step2/baselines_cgmacros_s1.png
   Loading CGMacros (Scenario 2)...
     Participants: 45, samples: 134,406
 
@@ -97,7 +97,7 @@
   LinDrift           21.033     21.033     31.216  18.92(1119) 31.52(225)      N/A
   Ridge              13.727     13.727     19.336  12.08(1119) 21.94(225)      N/A
   GBDT               11.485     11.867     15.886  9.50(1119) 21.36(225)      N/A
-  Plot saved: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step2/baselines_cgmacros_s2.png
+  Plot saved: figures_step2/baselines_cgmacros_s2.png
   Loading CGMacros (Scenario 3)...
     Participants: 45, samples: 134,406
 
@@ -122,7 +122,7 @@
   LinDrift           21.033     21.033     31.216  18.92(1119) 31.52(225)      N/A
   Ridge              13.608     13.608     19.236  11.96(1119) 21.79(225)      N/A
   GBDT               11.296     11.678     16.043  9.04(1119) 22.53(225)      N/A
-  Plot saved: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step2/baselines_cgmacros_s3.png
+  Plot saved: figures_step2/baselines_cgmacros_s3.png
   Loading BrisT1D (Scenario 1)...
     Rows: 177,024, valid targets: 177,024
 
@@ -147,7 +147,7 @@
   LinDrift            3.835      3.835      4.925  3.22(540) 3.54(4465) 4.45(2711)
   Ridge               2.091      2.091      2.706  2.53(540) 1.75(4465) 2.57(2711)
   GBDT                1.974      2.003      2.562  2.78(540) 1.61(4465) 2.42(2711)
-  Plot saved: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step2/baselines_brist1d_s1.png
+  Plot saved: figures_step2/baselines_brist1d_s1.png
   Loading BrisT1D (Scenario 3)...
     Rows: 177,024, valid targets: 177,024
 
@@ -172,7 +172,7 @@
   LinDrift            3.835      3.835      4.925  3.22(540) 3.54(4465) 4.45(2711)
   Ridge               2.095      2.095      2.709  2.54(540) 1.76(4465) 2.56(2711)
   GBDT                1.988      2.020      2.572  2.89(540) 1.66(4465) 2.35(2711)
-  Plot saved: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step2/baselines_brist1d_s3.png
+  Plot saved: figures_step2/baselines_brist1d_s3.png
 
 ██████████████████████████████████████████████████████████████████████
  GRAND SUMMARY — All Datasets × Scenarios × Models

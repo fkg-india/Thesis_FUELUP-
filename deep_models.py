@@ -40,7 +40,8 @@ from baselines import (
 #  CONFIG
 # ══════════════════════════════════════════════════════════════════════
 
-OUT_DIR = "/Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3"
+ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+OUT_DIR = os.path.join(ROOT_DIR, "figures_step3")
 CKPT_DIR = os.path.join(OUT_DIR, "checkpoints")
 os.makedirs(CKPT_DIR, exist_ok=True)
 

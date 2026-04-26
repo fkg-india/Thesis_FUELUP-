@@ -32,15 +32,15 @@ Using device: mps
     [GRU_abs] Epoch  10: train_MAE=22.3157  val_MAE=25.7586  lr=3.0e-04  ★ best
     [GRU_abs] Early stop at epoch 17 (best val MAE=25.7586)
   ★ TEST: MAE=23.3610  RMSE=33.9116
-    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/GRU_abs_hupa_s1.pt
+    Checkpoint: figures_step3/checkpoints/GRU_abs_hupa_s1.pt
 
   Per-participant MAE (GRU abs):
       pid  n_samples       mae      rmse
 HUPA0004P       3101 32.615181 45.350914
 HUPA0026P      40522 23.962057 34.185421
 HUPA0009P       3729  9.133875 13.904490
-    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_GRU_abs_hupa_s1.png
-    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_GRU_abs_hupa_s1.png
+    Failure cases plot: figures_step3/failure_cases_GRU_abs_hupa_s1.png
+    Per-participant plot: figures_step3/per_participant_GRU_abs_hupa_s1.png
 
   ═══ Transformer (abs) ═══
   Config: h=128 L=2 d=0.2 lr=3e-04
@@ -56,15 +56,15 @@ HUPA0009P       3729  9.133875 13.904490
     [Transformer_abs] Epoch  20: train_MAE=21.4576  val_MAE=28.7803  lr=1.5e-04  
     [Transformer_abs] Early stop at epoch 23 (best val MAE=27.1936)
   ★ TEST: MAE=35.4251  RMSE=52.4134
-    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/Transformer_abs_hupa_s1.pt
+    Checkpoint: figures_step3/checkpoints/Transformer_abs_hupa_s1.pt
 
   Per-participant MAE (Transformer abs):
       pid  n_samples       mae      rmse
 HUPA0004P       3101 62.973789 88.378044
 HUPA0026P      40522 34.961712 50.679485
 HUPA0009P       3729 17.551140 21.882530
-    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_Transformer_abs_hupa_s1.png
-    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_Transformer_abs_hupa_s1.png
+    Failure cases plot: figures_step3/failure_cases_Transformer_abs_hupa_s1.png
+    Per-participant plot: figures_step3/per_participant_Transformer_abs_hupa_s1.png
 
   ── Target mode: delta ──
   Train: 24,730  Val: 1,266  Test: 47,352
@@ -87,30 +87,30 @@ HUPA0009P       3729 17.551140 21.882530
     [GRU_delta] Epoch  22: train_MAE=19.1475  val_MAE=25.9936  lr=1.5e-04  ★ best
     [GRU_delta] Early stop at epoch 29 (best val MAE=25.9936)
   ★ TEST: MAE=23.2156  RMSE=33.8452
-    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/GRU_delta_hupa_s1.pt
+    Checkpoint: figures_step3/checkpoints/GRU_delta_hupa_s1.pt
 
   Per-participant MAE (GRU delta):
       pid  n_samples       mae      rmse
 HUPA0004P       3101 31.072002 43.821770
 HUPA0026P      40522 23.880447 34.245037
 HUPA0009P       3729  9.456964 14.327108
-    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_GRU_delta_hupa_s1.png
-    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_GRU_delta_hupa_s1.png
+    Failure cases plot: figures_step3/failure_cases_GRU_delta_hupa_s1.png
+    Per-participant plot: figures_step3/per_participant_GRU_delta_hupa_s1.png
 
   ═══ Transformer (delta) ═══
   Config: h=128 L=2 d=0.2 lr=3e-04
     [Transformer_delta] Epoch   0: train_MAE=22.2993  val_MAE=29.3788  lr=3.0e-04  ★ best
     [Transformer_delta] Early stop at epoch 7 (best val MAE=29.3788)
   ★ TEST: MAE=27.2272  RMSE=37.9661
-    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/Transformer_delta_hupa_s1.pt
+    Checkpoint: figures_step3/checkpoints/Transformer_delta_hupa_s1.pt
 
   Per-participant MAE (Transformer delta):
       pid  n_samples       mae      rmse
 HUPA0004P       3101 35.639690 49.159279
 HUPA0026P      40522 27.778589 38.280258
 HUPA0009P       3729 14.240103 19.238218
-    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_Transformer_delta_hupa_s1.png
-    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_Transformer_delta_hupa_s1.png
+    Failure cases plot: figures_step3/failure_cases_Transformer_delta_hupa_s1.png
+    Per-participant plot: figures_step3/per_participant_Transformer_delta_hupa_s1.png
 
 ██████████████████████████████████████████████████████████████████████
   HUPA Scenario 1 — Deep Models Summary
@@ -153,15 +153,15 @@ HUPA0009P       3729 14.240103 19.238218
     [GRU_abs] Epoch  10: train_MAE=21.7140  val_MAE=27.5209  lr=3.0e-04  
     [GRU_abs] Early stop at epoch 14 (best val MAE=26.5704)
   ★ TEST: MAE=24.8434  RMSE=34.5623
-    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/GRU_abs_hupa_s3.pt
+    Checkpoint: figures_step3/checkpoints/GRU_abs_hupa_s3.pt
 
   Per-participant MAE (GRU abs):
       pid  n_samples       mae      rmse
 HUPA0004P       3101 33.406425 46.044643
 HUPA0026P      40522 25.297636 34.716923
 HUPA0009P       3729 12.786729 17.562447
-    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_GRU_abs_hupa_s3.png
-    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_GRU_abs_hupa_s3.png
+    Failure cases plot: figures_step3/failure_cases_GRU_abs_hupa_s3.png
+    Per-participant plot: figures_step3/per_participant_GRU_abs_hupa_s3.png
 
   ═══ Transformer (abs) ═══
   Config: h=128 L=2 d=0.2 lr=3e-04
@@ -176,15 +176,15 @@ HUPA0009P       3729 12.786729 17.562447
     [Transformer_abs] Epoch  20: train_MAE=20.9953  val_MAE=30.4309  lr=7.5e-05  
     [Transformer_abs] Early stop at epoch 20 (best val MAE=28.2296)
   ★ TEST: MAE=28.8154  RMSE=40.6285
-    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/Transformer_abs_hupa_s3.pt
+    Checkpoint: figures_step3/checkpoints/Transformer_abs_hupa_s3.pt
 
   Per-participant MAE (Transformer abs):
       pid  n_samples       mae      rmse
 HUPA0004P       3101 61.301842 82.503883
 HUPA0026P      40522 27.056684 36.756905
 HUPA0009P       3729 20.912092 24.871166
-    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_Transformer_abs_hupa_s3.png
-    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_Transformer_abs_hupa_s3.png
+    Failure cases plot: figures_step3/failure_cases_Transformer_abs_hupa_s3.png
+    Per-participant plot: figures_step3/per_participant_Transformer_abs_hupa_s3.png
 
   ── Target mode: delta ──
   Train: 24,730  Val: 1,266  Test: 47,352
@@ -201,15 +201,15 @@ HUPA0009P       3729 20.912092 24.871166
     [GRU_delta] Epoch  10: train_MAE=19.6295  val_MAE=27.8112  lr=3.0e-04  
     [GRU_delta] Early stop at epoch 14 (best val MAE=27.2606)
   ★ TEST: MAE=25.4657  RMSE=35.1310
-    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/GRU_delta_hupa_s3.pt
+    Checkpoint: figures_step3/checkpoints/GRU_delta_hupa_s3.pt
 
   Per-participant MAE (GRU delta):
       pid  n_samples       mae      rmse
 HUPA0004P       3101 33.628357 46.171307
 HUPA0026P      40522 25.928104 35.319813
 HUPA0009P       3729 13.652632 18.524549
-    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_GRU_delta_hupa_s3.png
-    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_GRU_delta_hupa_s3.png
+    Failure cases plot: figures_step3/failure_cases_GRU_delta_hupa_s3.png
+    Per-participant plot: figures_step3/per_participant_GRU_delta_hupa_s3.png
 
   ═══ Transformer (delta) ═══
   Config: h=128 L=2 d=0.2 lr=3e-04
@@ -219,15 +219,15 @@ HUPA0009P       3729 13.652632 18.524549
     [Transformer_delta] Epoch  10: train_MAE=20.4454  val_MAE=29.6367  lr=1.5e-04  
     [Transformer_delta] Early stop at epoch 14 (best val MAE=29.2261)
   ★ TEST: MAE=26.3224  RMSE=36.1124
-    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/Transformer_delta_hupa_s3.pt
+    Checkpoint: figures_step3/checkpoints/Transformer_delta_hupa_s3.pt
 
   Per-participant MAE (Transformer delta):
       pid  n_samples       mae      rmse
 HUPA0004P       3101 36.220119 49.636013
 HUPA0026P      40522 26.575882 35.953659
 HUPA0009P       3729 15.337494 21.542210
-    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_Transformer_delta_hupa_s3.png
-    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_Transformer_delta_hupa_s3.png
+    Failure cases plot: figures_step3/failure_cases_Transformer_delta_hupa_s3.png
+    Per-participant plot: figures_step3/per_participant_Transformer_delta_hupa_s3.png
 
 ██████████████████████████████████████████████████████████████████████
   HUPA Scenario 3 — Deep Models Summary
@@ -271,13 +271,13 @@ HUPA0009P       3729 15.337494 21.542210
     [GRU_abs] Epoch  10: train_MAE=17.3215  val_MAE=11.7845  lr=3.0e-04  ★ best
     [GRU_abs] Early stop at epoch 17 (best val MAE=11.7845)
   ★ TEST: MAE=16.7971  RMSE=24.0362
-    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/GRU_abs_cgmacros_s1.pt
+    Checkpoint: figures_step3/checkpoints/GRU_abs_cgmacros_s1.pt
 
   Per-participant MAE (GRU abs):
          pid  n_samples       mae      rmse
 CGMacros-007       1567 16.797071 24.036245
-    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_GRU_abs_cgmacros_s1.png
-    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_GRU_abs_cgmacros_s1.png
+    Failure cases plot: figures_step3/failure_cases_GRU_abs_cgmacros_s1.png
+    Per-participant plot: figures_step3/per_participant_GRU_abs_cgmacros_s1.png
 
   ═══ Transformer (abs) ═══
   Config: h=128 L=2 d=0.2 lr=3e-04
@@ -294,13 +294,13 @@ CGMacros-007       1567 16.797071 24.036245
     [Transformer_abs] Epoch  20: train_MAE=16.7684  val_MAE=13.3595  lr=1.5e-04  
     [Transformer_abs] Early stop at epoch 20 (best val MAE=12.5134)
   ★ TEST: MAE=13.4696  RMSE=16.6665
-    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/Transformer_abs_cgmacros_s1.pt
+    Checkpoint: figures_step3/checkpoints/Transformer_abs_cgmacros_s1.pt
 
   Per-participant MAE (Transformer abs):
          pid  n_samples       mae      rmse
 CGMacros-007       1567 13.469647 16.666506
-    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_Transformer_abs_cgmacros_s1.png
-    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_Transformer_abs_cgmacros_s1.png
+    Failure cases plot: figures_step3/failure_cases_Transformer_abs_cgmacros_s1.png
+    Per-participant plot: figures_step3/per_participant_Transformer_abs_cgmacros_s1.png
 
   ── Target mode: delta ──
   Train: 11,443  Val: 1,835  Test: 1,344
@@ -318,13 +318,13 @@ CGMacros-007       1567 13.469647 16.666506
     [GRU_delta] Epoch  20: train_MAE=14.8269  val_MAE=13.1091  lr=7.5e-05  
     [GRU_delta] Early stop at epoch 21 (best val MAE=13.0323)
   ★ TEST: MAE=11.3177  RMSE=15.3878
-    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/GRU_delta_cgmacros_s1.pt
+    Checkpoint: figures_step3/checkpoints/GRU_delta_cgmacros_s1.pt
 
   Per-participant MAE (GRU delta):
          pid  n_samples  mae  rmse
 CGMacros-007       1344  NaN   NaN
-    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_GRU_delta_cgmacros_s1.png
-    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_GRU_delta_cgmacros_s1.png
+    Failure cases plot: figures_step3/failure_cases_GRU_delta_cgmacros_s1.png
+    Per-participant plot: figures_step3/per_participant_GRU_delta_cgmacros_s1.png
 
   ═══ Transformer (delta) ═══
   Config: h=128 L=2 d=0.2 lr=3e-04
@@ -338,13 +338,13 @@ CGMacros-007       1344  NaN   NaN
     [Transformer_delta] Epoch  11: train_MAE=15.4104  val_MAE=12.8524  lr=3.0e-04  ★ best
     [Transformer_delta] Early stop at epoch 18 (best val MAE=12.8524)
   ★ TEST: MAE=10.7648  RMSE=15.2788
-    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/Transformer_delta_cgmacros_s1.pt
+    Checkpoint: figures_step3/checkpoints/Transformer_delta_cgmacros_s1.pt
 
   Per-participant MAE (Transformer delta):
          pid  n_samples  mae  rmse
 CGMacros-007       1344  NaN   NaN
-    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_Transformer_delta_cgmacros_s1.png
-    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_Transformer_delta_cgmacros_s1.png
+    Failure cases plot: figures_step3/failure_cases_Transformer_delta_cgmacros_s1.png
+    Per-participant plot: figures_step3/per_participant_Transformer_delta_cgmacros_s1.png
 
 ██████████████████████████████████████████████████████████████████████
   CGMACROS Scenario 1 — Deep Models Summary
@@ -393,13 +393,13 @@ CGMacros-007       1344  NaN   NaN
     [GRU_abs] Epoch  22: train_MAE=16.3998  val_MAE=11.7577  lr=3.0e-04  ★ best
     [GRU_abs] Early stop at epoch 29 (best val MAE=11.7577)
   ★ TEST: MAE=15.1324  RMSE=22.5496
-    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/GRU_abs_cgmacros_s2.pt
+    Checkpoint: figures_step3/checkpoints/GRU_abs_cgmacros_s2.pt
 
   Per-participant MAE (GRU abs):
          pid  n_samples       mae      rmse
 CGMacros-007       1567 15.132398 22.549616
-    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_GRU_abs_cgmacros_s2.png
-    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_GRU_abs_cgmacros_s2.png
+    Failure cases plot: figures_step3/failure_cases_GRU_abs_cgmacros_s2.png
+    Per-participant plot: figures_step3/per_participant_GRU_abs_cgmacros_s2.png
 
   ═══ Transformer (abs) ═══
   Config: h=128 L=2 d=0.2 lr=3e-04
@@ -412,13 +412,13 @@ CGMacros-007       1567 15.132398 22.549616
     [Transformer_abs] Epoch  11: train_MAE=16.8822  val_MAE=12.8432  lr=1.5e-04  ★ best
     [Transformer_abs] Early stop at epoch 18 (best val MAE=12.8432)
   ★ TEST: MAE=14.5092  RMSE=18.4624
-    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/Transformer_abs_cgmacros_s2.pt
+    Checkpoint: figures_step3/checkpoints/Transformer_abs_cgmacros_s2.pt
 
   Per-participant MAE (Transformer abs):
          pid  n_samples       mae      rmse
 CGMacros-007       1567 14.509198 18.462446
-    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_Transformer_abs_cgmacros_s2.png
-    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_Transformer_abs_cgmacros_s2.png
+    Failure cases plot: figures_step3/failure_cases_Transformer_abs_cgmacros_s2.png
+    Per-participant plot: figures_step3/per_participant_Transformer_abs_cgmacros_s2.png
 
   ── Target mode: delta ──
   Train: 11,443  Val: 1,835  Test: 1,344
@@ -434,13 +434,13 @@ CGMacros-007       1567 14.509198 18.462446
     [GRU_delta] Epoch  10: train_MAE=14.9730  val_MAE=12.9986  lr=3.0e-04  
     [GRU_delta] Early stop at epoch 13 (best val MAE=12.8243)
   ★ TEST: MAE=10.9170  RMSE=15.5737
-    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/GRU_delta_cgmacros_s2.pt
+    Checkpoint: figures_step3/checkpoints/GRU_delta_cgmacros_s2.pt
 
   Per-participant MAE (GRU delta):
          pid  n_samples  mae  rmse
 CGMacros-007       1344  NaN   NaN
-    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_GRU_delta_cgmacros_s2.png
-    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_GRU_delta_cgmacros_s2.png
+    Failure cases plot: figures_step3/failure_cases_GRU_delta_cgmacros_s2.png
+    Per-participant plot: figures_step3/per_participant_GRU_delta_cgmacros_s2.png
 
   ═══ Transformer (delta) ═══
   Config: h=128 L=2 d=0.2 lr=3e-04
@@ -453,13 +453,13 @@ CGMacros-007       1344  NaN   NaN
     [Transformer_delta] Epoch  10: train_MAE=15.7003  val_MAE=12.9685  lr=3.0e-04  ★ best
     [Transformer_delta] Early stop at epoch 17 (best val MAE=12.9685)
   ★ TEST: MAE=10.5776  RMSE=15.0681
-    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/Transformer_delta_cgmacros_s2.pt
+    Checkpoint: figures_step3/checkpoints/Transformer_delta_cgmacros_s2.pt
 
   Per-participant MAE (Transformer delta):
          pid  n_samples  mae  rmse
 CGMacros-007       1344  NaN   NaN
-    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_Transformer_delta_cgmacros_s2.png
-    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_Transformer_delta_cgmacros_s2.png
+    Failure cases plot: figures_step3/failure_cases_Transformer_delta_cgmacros_s2.png
+    Per-participant plot: figures_step3/per_participant_Transformer_delta_cgmacros_s2.png
 
 ██████████████████████████████████████████████████████████████████████
   CGMACROS Scenario 2 — Deep Models Summary
@@ -512,13 +512,13 @@ CGMacros-007       1344  NaN   NaN
     [GRU_abs] Epoch  30: train_MAE=15.6435  val_MAE=11.7665  lr=7.5e-05  
     [GRU_abs] Early stop at epoch 32 (best val MAE=11.4817)
   ★ TEST: MAE=15.7597  RMSE=22.4561
-    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/GRU_abs_cgmacros_s3.pt
+    Checkpoint: figures_step3/checkpoints/GRU_abs_cgmacros_s3.pt
 
   Per-participant MAE (GRU abs):
          pid  n_samples       mae      rmse
 CGMacros-007       1567 15.759727 22.456118
-    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_GRU_abs_cgmacros_s3.png
-    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_GRU_abs_cgmacros_s3.png
+    Failure cases plot: figures_step3/failure_cases_GRU_abs_cgmacros_s3.png
+    Per-participant plot: figures_step3/per_participant_GRU_abs_cgmacros_s3.png
 
   ═══ Transformer (abs) ═══
   Config: h=128 L=2 d=0.2 lr=3e-04
@@ -532,13 +532,13 @@ CGMacros-007       1567 15.759727 22.456118
     [Transformer_abs] Epoch  10: train_MAE=17.4715  val_MAE=13.3222  lr=3.0e-04  
     [Transformer_abs] Early stop at epoch 14 (best val MAE=12.6348)
   ★ TEST: MAE=14.1937  RMSE=17.1002
-    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/Transformer_abs_cgmacros_s3.pt
+    Checkpoint: figures_step3/checkpoints/Transformer_abs_cgmacros_s3.pt
 
   Per-participant MAE (Transformer abs):
          pid  n_samples       mae      rmse
 CGMacros-007       1567 14.193713 17.100168
-    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_Transformer_abs_cgmacros_s3.png
-    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_Transformer_abs_cgmacros_s3.png
+    Failure cases plot: figures_step3/failure_cases_Transformer_abs_cgmacros_s3.png
+    Per-participant plot: figures_step3/per_participant_Transformer_abs_cgmacros_s3.png
 
   ── Target mode: delta ──
   Train: 11,443  Val: 1,835  Test: 1,344
@@ -559,13 +559,13 @@ CGMacros-007       1567 14.193713 17.100168
     [GRU_delta] Epoch  20: train_MAE=14.1547  val_MAE=13.2637  lr=3.0e-04  
     [GRU_delta] Early stop at epoch 23 (best val MAE=12.6512)
   ★ TEST: MAE=10.2049  RMSE=14.9124
-    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/GRU_delta_cgmacros_s3.pt
+    Checkpoint: figures_step3/checkpoints/GRU_delta_cgmacros_s3.pt
 
   Per-participant MAE (GRU delta):
          pid  n_samples  mae  rmse
 CGMacros-007       1344  NaN   NaN
-    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_GRU_delta_cgmacros_s3.png
-    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_GRU_delta_cgmacros_s3.png
+    Failure cases plot: figures_step3/failure_cases_GRU_delta_cgmacros_s3.png
+    Per-participant plot: figures_step3/per_participant_GRU_delta_cgmacros_s3.png
 
   ═══ Transformer (delta) ═══
   Config: h=128 L=2 d=0.2 lr=3e-04
@@ -583,13 +583,13 @@ CGMacros-007       1344  NaN   NaN
     [Transformer_delta] Epoch  20: train_MAE=14.0154  val_MAE=12.6064  lr=3.0e-04  
     [Transformer_delta] Early stop at epoch 25 (best val MAE=12.4837)
   ★ TEST: MAE=10.4434  RMSE=14.8410
-    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/Transformer_delta_cgmacros_s3.pt
+    Checkpoint: figures_step3/checkpoints/Transformer_delta_cgmacros_s3.pt
 
   Per-participant MAE (Transformer delta):
          pid  n_samples  mae  rmse
 CGMacros-007       1344  NaN   NaN
-    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_Transformer_delta_cgmacros_s3.png
-    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_Transformer_delta_cgmacros_s3.png
+    Failure cases plot: figures_step3/failure_cases_Transformer_delta_cgmacros_s3.png
+    Per-participant plot: figures_step3/per_participant_Transformer_delta_cgmacros_s3.png
 
 ██████████████████████████████████████████████████████████████████████
   CGMACROS Scenario 3 — Deep Models Summary
@@ -631,13 +631,13 @@ CGMacros-007       1344  NaN   NaN
     [GRU_abs] Epoch  10: train_MAE=1.3899  val_MAE=2.1921  lr=3.0e-04  
     [GRU_abs] Early stop at epoch 13 (best val MAE=1.9145)
   ★ TEST: MAE=2.3813  RMSE=3.0068
-    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/GRU_abs_brist1d_s1.pt
+    Checkpoint: figures_step3/checkpoints/GRU_abs_brist1d_s1.pt
 
   Per-participant MAE (GRU abs):
 pid  n_samples      mae     rmse
 p01       8459 2.381312 3.006751
-    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_GRU_abs_brist1d_s1.png
-    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_GRU_abs_brist1d_s1.png
+    Failure cases plot: figures_step3/failure_cases_GRU_abs_brist1d_s1.png
+    Per-participant plot: figures_step3/per_participant_GRU_abs_brist1d_s1.png
 
   ═══ Transformer (abs) ═══
   Config: h=128 L=2 d=0.2 lr=3e-04
@@ -651,13 +651,13 @@ p01       8459 2.381312 3.006751
     [Transformer_abs] Epoch  12: train_MAE=1.3799  val_MAE=1.7363  lr=3.0e-04  ★ best
     [Transformer_abs] Early stop at epoch 19 (best val MAE=1.7363)
   ★ TEST: MAE=2.2184  RMSE=2.9061
-    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/Transformer_abs_brist1d_s1.pt
+    Checkpoint: figures_step3/checkpoints/Transformer_abs_brist1d_s1.pt
 
   Per-participant MAE (Transformer abs):
 pid  n_samples      mae     rmse
 p01       8459 2.218436 2.906127
-    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_Transformer_abs_brist1d_s1.png
-    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_Transformer_abs_brist1d_s1.png
+    Failure cases plot: figures_step3/failure_cases_Transformer_abs_brist1d_s1.png
+    Per-participant plot: figures_step3/per_participant_Transformer_abs_brist1d_s1.png
 
   ── Target mode: delta ──
   Train: 4,076  Val: 12,585  Test: 7,716
@@ -668,13 +668,13 @@ p01       8459 2.218436 2.906127
     [GRU_delta] Epoch   1: train_MAE=1.3098  val_MAE=1.6177  lr=3.0e-04  ★ best
     [GRU_delta] Early stop at epoch 8 (best val MAE=1.6177)
   ★ TEST: MAE=2.1665  RMSE=2.8274
-    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/GRU_delta_brist1d_s1.pt
+    Checkpoint: figures_step3/checkpoints/GRU_delta_brist1d_s1.pt
 
   Per-participant MAE (GRU delta):
 pid  n_samples  mae  rmse
 p01       7716  NaN   NaN
-    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_GRU_delta_brist1d_s1.png
-    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_GRU_delta_brist1d_s1.png
+    Failure cases plot: figures_step3/failure_cases_GRU_delta_brist1d_s1.png
+    Per-participant plot: figures_step3/per_participant_GRU_delta_brist1d_s1.png
 
   ═══ Transformer (delta) ═══
   Config: h=128 L=2 d=0.2 lr=3e-04
@@ -685,13 +685,13 @@ p01       7716  NaN   NaN
     [Transformer_delta] Epoch  10: train_MAE=1.2508  val_MAE=1.6409  lr=1.5e-04  
     [Transformer_delta] Early stop at epoch 11 (best val MAE=1.5950)
   ★ TEST: MAE=2.1363  RMSE=2.8274
-    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/Transformer_delta_brist1d_s1.pt
+    Checkpoint: figures_step3/checkpoints/Transformer_delta_brist1d_s1.pt
 
   Per-participant MAE (Transformer delta):
 pid  n_samples  mae  rmse
 p01       7716  NaN   NaN
-    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_Transformer_delta_brist1d_s1.png
-    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_Transformer_delta_brist1d_s1.png
+    Failure cases plot: figures_step3/failure_cases_Transformer_delta_brist1d_s1.png
+    Per-participant plot: figures_step3/per_participant_Transformer_delta_brist1d_s1.png
 
 ██████████████████████████████████████████████████████████████████████
   BRIST1D Scenario 1 — Deep Models Summary
@@ -733,13 +733,13 @@ p01       7716  NaN   NaN
     [GRU_abs] Epoch  10: train_MAE=1.4208  val_MAE=1.9216  lr=3.0e-04  
     [GRU_abs] Early stop at epoch 14 (best val MAE=1.7846)
   ★ TEST: MAE=2.3532  RMSE=3.0436
-    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/GRU_abs_brist1d_s3.pt
+    Checkpoint: figures_step3/checkpoints/GRU_abs_brist1d_s3.pt
 
   Per-participant MAE (GRU abs):
 pid  n_samples      mae     rmse
 p01       8459 2.353154 3.043645
-    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_GRU_abs_brist1d_s3.png
-    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_GRU_abs_brist1d_s3.png
+    Failure cases plot: figures_step3/failure_cases_GRU_abs_brist1d_s3.png
+    Per-participant plot: figures_step3/per_participant_GRU_abs_brist1d_s3.png
 
   ═══ Transformer (abs) ═══
   Config: h=128 L=2 d=0.2 lr=3e-04
@@ -753,13 +753,13 @@ p01       8459 2.353154 3.043645
     [Transformer_abs] Epoch  10: train_MAE=1.4040  val_MAE=1.8534  lr=3.0e-04  
     [Transformer_abs] Early stop at epoch 16 (best val MAE=1.7105)
   ★ TEST: MAE=2.2233  RMSE=2.9435
-    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/Transformer_abs_brist1d_s3.pt
+    Checkpoint: figures_step3/checkpoints/Transformer_abs_brist1d_s3.pt
 
   Per-participant MAE (Transformer abs):
 pid  n_samples      mae     rmse
 p01       8459 2.223257 2.943468
-    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_Transformer_abs_brist1d_s3.png
-    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_Transformer_abs_brist1d_s3.png
+    Failure cases plot: figures_step3/failure_cases_Transformer_abs_brist1d_s3.png
+    Per-participant plot: figures_step3/per_participant_Transformer_abs_brist1d_s3.png
 
   ── Target mode: delta ──
   Train: 4,076  Val: 12,585  Test: 7,716
@@ -772,13 +772,13 @@ p01       8459 2.223257 2.943468
     [GRU_delta] Epoch  10: train_MAE=1.2301  val_MAE=1.6410  lr=3.0e-04  
     [GRU_delta] Early stop at epoch 13 (best val MAE=1.6205)
   ★ TEST: MAE=2.0888  RMSE=2.7392
-    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/GRU_delta_brist1d_s3.pt
+    Checkpoint: figures_step3/checkpoints/GRU_delta_brist1d_s3.pt
 
   Per-participant MAE (GRU delta):
 pid  n_samples  mae  rmse
 p01       7716  NaN   NaN
-    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_GRU_delta_brist1d_s3.png
-    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_GRU_delta_brist1d_s3.png
+    Failure cases plot: figures_step3/failure_cases_GRU_delta_brist1d_s3.png
+    Per-participant plot: figures_step3/per_participant_GRU_delta_brist1d_s3.png
 
   ═══ Transformer (delta) ═══
   Config: h=128 L=2 d=0.2 lr=3e-04
@@ -789,13 +789,13 @@ p01       7716  NaN   NaN
     [Transformer_delta] Epoch  10: train_MAE=1.2303  val_MAE=1.6756  lr=3.0e-04  
     [Transformer_delta] Early stop at epoch 13 (best val MAE=1.6353)
   ★ TEST: MAE=2.1086  RMSE=2.7679
-    Checkpoint: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/Transformer_delta_brist1d_s3.pt
+    Checkpoint: figures_step3/checkpoints/Transformer_delta_brist1d_s3.pt
 
   Per-participant MAE (Transformer delta):
 pid  n_samples  mae  rmse
 p01       7716  NaN   NaN
-    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_Transformer_delta_brist1d_s3.png
-    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_Transformer_delta_brist1d_s3.png
+    Failure cases plot: figures_step3/failure_cases_Transformer_delta_brist1d_s3.png
+    Per-participant plot: figures_step3/per_participant_Transformer_delta_brist1d_s3.png
 
 ██████████████████████████████████████████████████████████████████████
   BRIST1D Scenario 3 — Deep Models Summary
@@ -861,7 +861,7 @@ p01       7716  NaN   NaN
     hupa S1: GRU_delta (delta) MAE=23.2156±0.0000
     hupa S3: GRU_abs (abs) MAE=24.8434±0.0000
 
-  Summary saved: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/summary_table.txt
+  Summary saved: figures_step3/summary_table.txt
 
   ══════════════════════════════════════════════════════════════
   ANALYSIS: What Made Deep Models Work (or Not)

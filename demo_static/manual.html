@@ -357,14 +357,14 @@
         <p style="font-size:17px;color:var(--text-primary);margin-bottom:6px;">
             <strong>Everything you need to know</strong> — from blood sugar basics to understanding every number on the demo screen.
         </p>
-        <p>This guide explains what the demo does, how the AI models work, what each dataset is, what every number on the screen means, and exactly what to say during your presentation.</p>
+        <p>This guide explains what the demo does, how the forecasting models work, what each dataset is, what every number on the screen means, and how to present the workflow.</p>
 
         <!-- TOC -->
         <div class="toc">
             <h4>📑 Table of Contents</h4>
             <a href="#blood-sugar"><span class="num">01</span> How Blood Sugar Works</a>
             <a href="#datasets"><span class="num">02</span> The 3 Datasets & How We Harmonised Them</a>
-            <a href="#architecture"><span class="num">03</span> The AI Models (GRU & Transformer)</a>
+            <a href="#architecture"><span class="num">03</span> Forecasting Models (GRU & Transformer)</a>
             <a href="#target-mode"><span class="num">04</span> Target Mode: Delta vs Absolute</a>
             <a href="#uncertainty"><span class="num">05</span> MC-Dropout & Uncertainty Bands</a>
             <a href="#demo-walkthrough"><span class="num">06</span> The Demo Screen — Every Detail Explained</a>
@@ -510,7 +510,7 @@
         <!-- ═══════════════════════════════════════════════════════════ -->
         <div id="architecture"></div>
         <div class="section-num purple">Section 03</div>
-        <h2>🤖 The AI Models — GRU & Transformer</h2>
+        <h2>🤖 Forecasting Models — GRU & Transformer</h2>
 
         <p>We use <strong>deep learning</strong> — neural networks that learn patterns from data. Specifically, we use two architectures designed for <strong>time-series data</strong> (data ordered in time, like glucose readings every 5 minutes).</p>
 
@@ -528,7 +528,7 @@
             <div class="mini-card">
                 <div class="emoji">⚡</div>
                 <h4>Transformer Encoder</h4>
-                <p>A newer architecture (from the same family as ChatGPT) that looks at <strong>all 72 readings simultaneously</strong> using something called "self-attention." It asks: "Which past readings are most relevant for predicting the future?"</p>
+                <p>A neural sequence architecture that looks at <strong>all 72 readings simultaneously</strong> using self-attention. It asks: "Which past readings are most relevant for predicting the future?"</p>
                 <ul>
                     <li><strong>How it works:</strong> Computes importance weights between every pair of readings. Can learn, e.g., that glucose 30 min ago matters more than glucose 4 hours ago.</li>
                     <li><strong>Strength:</strong> Can capture long-range patterns (like "you ate 3 hours ago").</li>
@@ -687,7 +687,7 @@
             <div class="value" style="font-size:20px;color:var(--accent-purple)">🧠</div>
             <div>
                 <h4>Architecture Dropdown</h4>
-                <p>Pick which AI model to use. GRU = simpler, faster, more accurate. Transformer = more complex, uses attention mechanism.</p>
+                <p>Pick which forecasting model to use. GRU = simpler and faster. Transformer = more complex and uses attention.</p>
             </div>
         </div>
         <div class="result-card">
@@ -708,7 +708,7 @@
             <div class="value" style="font-size:20px;color:var(--accent-green)">▶</div>
             <div>
                 <h4>"Run Prediction" Button</h4>
-                <p>Triggers the AI model to predict glucose 60 minutes into the future. Takes ~0.2–3 seconds. Behind the scenes: sends the 72 glucose readings to the model, runs 20 MC-Dropout passes, returns the mean prediction + confidence band.</p>
+                <p>Triggers the model to predict glucose 60 minutes into the future. Takes ~0.2–3 seconds. Behind the scenes: sends the 72 glucose readings to the model, runs 20 MC-Dropout passes, returns the mean prediction + confidence band.</p>
             </div>
         </div>
 
@@ -760,8 +760,8 @@
             </div>
         </div>
 
-        <h3>🧠 Glucose Insights Panel — NEW</h3>
-        <p>Below the prediction metrics, the demo now shows an <strong>AI-powered insights panel</strong> that analyses the glucose trajectory and explains in plain English what's happening and why:</p>
+        <h3>🧠 Glucose Insights Panel</h3>
+        <p>Below the prediction metrics, the demo shows a <strong>trajectory insights panel</strong> that analyses the glucose curve and explains the likely clinical context:</p>
 
         <div class="card">
             <h4 style="margin-bottom:10px;font-size:15px;">What the Insights Panel Shows</h4>
@@ -1043,7 +1043,7 @@
         <div class="script-box">
             <div class="label">🎙️ Say This</div>
             <p>
-                "Now let me switch the model to <strong>Transformer</strong> — this is the same architecture family behind ChatGPT, but applied to time-series data. You can see the prediction is slightly different — in our experiments, <strong>GRU was consistently more accurate</strong>, which is why it's our default."
+                "Now let me switch the model to <strong>Transformer</strong>. This uses attention to compare all points in the 6-hour window. You can see the prediction is slightly different; in our experiments, <strong>GRU was consistently more accurate</strong>, which is why it is the default."
             </p>
         </div>
 

@@ -7,8 +7,14 @@ import seaborn as sns
 from pathlib import Path
 
 # --- Configuration ---
-DATA_DIR = "/Users/arinbaswana/Desktop/DATA GRAPHS/cgmacros-a-scientific-dataset-for-personalized-nutrition-and-diet-monitoring-1.0.0/CGMacros_dateshifted365/CGMacros"
-OUT_DIR = "/Users/arinbaswana/Desktop/DATA GRAPHS/figures_cgmacros"
+ROOT_DIR = Path(__file__).resolve().parent
+DATA_DIR = str(
+    ROOT_DIR
+    / "cgmacros-a-scientific-dataset-for-personalized-nutrition-and-diet-monitoring-1.0.0"
+    / "CGMacros_dateshifted365"
+    / "CGMacros"
+)
+OUT_DIR = str(ROOT_DIR / "figures_cgmacros")
 os.makedirs(OUT_DIR, exist_ok=True)
 
 # Use accessible plot styles if expected globally
@@ -316,4 +322,3 @@ if __name__ == "__main__":
     print(f"- Sampling distribution is highly centered around 5 mins.")
     print("- Meal Response Curves successfully extracted showing classic carbohydrate spike and recovery.")
     print("==================================================")
-

@@ -708,7 +708,7 @@ summary = f"""
      data provide a rich, multi-channel input that mirrors what a
      meal-planner app would have access to.
   2. Temporal structure: The 6-hour lookback at 5-minute granularity
-     creates a natural time-series window that ML/LLM models can learn
+     creates a natural time-series window that sequence models can learn
      from (72 time steps × 7 feature channels).
   3. Real-world noise: Missing values, device heterogeneity, and
      individual variation make this a realistic testbed for robust

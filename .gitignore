@@ -2,3 +2,8 @@
 __pycache__/
 *.zip
 ~$*.docx
+.venv/
+*.pyc
+.ipynb_checkpoints/
+FuelUP_Plus_Thesis_FINAL.docx
+output/

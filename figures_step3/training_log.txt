@@ -184,33 +184,33 @@ Using device: mps
     [GRU_abs seed=264] Epoch  30: train_MAE=19.5753  val_MAE=26.6330  lr=5.0e-05  
     [GRU_abs seed=264] Early stop at epoch 33 (best val MAE=25.1331)
     Seed 264: MAE=23.2476 RMSE=33.7201
-    Checkpoint saved: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/checkpoints/GRU_abs_hupa_s1.pt
+    Checkpoint saved: figures_step3/checkpoints/GRU_abs_hupa_s1.pt
 
   Per-participant MAE (GRU abs):
       pid  n_samples       mae      rmse
 HUPA0004P       3101 31.152622 44.256859
 HUPA0026P      40522 22.980516 33.183956
 HUPA0009P       3729  8.639451 13.629097
-    Failure cases plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/failure_cases_GRU_abs_hupa_s1.png
-    Per-participant plot: /Users/arinbaswana/Desktop/DATA GRAPHS/figures_step3/per_participant_GRU_abs_hupa_s1.png
+    Failure cases plot: figures_step3/failure_cases_GRU_abs_hupa_s1.png
+    Per-participant plot: figures_step3/per_participant_GRU_abs_hupa_s1.png
 
   ═══ Transformer (abs) ═══
 
   ── Transformer_abs Sweep (12 configs) ──
 Traceback (most recent call last):
-  File "/Users/arinbaswana/Desktop/DATA GRAPHS/deep_models.py", line 990, in <module>
+  File "deep_models.py", line 990, in <module>
     ══════════════════════════════════════════════════════════════
      ^^
-  File "/Users/arinbaswana/Desktop/DATA GRAPHS/deep_models.py", line 882, in main
+  File "deep_models.py", line 882, in main
     norm = f"{rm['normal'][0]:.2f}({rm['normal'][1]})" if rm.get('normal', (0,0))[1] > 0 else "N/A"
                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/arinbaswana/Desktop/DATA GRAPHS/deep_models.py", line 773, in run_deep
+  File "deep_models.py", line 773, in run_deep
     
     
-  File "/Users/arinbaswana/Desktop/DATA GRAPHS/deep_models.py", line 462, in run_sweep
+  File "deep_models.py", line 462, in run_sweep
     print(f"    Config {i+1}: h={hp['hidden_dim']} L={hp['n_layers']} "
                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/arinbaswana/Desktop/DATA GRAPHS/deep_models.py", line 364, in train_model
+  File "deep_models.py", line 364, in train_model
     current_lr = optimizer.param_groups[0]["lr"]
                     ^^^^^^^^^^^^^^
   File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
@@ -219,7 +219,7 @@ Traceback (most recent call last):
   File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
     return forward_call(*args, **kwargs)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/arinbaswana/Desktop/DATA GRAPHS/deep_models.py", line 295, in forward
+  File "deep_models.py", line 295, in forward
     
   File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
     return self._call_impl(*args, **kwargs)

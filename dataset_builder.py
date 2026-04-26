@@ -34,11 +34,17 @@ HORIZON_STEPS = 12         # +60 min at 5-min resolution
 STEP_MINUTES = 5
 MAX_FFILL_GAP = 6          # forward-fill glucose for gaps ≤ 30 min (6 × 5 min)
 
-# Paths — adjust as needed
-BRIST1D_DIR = "/Users/arinbaswana/Desktop/DATA GRAPHS/Kaggle BG"
-HUPA_DIR = "/Users/arinbaswana/Desktop/DATA GRAPHS/Mendeley"
-CGMACROS_DIR = "/Users/arinbaswana/Desktop/DATA GRAPHS/cgmacros-a-scientific-dataset-for-personalized-nutrition-and-diet-monitoring-1.0.0/CGMacros_dateshifted365/CGMacros"
-OUT_DIR = "/Users/arinbaswana/Desktop/DATA GRAPHS/figures_step1"
+# Repository-relative paths
+ROOT_DIR = Path(__file__).resolve().parent
+BRIST1D_DIR = str(ROOT_DIR / "Kaggle BG")
+HUPA_DIR = str(ROOT_DIR / "Mendeley")
+CGMACROS_DIR = str(
+    ROOT_DIR
+    / "cgmacros-a-scientific-dataset-for-personalized-nutrition-and-diet-monitoring-1.0.0"
+    / "CGMacros_dateshifted365"
+    / "CGMacros"
+)
+OUT_DIR = str(ROOT_DIR / "figures_step1")
 os.makedirs(OUT_DIR, exist_ok=True)
 
 # Scenario → channel names (unified naming, mapped per-dataset)
