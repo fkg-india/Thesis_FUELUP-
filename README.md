@@ -1,5 +1,9 @@
 # Fuel Up+
 
+**Supervisors:**
+- Prof. Lipika Dey
+- Prof. Partha Pratim Das
+
 Fuel Up+ is a research prototype for uncertainty-aware blood glucose forecasting and meal-risk comparison. The project evaluates sequence models on continuous glucose monitoring (CGM), nutrition, insulin, and activity data from three public datasets:
 
 - **HUPA-UCM**: Type 1 diabetes CGM, insulin, meals, and activity signals.
