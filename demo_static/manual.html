@@ -357,7 +357,7 @@
         <p style="font-size:17px;color:var(--text-primary);margin-bottom:6px;">
             <strong>Everything you need to know</strong> — from blood sugar basics to understanding every number on the demo screen.
         </p>
-        <p>This guide explains what the demo does, how the forecasting models work, what each dataset is, what every number on the screen means, and how to present the workflow.</p>
+        <p>This guide explains what the demo does, how the forecasting models work, what each dataset is, and what every number on the screen means.</p>
 
         <!-- TOC -->
         <div class="toc">
@@ -369,9 +369,7 @@
             <a href="#uncertainty"><span class="num">05</span> MC-Dropout & Uncertainty Bands</a>
             <a href="#demo-walkthrough"><span class="num">06</span> The Demo Screen — Every Detail Explained</a>
             <a href="#meal-comparison"><span class="num">07</span> Meal Comparison & Safety Scoring</a>
-            <a href="#results"><span class="num">08</span> Full Results — All Models, All Scenarios</a>
-            <a href="#presentation"><span class="num">09</span> Presentation Script — What to Say & Do</a>
-            <a href="#prediction-window"><span class="num">10</span> Prediction Window Design — Why 6 Hours → 60 Minutes</a>
+            <a href="#prediction-window"><span class="num">09</span> Prediction Window Design — Why 6 Hours → 60 Minutes</a>
         </div>
 
         <!-- ═══════════════════════════════════════════════════════════ -->
@@ -784,12 +782,7 @@
             </ul>
         </div>
 
-        <div class="callout info">
-            <span class="icon">🧠</span>
-            <div>
-                <p><strong>Why this matters for the presentation:</strong> When the panel asks "what's causing this spike?" or "what does a score of 20 mean?", the insights panel answers these questions automatically. It translates raw numbers into clinical context that anyone can understand.</p>
-            </div>
-        </div>
+
 
         <!-- ═══════════════════════════════════════════════════════════ -->
         <!--  SECTION 7: MEAL COMPARISON                                -->
@@ -954,137 +947,10 @@
         </div>
 
         <!-- ═══════════════════════════════════════════════════════════ -->
-        <!--  SECTION 9: PRESENTATION SCRIPT                            -->
-        <!-- ═══════════════════════════════════════════════════════════ -->
-        <div id="presentation"></div>
-        <div class="section-num purple">Section 09</div>
-        <h2>🎤 Presentation Script — What to Say & Do</h2>
-
-        <p>Here's a step-by-step guide for your <strong>5-minute demo during the presentation</strong>. Follow these steps in order.</p>
-
-        <div class="callout warn">
-            <span class="icon">⏱️</span>
-            <div>
-                <p><strong>Before the presentation:</strong> Open Terminal. Run <code style="background:rgba(255,255,255,0.1);padding:2px 6px;border-radius:4px;">python3 demo_server.py</code> in the DATA GRAPHS folder. Wait until you see "Server starting at http://localhost:5050". Open Chrome → go to <strong>localhost:5050</strong>. The demo will be pre-loaded and ready.</p>
-            </div>
-        </div>
-
-        <!-- Step 1 -->
-        <div class="step">
-            <div class="step-num">1</div>
-            <div class="step-content">
-                <h4>Introduce the Demo (30 sec)</h4>
-                <p>Show the welcome screen. Explain what you're about to show.</p>
-            </div>
-        </div>
-        <div class="script-box">
-            <div class="label">🎙️ Say This</div>
-            <p>
-                "So this is <strong>Fuel Up+</strong>, the interactive demo of our glucose forecasting system. What it does is take <strong>6 hours of past blood sugar data</strong> from a real patient, feed it through our trained deep learning model, and predict what their glucose will be <strong>60 minutes into the future</strong>. I'll show you how it works."
-            </p>
-        </div>
-
-        <!-- Step 2 -->
-        <div class="step">
-            <div class="step-num">2</div>
-            <div class="step-content">
-                <h4>Pick a Participant with High Glucose (15 sec)</h4>
-                <p>In the sidebar, click <strong>Sample 3 or 4</strong> (look for one around 170–290 mg/dL). This will show a more interesting case with a glucose spike or decline. The chart should fill the center area.</p>
-            </div>
-        </div>
-        <div class="script-box">
-            <div class="label">🎙️ Say This</div>
-            <p>
-                "I'm selecting a real patient from the HUPA dataset — this is a Type 1 Diabetic patient from a Spanish hospital. You can see their blood sugar history over the past 6 hours — this person's glucose is quite <strong>high, around [X] mg/dL</strong>, which is in the <strong>hyperglycaemic zone</strong>."
-            </p>
-        </div>
-
-        <!-- Step 3 -->
-        <div class="step">
-            <div class="step-num">3</div>
-            <div class="step-content">
-                <h4>Run the Prediction (20 sec)</h4>
-                <p>Click <strong>"Run Prediction"</strong> button. Wait ~1–2 seconds. Point out the red prediction dot, the green actual value, and the confidence band.</p>
-            </div>
-        </div>
-        <div class="script-box">
-            <div class="label">🎙️ Say This</div>
-            <p>
-                "Now I'll click Run Prediction. What's happening behind the scenes is that our <strong>GRU neural network</strong> is running the data through the model <strong>20 times</strong> — each time with different random neurons disabled. This is called <strong>MC-Dropout</strong> — it gives us not just a prediction but also a <strong>confidence interval</strong>."
-            </p>
-            <p style="margin-top:8px;">
-                [After results appear] "So our model predicted <strong>[X] mg/dL</strong>. The actual value was <strong>[Y] mg/dL</strong>. You can see the red dot is the prediction, the green star is the actual. The <strong>shaded red area</strong> is the 80% confidence band — meaning the model believes with 80% probability that glucose will be somewhere in that range. The safety score is <strong>[Z] out of 100</strong>."
-            </p>
-        </div>
-
-        <!-- Step 4 -->
-        <div class="step">
-            <div class="step-num">4</div>
-            <div class="step-content">
-                <h4>Try a Different Patient — Low Glucose (15 sec)</h4>
-                <p>Click <strong>Sample 1</strong> (around 54 mg/dL — a hypoglycaemic case). Run prediction again. Show how the model handles different scenarios.</p>
-            </div>
-        </div>
-        <div class="script-box">
-            <div class="label">🎙️ Say This</div>
-            <p>
-                "Let me switch to a different patient — this person's glucose is only <strong>54 mg/dL</strong>, which is actually <strong>dangerously low</strong> — that's hypoglycaemia. Let's see what the model predicts... [run prediction]. The model predicts their glucose will [rise/stay low], and the safety score reflects that."
-            </p>
-        </div>
-
-        <!-- Step 5 -->
-        <div class="step">
-            <div class="step-num">5</div>
-            <div class="step-content">
-                <h4>Switch to a Different Model (15 sec)</h4>
-                <p>Change Architecture to <strong>Transformer</strong>. Select the same participant. Run prediction again. Compare results to show model differences.</p>
-            </div>
-        </div>
-        <div class="script-box">
-            <div class="label">🎙️ Say This</div>
-            <p>
-                "Now let me switch the model to <strong>Transformer</strong>. This uses attention to compare all points in the 6-hour window. You can see the prediction is slightly different; in our experiments, <strong>GRU was consistently more accurate</strong>, which is why it is the default."
-            </p>
-        </div>
-
-        <!-- Step 6 -->
-        <div class="step">
-            <div class="step-num">6</div>
-            <div class="step-content">
-                <h4>Demonstrate Meal Comparison (60 sec)</h4>
-                <p>This is the <strong>highlight</strong>. On the right panel, the default meals are already filled in: Grilled Chicken Salad (15g carbs) vs Pasta Carbonara (75g carbs). Click <strong>"Compare Meals"</strong>.</p>
-            </div>
-        </div>
-        <div class="script-box">
-            <div class="label">🎙️ Say This</div>
-            <p>
-                "Now here's the real application — <strong>meal safety ranking</strong>. Imagine this patient is about to eat lunch and they're choosing between a Grilled Chicken Salad with <strong>15 grams of carbs</strong>, and a Pasta Carbonara with <strong>75 grams of carbs</strong>. Let me click Compare Meals..."
-            </p>
-            <p style="margin-top:8px;">
-                [After results] "The system has ranked the meals. The Chicken Salad is ranked <strong>#1 — Safer</strong> because the model predicts a lower glucose spike with a narrower confidence band. The Pasta gets a lower safety score because the <strong>higher carbs</strong> will likely push blood sugar into the hyperglycaemic zone. This is how <strong>Fuel Up+</strong> would help someone with diabetes make safer meal choices in real time."
-            </p>
-        </div>
-
-        <!-- Step 7 -->
-        <div class="step">
-            <div class="step-num">7</div>
-            <div class="step-content">
-                <h4>Wrap Up (30 sec)</h4>
-                <p>Summarise the key technical contributions.</p>
-            </div>
-        </div>
-        <div class="script-box">
-            <div class="label">🎙️ Say This</div>
-            <p>
-                "So in summary — this demo brings together <strong>three key contributions</strong>: First, we've trained deep learning models — GRU and Transformer — on <strong>three real clinical datasets</strong> to forecast glucose 60 minutes ahead. Second, we use <strong>MC-Dropout</strong> to provide confidence intervals, not just bare predictions. And third, we use those predictions and confidence intervals to do <strong>meal safety scoring</strong> — helping people with diabetes choose meals that minimise their risk of glucose spikes. Thank you."
-            </p>
-        </div>
-
-        <!-- ═══════════════════════════════════════════════════════════ -->
-        <!--  SECTION 10: PREDICTION WINDOW DESIGN                     -->
+        <!--  SECTION 9: PREDICTION WINDOW DESIGN                     -->
         <!-- ═══════════════════════════════════════════════════════════ -->
         <div id="prediction-window"></div>
-        <div class="section-num cyan">Section 10</div>
+        <div class="section-num cyan">Section 09</div>
         <h2>⏰ Prediction Window Design — Why 6 Hours → 60 Minutes</h2>
 
         <p>
@@ -1154,20 +1020,6 @@
         </div>
 
         <div class="divider"></div>
-
-        <div class="callout tip" style="margin-top:24px;">
-            <span class="icon">🎯</span>
-            <div>
-                <p><strong>Pro Tips for the Presentation:</strong></p>
-                <ul style="margin-top:8px;">
-                    <li>Start the server 5 minutes before your slot — it loads everything into memory so predictions are instant.</li>
-                    <li>Pick <strong>Sample 3 or 4</strong> first (high glucose) — it gives a more dramatic and visible chart.</li>
-                    <li>Point at the screen as you explain — "this blue line is history, this red dot is our prediction, this green star is what actually happened."</li>
-                    <li>If a professor asks "what's MC-Dropout?", explain: "It's running the model 20 times with random neurons turned off each time. The spread of results tells us how confident the model is."</li>
-                    <li>If asked "why not 100% data?", say: "Training on the full dataset on a laptop was computationally prohibitive — ~16 hours per run. With 10% we get directionally correct results; full-scale training is noted as future work."</li>
-                </ul>
-            </div>
-        </div>
 
     </div>
 </body>
